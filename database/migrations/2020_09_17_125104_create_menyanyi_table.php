@@ -13,8 +13,11 @@ class CreateSingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sings', function (Blueprint $table) {
+        Schema::create('menyanyi', function (Blueprint $table) {
             $table->id();
+            $table->string('judul');
+            $table->string('suara');
+            $table->string('gambar');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateSingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sings');
+        Schema::dropIfExists('menyanyi');
     }
 }

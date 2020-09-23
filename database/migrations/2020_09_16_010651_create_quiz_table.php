@@ -13,13 +13,13 @@ class CreateCountsTable extends Migration
      */
     public function up()
     {
-        Schema::create('counts', function (Blueprint $table) {
+        Schema::create('quiz', function (Blueprint $table) {
             $table->id();
             $table->string('pertanyaan');
-            $table->string('opsiA');
-            $table->string('opsiB');
-            $table->string('opsiC');
-            $table->string('opsiD');
+            $table->string('opsi_a');
+            $table->string('opsi_b');
+            $table->string('opsi_c');
+            $table->string('opsi_d');
             $table->string('jawaban');
             $table->timestamps();
         });
@@ -32,6 +32,6 @@ class CreateCountsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('counts');
+        Schema::dropIfExists('quiz');
     }
 }
