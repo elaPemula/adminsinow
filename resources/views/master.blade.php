@@ -85,12 +85,12 @@
                         <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-flask"></i> <span class="mini-dn">Quiz</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
                             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
                                 <a href="google-map.html" class="dropdown-item">Membaca</a>
-                                <a href="/counts" class="dropdown-item">Menghitung</a>
+                                <a href="/quiz" class="dropdown-item">Menghitung</a>
                             </div>
                         </li>
                         <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-bar-chart-o"></i> <span class="mini-dn">Hiburan</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
                             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-                                <a href="static-table.html" class="dropdown-item">Menyanyi</a>
+                                <a href="/menyanyi" class="dropdown-item">Menyanyi</a>
                                 <a href="/table" class="dropdown-item">aaa</a>
                             </div>
                         </li>

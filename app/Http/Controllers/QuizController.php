@@ -14,7 +14,8 @@ class QuizController extends Controller
      */
     public function index()
     {
-        //
+        $quiz = quiz::all();
+        return view('quiz.readhitung',  compact('quiz'));
     }
 
     /**
@@ -24,7 +25,7 @@ class QuizController extends Controller
      */
     public function create()
     {
-        //
+        return view('quiz.createhitung');
     }
 
     /**
@@ -35,7 +36,17 @@ class QuizController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'pertanyaan' => 'required',
+            'opsi_a' => 'required',
+            'opsi_b' => 'required',
+            'opsi_c' => 'required',
+            'opsi_d' => 'required',
+            'jawaban' => 'required',
+        ]);
+
+        quiz::create($request->all());
+        return redirect('/quiz')->with('status', 'Data Berhasil Ditambahkan!');
     }
 
     /**
@@ -57,7 +68,7 @@ class QuizController extends Controller
      */
     public function edit(Quiz $quiz)
     {
-        //
+        return view('quiz.edithitung', compact('quiz'));
     }
 
     /**
@@ -69,7 +80,24 @@ class QuizController extends Controller
      */
     public function update(Request $request, Quiz $quiz)
     {
-        //
+        $request->validate([
+            'pertanyaan' => 'required',
+            'opsi_a' => 'required',
+            'opsi_b' => 'required',
+            'opsi_c' => 'required',
+            'opsi_d' => 'required',
+            'jawaban' => 'required',
+        ]);
+        quiz::where('id', $quiz->id)
+        ->update([
+            'pertanyaan' => $request->pertanyaan,
+            'opsi_a' => $request->opsi_a,
+            'opsi_b' => $request->opsi_b,
+            'opsi_c' => $request->opsi_c,
+            'opsi_d' => $request->opsi_d,
+            'jawaban' => $request->jawaban,
+        ]);
+        return redirect('/quiz')->with('status', 'Data Berhasil diupdate');
     }
 
     /**
@@ -80,6 +108,7 @@ class QuizController extends Controller
      */
     public function destroy(Quiz $quiz)
     {
-        //
+        quiz::destroy($quiz->id);
+        return redirect('/quiz')->with('status', 'Data Berhasil dihapus');
     }
 }
