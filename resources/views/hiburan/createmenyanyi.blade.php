@@ -19,7 +19,7 @@
         <div class="sparkline8-graph">
             <div class="basic-login-form-ad">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12">
                         <div class="basic-login-inner">
                             <form method="POST" action="/menyanyi">
                             @csrf
@@ -34,26 +34,30 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12">
-                <div class="form-group">
-                      <label for="suara">Suara</label>
+                
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                      <label class="pull-left" for="suara">Suara</label>
                       <div>
                         <input type="file" class="form-control" placeholder="Document File..." data-validate="required">
                       </div>
                     </div>
-                    </div>
-                    <div class="col-lg-12">
+                </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="form-group">
-                            <label for="suara">Gambar</label>
+                            <label class="pull-left" for="suara">Gambar</label>
                             <div>
                                 <input type="file" class="form-control" placeholder="Document File..." data-validate="required">
                             </div>
                         </div>
-                    </div>
-                            <div class="inline-remember-me">
-                                    <button class="btn btn-sm btn-primary pull-left login-submit-cs" type="submit">Simpan</button>
+                        <div class="inline-remember-me">
+                                    <button class="btn btn-custon-rounded-three pull-right btn-warning" type="submit">Simpan</button>
                                 </div>
-                        </div>
+                            
+                         </div>
+                    </div>
+                         
+</div>
             </div>
         </div>
     </div>
