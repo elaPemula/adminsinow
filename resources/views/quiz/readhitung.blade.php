@@ -14,7 +14,7 @@
                         <div class="main-sparkline13-hd">
                             <h1>Data <span class="table-project-n">Soal Quiz</span> Menghitung</h1>
                             <div class="sparkline13-outline-icon">
-                                <a href="/counts/create" class="btn-xs btn-success fa fa-plus"></a>
+                                <a href="/quiz/create" class="btn-xs btn-success fa fa-plus"></a>
                                 <span class="sparkline13-collapse-link"><i class="fa fa-chevron-up"></i></span>
                                 <span><i class="fa fa-wrench"></i></span>
                                 <span class="sparkline13-collapse-close"><i class="fa fa-times"></i></span>
@@ -37,28 +37,28 @@
                                         <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="id">ID</th>
                                         <th data-field="name" data-editable="true">Pertanyaan</th>
-                                        <th data-field="email" data-editable="true">opsiA</th>
-                                        <th data-field="phone" data-editable="true">opsiB</th>
-                                        <th data-field="company" data-editable="true">opsiC</th>
-                                        <th data-field="task" data-editable="true">opsiD</th>
+                                        <th data-field="email" data-editable="true">opsi_a</th>
+                                        <th data-field="phone" data-editable="true">opsi_b</th>
+                                        <th data-field="company" data-editable="true">opsi_c</th>
+                                        <th data-field="task" data-editable="true">opsi_d</th>
                                         <th data-field="date" data-editable="true">Jawaban</th>
                                         <th data-field="action">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach( $counts as $count)
+                                @foreach( $quiz as $quiz)
                                     <tr>
                                         <td></td>
-                                        <td>{{ $count->id }}</td>
-                                        <td>{{ $count->pertanyaan }}</td>
-                                        <td>{{ $count->opsiA }}</td>
-                                        <td>{{ $count->opsiB }}</td>
-                                        <td>{{ $count->opsiC }}</td>
-                                        <td>{{ $count->opsiD }}</td>
-                                        <td>{{ $count->jawaban }}</td>
+                                        <td>{{ $quiz->id }}</td>
+                                        <td>{{ $quiz->pertanyaan }}</td>
+                                        <td>{{ $quiz->opsi_a }}</td>
+                                        <td>{{ $quiz->opsi_b }}</td>
+                                        <td>{{ $quiz->opsi_c }}</td>
+                                        <td>{{ $quiz->opsi_d }}</td>
+                                        <td>{{ $quiz->jawaban }}</td>
                                         <td>
-                                        <a href="/counts/{{$count->id}}/edit" class="btn-sm btn-primary fa fa-pencil"></a>
-                                            <form action="/counts/{{ $count->id }}" method="post" class="d-inline">
+                                        <a href="/quiz/{{$quiz->id}}/edit" class="btn-sm btn-primary fa fa-pencil"></a>
+                                            <form action="/quiz/{{ $quiz->id }}" method="post" class="d-inline">
                                                 @method('delete')
                                                 @csrf
                                                 <button type="submit" class="btn-sm btn-danger fa fa-trash"></button>

@@ -17,7 +17,8 @@ Route::get('/', function () {
     return view('home');
 });
 Route::get('/table', 'QuizmenghitungController@index');
-Route::get('/counts', 'CountsController@index');
-Route::get('/counts/create', 'CountsController@create');
-Route::post('/counts', 'CountsController@store');
-Route::resource('counts', 'CountsController');
+Route::resource('quiz', 'QuizController');
+
+Route::get('/menyanyi', function () {
+    return view('hiburan/createmenyanyi');
+});
