@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="basic-login-inner">
-                            <form method="POST" action="/counts">
+                            <form method="POST" action="/quiz">
                             @csrf
                                 <div class="form-group-inner">
                                     <label for="pertanyaan">Pertanyaan</label>
@@ -29,26 +29,26 @@
                                 </div>
                                 <div class="form-group-inner">
                                 <div class="col-md-6">
-                                    <label for="opsiA">opsi A</label>
-                                    <input type="text" class="form-control @error('opsiA') is-invalid @enderror" id="opsiA" placeholder="" name="opsiA"  value="{{ old('opsiA')}}"/>
+                                    <label for="opsi_a">opsi A</label>
+                                    <input type="text" class="form-control @error('opsi_a') is-invalid @enderror" id="opsi_a" placeholder="" name="opsi_a"  value="{{ old('opsi_a')}}"/>
                                 </div>
                                 </div>
                                 <div class="form-group-inner">
                                 <div class="col-md-6">
-                                    <label for="opsiB">opsi B</label>
-                                    <input type="text" class="form-control @error('opsiB') is-invalid @enderror" id="opsiB" placeholder="" name="opsiB"  value="{{ old('opsiB')}}"/>
+                                    <label for="opsi_b">opsi B</label>
+                                    <input type="text" class="form-control @error('opsi_b') is-invalid @enderror" id="opsi_b" placeholder="" name="opsi_b"  value="{{ old('opsi_b')}}"/>
                                 </div>
                                 </div>
                                 <div class="form-group-inner">
                                 <div class="col-md-6">
-                                    <label for="opsiC">opsi C</label>
-                                    <input type="text" class="form-control @error('opsiC') is-invalid @enderror" id="opsiC" placeholder="" name="opsiC"  value="{{ old('opsiC')}}"/>
+                                    <label for="opsi_c">opsi C</label>
+                                    <input type="text" class="form-control @error('opsi_c') is-invalid @enderror" id="opsi_c" placeholder="" name="opsi_c"  value="{{ old('opsi_c')}}"/>
                                 </div>
                                 </div>
                                 <div class="form-group-inner">
                                 <div class="col-md-6">
-                                    <label for="opsiD">opsi D</label>
-                                    <input type="text" class="form-control @error('opsiD') is-invalid @enderror" id="opsiD" placeholder="" name="opsiD"  value="{{ old('opsiD')}}"/>
+                                    <label for="opsi_d">opsi D</label>
+                                    <input type="text" class="form-control @error('opsi_d') is-invalid @enderror" id="opsi_d" placeholder="" name="opsi_d"  value="{{ old('opsi_d')}}"/>
                                 </div>
                                 </div>
                                 <div class="form-group-inner">
