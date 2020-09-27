@@ -17,10 +17,10 @@ class CreateMembacaTable extends Migration
             $table->id();
             $table->string('nama');
             $table->string('gambar');
-            $table->string('sound_id');
             $table->string('tulisan_id');
-            $table->string('sound_en');
+            $table->string('sound_id');
             $table->string('tulisan_en');
+            $table->string('sound_en');
             $table->tinyInteger('tipe');
             $table->timestamps();
         });
