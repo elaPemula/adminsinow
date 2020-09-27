@@ -30,3 +30,19 @@ Route::get('/mewarna', function () {
 Route::get('/warna', function () {
     return view('belajar/createwarna');
 });
+
+Route::get('/membaca', function () {
+    return view('belajar/createmembaca');
+});
+
+Route::get('/readmembaca', function () {
+    return view('belajar/readmembaca');
+});
+
+Route::get('/readwarna', function () {
+    return view('belajar/readwarna');
+});
+
+Route::get('/readangka2', function () {
+    return view('belajar/readangka2');
+});

@@ -25,16 +25,19 @@
                             @csrf
                                 <div class="form-group-inner">
                                     <label for="keterangan">Nama </label>
-                                    <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" placeholder="Masukkan Keterangan" name="pertanyaan" value="{{ old('pertanyaan')}}"/>
-                                </div>
-                                <div class="col-lg-12">
+                                    <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" placeholder="Masukkan Nama Hewan, Buah atau Sayur" name="pertanyaan" value="{{ old('pertanyaan')}}"/>
+                                    <div class="col-lg-12">
                                             <div class="form-select-list">
+                                            <label for="keterangan">Tipe </label>
                                                 <select type="text" class="form-control custom-select-value  @error('tipe') is-invalid @enderror" name="tipe" value="{{ old('tipe')}}">
                                                     <option>Hewan</option>
                                                     <option>Buah dan Sayur</option>
                                                 </select>
                                             </div>
                                         </div>
+                                
+                                </div>
+                                
                                 <div class="form-group">
                                     <label class="control-label">Gambar</label>
                                     <div>
@@ -43,7 +46,7 @@
                                 </div>
                                 <div class="form-group-inner">
                                     <label for="keterangan">Tulisan ID</label>
-                                    <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" placeholder="Masukkan Keterangan" name="pertanyaan" value="{{ old('pertanyaan')}}"/>
+                                    <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" placeholder="Masukkan Tulisan Bahasa Indonesia" name="pertanyaan" value="{{ old('pertanyaan')}}"/>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Sound ID</label>
@@ -51,16 +54,17 @@
                                         <input type="file" class="form-control" placeholder="Document File..." data-validate="required">
                                     </div>
                                 </div>
+                                <div class="form-group-inner">
+                                    <label for="keterangan">Tulisan EN</label>
+                                    <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" placeholder="Masukkan Tulisan Bahasa Inggris" name="pertanyaan" value="{{ old('pertanyaan')}}"/>
+                                </div>
                                 <div class="form-group">
                                     <label class="control-label">Sound EN</label>
                                     <div>
                                         <input type="file" class="form-control" placeholder="Document File..." data-validate="required">
                                     </div>
                                 </div>
-                                <div class="form-group-inner">
-                                    <label for="keterangan">Tulisan EN</label>
-                                    <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" placeholder="Masukkan Keterangan" name="pertanyaan" value="{{ old('pertanyaan')}}"/>
-                                </div>
+                                
                                 
 
                                 
