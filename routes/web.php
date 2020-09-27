@@ -22,3 +22,15 @@ Route::resource('menyanyi', 'MenyanyiController');
 Route::get('/angka', function () {
     return view('belajar/readangka');
 });
+
+Route::get('/menyanyi', function () {
+    return view('hiburan/createmenyanyi');
+});
+
+Route::get('/mewarna', function () {
+    return view('hiburan/createmewarna');
+});
+
+Route::get('/warna', function () {
+    return view('belajar/createwarna');
+});
