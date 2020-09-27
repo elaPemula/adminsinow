@@ -1,6 +1,5 @@
 @extends('master')
 @section('content')
-
 <div class="basic-form-area mg-b-15">
 <div class="container-fluid">
 <div class="row">
@@ -38,15 +37,15 @@
                     <div class="form-group">
                       <label class="pull-left" for="suara">Suara</label>
                       <div>
-                        <input type="file" class="form-control" placeholder="Document File..." data-validate="required">
+                        <input type="file" name="suara" id="suara" class="form-control" placeholder="Document File..." data-validate="required">
                       </div>
                     </div>
                 </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="form-group">
-                            <label class="pull-left" for="suara">Gambar</label>
+                            <label class="pull-left" for="gambar">Gambar</label>
                             <div>
-                                <input type="file" id="gambar" class="form-control"  namae="gambar" placeholder="Document File..." data-validate="required">
+                                <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." data-validate="required">
                             </div>
                         </div>
                         <div class="inline-remember-me">

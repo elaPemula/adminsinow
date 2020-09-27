@@ -25,7 +25,7 @@ class MenyanyiController extends Controller
      */
     public function create()
     {
-        return view('quiz.createmenyanyi');
+        return view('menyanyi.createmenyanyi');
     }
 
     /**
@@ -36,7 +36,26 @@ class MenyanyiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'judul' => 'required',
+            'suara' => 'required',
+            'gambar' => 'required',
+        ]);
+         
+        $suara = $request->suara;
+        $gambar = $request->gambar;
+        $new_gambar = time().$gambar->getClientOriginalName();
+        $new_suara = time().$suara->getClientOriginalName();
+
+        $menyanyi = Menyanyi::create([
+            'judul' => $request->judul,
+            'suara' => 'public/uploads/menyanyi/'.$new_suara,
+            'gambar' => 'public/uploads/menyanyi/'.$new_gambar
+        ]);
+        
+        $suara->move('public/uploads/menyanyi/', $new_suara);
+        $gambar->move('public/uploads/menyanyi/', $new_gambar);
+        return redirect('/menyanyi')->with('status', 'Data Berhasil Ditambahkan!');
     }
 
     /**

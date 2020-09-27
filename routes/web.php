@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::resource('quiz', 'QuizController');
-
-Route::get('/menyanyi', function () {
-    return view('hiburan/createmenyanyi');
+Route::resource('menyanyi', 'MenyanyiController');
+Route::get('/angka', function () {
+    return view('belajar/readangka');
 });
