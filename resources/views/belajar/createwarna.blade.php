@@ -25,7 +25,7 @@
                             @csrf
                                 <div class="form-group-inner">
                                     <label for="keterangan">Nama Warna</label>
-                                    <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" placeholder="Masukkan Keterangan" name="pertanyaan" value="{{ old('pertanyaan')}}"/>
+                                    <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" placeholder="Masukkan Nama Warna e.g: Merah" name="pertanyaan" value="{{ old('pertanyaan')}}"/>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Gambar</label>
@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="form-group-inner">
                                     <label for="keterangan">Tulisan ID</label>
-                                    <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" placeholder="Masukkan Keterangan" name="pertanyaan" value="{{ old('pertanyaan')}}"/>
+                                    <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" placeholder="Masukkan Tulisan Bahasa Indonesia" name="pertanyaan" value="{{ old('pertanyaan')}}"/>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Sound ID</label>
@@ -43,16 +43,17 @@
                                         <input type="file" class="form-control" placeholder="Document File..." data-validate="required">
                                     </div>
                                 </div>
+                                <div class="form-group-inner">
+                                    <label for="keterangan">Tulisan EN</label>
+                                    <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" placeholder="Masukkan Tulisan Bahasa Inggris" name="pertanyaan" value="{{ old('pertanyaan')}}"/>
+                                </div>
                                 <div class="form-group">
                                     <label class="control-label">Sound EN</label>
                                     <div>
                                         <input type="file" class="form-control" placeholder="Document File..." data-validate="required">
                                     </div>
                                 </div>
-                                <div class="form-group-inner">
-                                    <label for="keterangan">Tulisan EN</label>
-                                    <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" placeholder="Masukkan Keterangan" name="pertanyaan" value="{{ old('pertanyaan')}}"/>
-                                </div>
+                                
 
                                 
                                 <div class="login-btn-inner">
