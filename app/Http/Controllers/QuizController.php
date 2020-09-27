@@ -14,7 +14,7 @@ class QuizController extends Controller
      */
     public function index()
     {
-        $quiz = quiz::all();
+        $quiz = Quiz::all();
         return view('quiz.readhitung',  compact('quiz'));
     }
 
@@ -45,7 +45,7 @@ class QuizController extends Controller
             'jawaban' => 'required',
         ]);
 
-        quiz::create($request->all());
+        Quiz::create($request->all());
         return redirect('/quiz')->with('status', 'Data Berhasil Ditambahkan!');
     }
 
@@ -88,7 +88,7 @@ class QuizController extends Controller
             'opsi_d' => 'required',
             'jawaban' => 'required',
         ]);
-        quiz::where('id', $quiz->id)
+        Quiz::where('id', $quiz->id)
         ->update([
             'pertanyaan' => $request->pertanyaan,
             'opsi_a' => $request->opsi_a,
@@ -108,7 +108,7 @@ class QuizController extends Controller
      */
     public function destroy(Quiz $quiz)
     {
-        quiz::destroy($quiz->id);
+        Quiz::destroy($quiz->id);
         return redirect('/quiz')->with('status', 'Data Berhasil dihapus');
     }
 }
