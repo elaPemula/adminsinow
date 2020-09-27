@@ -22,3 +22,11 @@ Route::resource('quiz', 'QuizController');
 Route::get('/menyanyi', function () {
     return view('hiburan/createmenyanyi');
 });
+
+Route::get('/mewarna', function () {
+    return view('hiburan/createmewarna');
+});
+
+Route::get('/warna', function () {
+    return view('belajar/warna');
+});
