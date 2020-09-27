@@ -28,5 +28,5 @@ Route::get('/mewarna', function () {
 });
 
 Route::get('/warna', function () {
-    return view('belajar/warna');
+    return view('belajar/createwarna');
 });
