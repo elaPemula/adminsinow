@@ -14,7 +14,8 @@ class MenyanyiController extends Controller
      */
     public function index()
     {
-        //
+        $menyanyi = Menyanyi::all();
+        return view('hiburan.readmenyanyi',  compact('menyanyi'));
     }
 
     /**
@@ -24,7 +25,7 @@ class MenyanyiController extends Controller
      */
     public function create()
     {
-        //
+        return view('quiz.createmenyanyi');
     }
 
     /**

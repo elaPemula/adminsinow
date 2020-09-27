@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/table', 'QuizmenghitungController@index');
+
 Route::resource('quiz', 'QuizController');
 
 Route::get('/menyanyi', function () {
