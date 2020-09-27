@@ -43,6 +43,10 @@ Route::get('/readwarna', function () {
     return view('belajar/readwarna');
 });
 
-Route::get('/readangka2', function () {
-    return view('belajar/readangka2');
+Route::get('/readangka', function () {
+    return view('belajar/readangka');
+});
+
+Route::get('/readhuruf', function () {
+    return view('belajar/readhuruf');
 });
