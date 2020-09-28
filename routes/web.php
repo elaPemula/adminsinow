@@ -18,35 +18,4 @@ Route::get('/', function () {
 });
 
 Route::resource('quiz', 'QuizController');
-
-Route::get('/menyanyi', function () {
-    return view('hiburan/createmenyanyi');
-});
-
-Route::get('/mewarna', function () {
-    return view('hiburan/createmewarna');
-});
-
-Route::get('/warna', function () {
-    return view('belajar/createwarna');
-});
-
-Route::get('/membaca', function () {
-    return view('belajar/createmembaca');
-});
-
-Route::get('/readmembaca', function () {
-    return view('belajar/readmembaca');
-});
-
-Route::get('/readwarna', function () {
-    return view('belajar/readwarna');
-});
-
-Route::get('/readangka', function () {
-    return view('belajar/readangka');
-});
-
-Route::get('/readhuruf', function () {
-    return view('belajar/readhuruf');
-});
+Route::resource('mewarna', 'MewarnaController');
