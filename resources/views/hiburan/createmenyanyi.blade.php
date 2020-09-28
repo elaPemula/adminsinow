@@ -17,14 +17,23 @@
         </div>
         <div class="sparkline8-graph">
             <div class="basic-login-form-ad">
+                @if ($errors->any())
+                    <div class="alert alert-danger pull-left">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="basic-login-inner">
                             <form method="POST" action="/menyanyi" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group-inner">
+                            <div class="form-group-inner  @error('judul') input-with-error @enderror ">
                                 <label for="judul">Judul</label>
-                                <input type="text" class="form-control @error('judul') is-invalid @enderror" id="judul" placeholder="Masukkan Judul" name="judul" value="{{ old('judul')}}"/>
+                                <input type="text" class="form-control" id="judul" placeholder="Masukkan Judul" name="judul" value="{{ old('judul')}}"/>
                             </div>
                             <div class="row">
                             <div class="login-btn-inner">

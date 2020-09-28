@@ -14,7 +14,8 @@ class HurufController extends Controller
      */
     public function index()
     {
-        //
+        $huruf = Huruf::all();
+        return view('belajar.readhuruf', compact('huruf'));
     }
 
     /**
@@ -24,7 +25,7 @@ class HurufController extends Controller
      */
     public function create()
     {
-        //
+        return view('belajar.createhuruf');
     }
 
     /**
@@ -35,7 +36,28 @@ class HurufController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'huruf' => 'required',
+            'gambar' => 'required|image:svg',
+            'suara' => 'required|mimes:mp3',
+            'huruf' => 'required',
+        ]);
+            
+            $data = $request->except(['suara', 'gambar']);
+            $filename = strtotime(date('Y-m-d H:i:s'));
+            $extension = $request->suara->extension();
+            $filename = "{$filename}.{$extension}";
+            $request->suara->storeAs('belajar/huruf', $filename);
+            $data['suara'] = asset("/storage/belajar/huruf/{$filename}");
+            
+            $filename = strtotime(date('Y-m-d H:i:s'));
+            $extension = $request->gambar->extension();
+            $filename = "{$filename}.{$extension}";
+            $request->gambar->storeAs('belajar/huruf', $filename);
+            $data['gambar'] = asset("/storage/belajar/huruf/{$filename}");
+
+        Huruf::create($data);
+        return redirect('/huruf')->with('status', 'Data Berhasil Ditambahkan!');
     }
 
     /**
@@ -80,6 +102,7 @@ class HurufController extends Controller
      */
     public function destroy(Huruf $huruf)
     {
-        //
+        Huruf::destroy($huruf->id);
+        return redirect('/huruf')->with('status', 'Data Berhasil dihapus');
     }
 }

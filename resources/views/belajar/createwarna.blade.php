@@ -53,9 +53,6 @@
                                         <input type="file" class="form-control" placeholder="Document File..." data-validate="required">
                                     </div>
                                 </div>
-                                
-
-                                
                                 <div class="login-btn-inner">
                                     <div class="inline-remember-me">
                                         <button class="btn btn-custon-rounded-three pull-right btn-warning" type="submit">Simpan</button>

@@ -8,7 +8,7 @@
     <div class="sparkline12-list shadow-reset mg-t-3">
         <div class="sparkline12-hd">
             <div class="main-sparkline12-hd">
-                <h1>Input Data Hewan Buah dan Sayur</h1>
+                <h1>Input Data Huruf</h1>
                 <div class="sparkline8-outline-icon">
                     <span class="sparkline8-collapse-link"><i class="fa fa-chevron-up"></i></span>
                     <span><i class="fa fa-wrench"></i></span>
@@ -30,14 +30,13 @@
                                             <div class="form-select-list">
                                             <label for="keterangan">Tipe </label>
                                                 <select type="text" class="form-control custom-select-value  @error('tipe') is-invalid @enderror" name="tipe" value="{{ old('tipe')}}">
-                                                    <option>Hewan</option>
-                                                    <option>Buah dan Sayur</option>
+                                                    <option>Satu Huruf</option>
+                                                    <option>Dua Huruf</option>
+                                                    <option>Tiga Huruf</option>
                                                 </select>
                                             </div>
                                         </div>
-                                
                                 </div>
-                                
                                 <div class="form-group">
                                     <label class="control-label">Gambar</label>
                                     <div>
@@ -51,7 +50,7 @@
                                 <div class="form-group">
                                     <label class="control-label">Sound ID</label>
                                     <div>
-                                        <input type="file" class="form-control" placeholder="Document File..." data-validate="required">
+                                        <input type="file" class="form-control" placeholder="Document File...">
                                     </div>
                                 </div>
                                 <div class="form-group-inner">
@@ -61,13 +60,9 @@
                                 <div class="form-group">
                                     <label class="control-label">Sound EN</label>
                                     <div>
-                                        <input type="file" class="form-control" placeholder="Document File..." data-validate="required">
+                                        <input type="file" class="form-control" placeholder="Document File...">
                                     </div>
                                 </div>
-                                
-                                
-
-                                
                                 <div class="login-btn-inner">
                                     <div class="inline-remember-me">
                                         <button class="btn btn-custon-rounded-three pull-right btn-warning" type="submit">Simpan</button>

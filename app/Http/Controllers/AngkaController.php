@@ -36,7 +36,37 @@ class AngkaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'angka' => 'required',
+            'tipe' => 'required',
+            'gambar' => 'required|image:svg',
+            'tulisan' => 'required',
+            'suara_id' => 'required|mimes:mp3',
+            'suara_en' => 'required|mimes:mp3',
+        ]);
+
+            $data = $request->except(['suara_id', 'suara_en', 'gambar']);
+
+            $filename = strtotime(date('Y-m-d H:i:s'));
+            $extension = $request->suara_id->extension();
+            $filename = "{$filename}.{$extension}";
+            $request->suara_id->storeAs('belajar/angka', $filename);
+            $data['suara_id'] = asset("/storage/belajar/angka/{$filename}");
+            
+            $filename = strtotime(date('Y-m-d H:i:s'));
+            $extension = $request->suara_en->extension();
+            $filename = "{$filename}.{$extension}";
+            $request->suara_en->storeAs('belajar/angka', $filename);
+            $data['suara_en'] = asset("/storage/belajar/angka/{$filename}");
+
+            $filename = strtotime(date('Y-m-d H:i:s'));
+            $extension = $request->gambar->extension();
+            $filename = "{$filename}.{$extension}";
+            $request->gambar->storeAs('belajar/angka', $filename);
+            $data['gambar'] = asset("/storage/belajar/angka/{$filename}");
+
+        Angka::create($data);
+        return redirect('/angka')->with('status', 'Data Berhasil Ditambahkan!');
     }
 
     /**
