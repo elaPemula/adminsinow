@@ -15,7 +15,7 @@ class MenyanyiController extends Controller
     public function index()
     {
         $menyanyi = Menyanyi::all();
-        return view('hiburan.readmenyanyi',  compact('menyanyi'));
+        return view('hiburan.readmenyanyi', compact('menyanyi'));
     }
 
     /**
@@ -25,7 +25,7 @@ class MenyanyiController extends Controller
      */
     public function create()
     {
-        return view('menyanyi.createmenyanyi');
+        return view('hiburan.createmenyanyi');
     }
 
     /**
@@ -77,7 +77,7 @@ class MenyanyiController extends Controller
      */
     public function edit(Menyanyi $menyanyi)
     {
-        //
+        return view('hiburan.editmenyanyi', compact('quiz'));
     }
 
     /**
@@ -100,6 +100,7 @@ class MenyanyiController extends Controller
      */
     public function destroy(Menyanyi $menyanyi)
     {
-        //
+        Menyanyi::destroy($menyanyi->id);
+        return redirect('/menyanyi')->with('status', 'Data Berhasil dihapus');
     }
 }

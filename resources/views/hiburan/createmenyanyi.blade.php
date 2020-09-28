@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="basic-login-inner">
-                            <form method="POST" action="/menyanyi">
+                            <form method="POST" action="/menyanyi" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group-inner">
                                 <label for="judul">Judul</label>
@@ -29,7 +29,6 @@
                             <div class="row">
                             <div class="login-btn-inner">
                             </div>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -37,7 +36,7 @@
                     <div class="form-group">
                       <label class="pull-left" for="suara">Suara</label>
                       <div>
-                        <input type="file" name="suara" id="suara" class="form-control" placeholder="Document File..." data-validate="required">
+                        <input type="file" name="suara" id="suara" class="form-control" placeholder="Document File..." value="{{ old('suara')}}">
                       </div>
                     </div>
                 </div>
@@ -45,17 +44,16 @@
                         <div class="form-group">
                             <label class="pull-left" for="gambar">Gambar</label>
                             <div>
-                                <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." data-validate="required">
+                                <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ old('gambar')}}">
                             </div>
                         </div>
-                        <div class="inline-remember-me">
-                                    <button class="btn btn-custon-rounded-three pull-right btn-warning" type="submit">Simpan</button>
-                                </div>
-                            
+                            <div class="inline-remember-me">
+                                <button class="btn btn-custon-rounded-three pull-right btn-warning" type="submit">Simpan</button>
+                            </div>
                          </div>
-                    </div>
-                         
-</div>
+                         </form>
+                    </div>          
+                </div>
             </div>
         </div>
     </div>

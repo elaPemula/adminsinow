@@ -14,7 +14,8 @@ class AngkaController extends Controller
      */
     public function index()
     {
-        //
+        $angka = Angka::all();
+        return view('belajar.readangka',  compact('angka'));
     }
 
     /**
@@ -24,7 +25,7 @@ class AngkaController extends Controller
      */
     public function create()
     {
-        //
+        return view('belajar.createangka');
     }
 
     /**
@@ -80,6 +81,7 @@ class AngkaController extends Controller
      */
     public function destroy(Angka $angka)
     {
-        //
+        Angka::destroy($angka->id);
+        return redirect('/angka')->with('status', 'Data Berhasil dihapus');
     }
 }

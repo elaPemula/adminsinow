@@ -12,9 +12,9 @@
                 <div class="sparkline13-list shadow-reset">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
-                            <h1>Data <span class="table-project-n">Belajar</span> Angka</h1>
+                            <h1>Data <span class="table-project-n">Hiburan</span> Menyanyi</h1>
                             <div class="sparkline13-outline-icon">
-                                <a href="/angka/create" class="btn-xs btn-success fa fa-plus"></a>
+                                <a href="/menyanyi/create" class="btn-xs btn-success fa fa-plus"></a>
                                 <span class="sparkline13-collapse-link"><i class="fa fa-chevron-up"></i></span>
                                 <span><i class="fa fa-wrench"></i></span>
                                 <span class="sparkline13-collapse-close"><i class="fa fa-times"></i></span>
@@ -36,28 +36,24 @@
                                     <tr>
                                         <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="id">ID</th>
-                                        <th data-field="name" data-editable="true">Angka</th>
-                                        <th data-field="email" data-editable="true">Gambar</th>
-                                        <th data-field="phone" data-editable="true">Tulisan</th>
-                                        <th data-field="email" data-editable="true">Suara Indonesia</th>
-                                        <th data-field="phone" data-editable="true">Suara English</th>
-                                        <th data-field="company" data-editable="true">Tipe</th>
+                                        <th data-field="name" data-editable="true">Judul</th>
+                                        <th data-field="email" data-editable="true">Suara</th>
+                                        <th data-field="phone" data-editable="true">Gambar</th>
                                         <th data-field="action">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach( $angka as $angka)
+                                @foreach ($menyanyi as $menyanyi)
                                     <tr>
                                         <td></td>
-                                        <td>{{ $angka->id }}</td>
-                                        <td>{{ $angka->gambar }}</td>
-                                        <td>{{ $angka->tulisan }}</td>
-                                        <td>{{ $angka->sound_in }}</td>
-                                        <td>{{ $angka->sound_en }}</td>
-                                        <td>{{ $angka->tipe }}</td>
+                                        <td>{{ $menyanyi->id }}</td>
+                                        <td>{{ $menyanyi->judul }}</td>
+                                        <td>{{ $menyanyi->suara }}</td>
+                                        <td>{{ $menyanyi->gambar }}</td>
+                                        </td>
                                         <td>
-                                        <a href="/angka/{{$angka->id}}/edit" class="btn-sm btn-primary fa fa-pencil"></a>
-                                            <form action="/angka/{{ $angka->id }}" method="post" class="d-inline">
+                                        <a href="/menyanyi/{{ $menyanyi->id }}/edit" class="btn-sm btn-primary fa fa-pencil"></a>
+                                            <form action="/menyanyi/{{ $menyanyi->id }}" method="post" class="d-inline">
                                                 @method('delete')
                                                 @csrf
                                                 <button type="submit" class="btn-sm btn-danger fa fa-trash"></button>

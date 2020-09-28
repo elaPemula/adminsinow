@@ -48,7 +48,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="form-group">
-                        <label class="pull-left" for="sound_id">sound_id Indonesia</label>
+                        <label class="pull-left" for="sound_id">Sound Indonesia</label>
                         <div>
                             <input type="file" id="sound_id" class="form-control"  namae="sound_id" placeholder="Document File..." data-validate="required">
                         </div>
@@ -56,7 +56,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="form-group">
-                        <label class="pull-left" for="sound_en">sound_id English</label>
+                        <label class="pull-left" for="sound_en">Sound English</label>
                         <div>
                             <input type="file" id="sound_en" class="form-control"  namae="sound_en" placeholder="Document File..." data-validate="required">
                         </div>
