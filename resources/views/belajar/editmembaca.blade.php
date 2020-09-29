@@ -50,22 +50,22 @@
                                 </div>
                                 <div class="form-group-inner">
                                     <label for="tulisan_id">Tulisan ID</label>
-                                    <input type="text"  class="form-control @error('tulisan_id') is-invalid @enderror" id="tulisan_id" placeholder="Masukkan Tulisan Bahasa Indonesia" name="tulisan_id" value="{{ old('tulisan_id')}}"/>
+                                    <input type="text" name="tulisan_id" id="tulisan_id" class="form-control @error('tulisan_id') is-invalid @enderror" id="tulisan_id" placeholder="Masukkan Tulisan Bahasa Indonesia" name="tulisan_id" value="{{ old('tulisan_id')}}"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="sound_id" class="control-label">Sound ID</label>
                                     <div>
-                                        <input type="file"  class="form-control" placeholder="Document File..." value="{{ old('sound_id')}}">
+                                        <input type="file" name="sound_id" id="sound_id" class="form-control" placeholder="Document File..." value="{{ old('sound_id')}}">
                                     </div>
                                 </div>
                                 <div class="form-group-inner">
                                     <label for="tulisan_en">Tulisan EN</label>
-                                    <input type="text"  class="form-control @error('tulisan_en') is-invalid @enderror" id="tulisan_en" placeholder="Masukkan Tulisan Bahasa Inggris" name="tulisan_en" value="{{ old('tulisan_en')}}"/>
+                                    <input type="text" name="tulisan_en" id="tulisan_en" class="form-control @error('tulisan_en') is-invalid @enderror" id="tulisan_en" placeholder="Masukkan Tulisan Bahasa Inggris" name="tulisan_en" value="{{ old('tulisan_en')}}"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="sound_en" class="control-label">Sound EN</label>
                                     <div>
-                                        <input type="file"  class="form-control" placeholder="Document File..." value="{{ old('sound_en')}}">
+                                        <input type="file" name="sound_en" id="sound_en" class="form-control" placeholder="Document File..." value="{{ old('sound_en')}}">
                                     </div>
                                 </div>
                                 <div class="login-btn-inner">
