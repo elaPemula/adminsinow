@@ -14,7 +14,8 @@ class MewarnaController extends Controller
      */
     public function index()
     {
-        //
+        $mewarna = Mewarna::all();
+        return view('hiburan.readmewarna', compact('mewarna'));
     }
 
     /**
@@ -24,7 +25,7 @@ class MewarnaController extends Controller
      */
     public function create()
     {
-        //
+        return view('hiburan.createmewarna');
     }
 
     /**
@@ -35,7 +36,23 @@ class MewarnaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'keterangan' => 'required',
+            'gambar' => 'required|image:svg'
+        ]);
+
+        $data = $request->except(['gambar']);
+        $filename=strtotime(date('Y-m-d H:i:s'));
+        $extension = $request->gambar->extension();
+        $filename = "{$filename}.{$extension}";
+        $request->gambar->storeAs('hiburan/mewarna', $filename);
+        $data['gambar'] = asset("/storage/hiburan/mewarna/{$filename}");
+
+       
+
+        Mewarna::create($data);
+        return redirect('/mewarna')->with('Status','Data Berhasil Ditambahkan!');
     }
 
     /**
@@ -57,7 +74,7 @@ class MewarnaController extends Controller
      */
     public function edit(Mewarna $mewarna)
     {
-        //
+        return view('hiburan.editmewarna', compact('mewarna'));
     }
 
     /**
@@ -80,6 +97,7 @@ class MewarnaController extends Controller
      */
     public function destroy(Mewarna $mewarna)
     {
-        //
+        Mewarna::destroy($mewarna->id);
+        return redirect('/mewarna')->with('status', 'Data Berhasil dihapus');
     }
 }
