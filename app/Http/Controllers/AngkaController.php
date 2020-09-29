@@ -140,7 +140,7 @@ class AngkaController extends Controller
                 
             ]);
         
-        return redirect('/angka')->with('status', 'Data Berhasil Ditambahkan!');
+        return redirect('/menyanyi')->with('status', 'Data Berhasil diupdate');
     }
 
     /**
