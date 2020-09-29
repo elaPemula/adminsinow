@@ -41,22 +41,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="form-group">
-                      <label class="pull-left" for="gambar">Gambar</label>
-                      <div>
-                        <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ old('gambar')}}">
-                      </div>
-                    </div>
-                </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group">
-                            <label class="pull-left" for="sound">Suara</label>
-                            <div>
-                                <input type="file" name="sound" id="sound" class="form-control" placeholder="Document File..." value="{{ old('sound')}}">
-                            </div>
-                        </div>
-                        <div class="form-group-inner">
+                <div class="form-group-inner">
                                 <div class="row">
                                     <div class="col-lg-2">
                                         <label for="tipe" class="login2 pull-left pull-left-pro">Tipe</label>
@@ -72,6 +57,21 @@
                                     </div>
                                 </div>
                             </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                      <label class="pull-left" for="gambar">Gambar</label>
+                      <div>
+                        <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ old('gambar')}}">
+                      </div>
+                    </div>
+                </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label class="pull-left" for="sound">Suara</label>
+                            <div>
+                                <input type="file" name="sound" id="sound" class="form-control" placeholder="Document File..." value="{{ old('sound')}}">
+                            </div>
+                        </div>
                             <div class="inline-remember-me">
                                 <button class="btn btn-custon-rounded-three pull-right btn-warning" type="submit">Simpan</button>
                             </div>

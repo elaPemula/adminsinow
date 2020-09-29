@@ -37,9 +37,9 @@
                                         <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="id">ID</th>
                                         <th data-field="huruf" data-editable="true">Huruf</th>
+                                        <th data-field="tipe" data-editable="true">Tipe</th>
                                         <th data-field="gambar" data-editable="true">Gambar</th>
                                         <th data-field="sound" data-editable="true">Sound</th>
-                                        <th data-field="tipe" data-editable="true">Tipe</th>
                                         <th data-field="action">Action</th>
                                     </tr>
                                 </thead>
@@ -49,10 +49,9 @@
                                         <td></td>
                                         <td>{{ $huruf->id }}</td>
                                         <td>{{ $huruf->huruf }}</td>
+                                        <td>{{ $huruf->tipe }}</td>
                                         <td>{{ $huruf->gambar }}</td>
                                         <td>{{ $huruf->sound }}</td>
-                                        <td>{{ $huruf->tipe }}</td>
-                                        </td>
                                         <td>
                                         <a href="/huruf/{{ $huruf->id }}/edit" class="btn-sm btn-primary fa fa-pencil"></a>
                                             <form action="/huruf/{{ $huruf->id }}" method="post" class="d-inline">
