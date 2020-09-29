@@ -39,7 +39,7 @@ class MenyanyiController extends Controller
         $request->validate([
             'judul' => 'required',
             'suara' => 'required|mimes:mp3',
-            'gambar' => 'required|image:svg',
+            'gambar' => 'required|image:svg,png,jpg',
         ]);
             
             $data = $request->except(['suara', 'gambar']);

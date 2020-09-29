@@ -36,12 +36,12 @@
                                     <tr>
                                         <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="id">ID</th>
-                                        <th data-field="name" data-editable="true">Angka</th>
-                                        <th data-field="email" data-editable="true">Gambar</th>
-                                        <th data-field="phone" data-editable="true">Tulisan</th>
-                                        <th data-field="name" data-editable="true">Suara Indonesia</th>
-                                        <th data-field="email" data-editable="true">Suara English</th>
-                                        <th data-field="phone" data-editable="true">Tipe</th>
+                                        <th data-field="angka" data-editable="true">Angka</th>
+                                        <th data-field="gambar" data-editable="true">Gambar</th>
+                                        <th data-field="tulisan" data-editable="true">Tulisan</th>
+                                        <th data-field="sound_id" data-editable="true">Suara Indonesia</th>
+                                        <th data-field="sound_en" data-editable="true">Suara English</th>
+                                        <th data-field="tipe" data-editable="true">Tipe</th>
                                         <th data-field="action">Action</th>
                                     </tr>
                                 </thead>

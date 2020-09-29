@@ -8,7 +8,7 @@
     <div class="sparkline12-list shadow-reset mg-t-3">
         <div class="sparkline12-hd">
             <div class="main-sparkline12-hd">
-                <h1>Input Data Hewan Buah dan Sayur</h1>
+                <h1>Input Data Membaca</h1>
                 <div class="sparkline8-outline-icon">
                     <span class="sparkline8-collapse-link"><i class="fa fa-chevron-up"></i></span>
                     <span><i class="fa fa-wrench"></i></span>
@@ -64,10 +64,6 @@
                                         <input type="file" class="form-control" placeholder="Document File..." data-validate="required">
                                     </div>
                                 </div>
-                                
-                                
-
-                                
                                 <div class="login-btn-inner">
                                     <div class="inline-remember-me">
                                         <button class="btn btn-custon-rounded-three pull-right btn-warning" type="submit">Simpan</button>

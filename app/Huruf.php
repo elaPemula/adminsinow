@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Huruf extends Model
 {
-    protected $table = 'menyanyi';
+    protected $table = 'huruf';
+    protected $fillable = ['huruf', 'gambar', 'sound', 'tipe'];
 }

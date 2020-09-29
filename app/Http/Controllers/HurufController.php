@@ -38,23 +38,26 @@ class HurufController extends Controller
     {
         $request->validate([
             'huruf' => 'required',
-            'gambar' => 'required|image:svg',
-            'suara' => 'required|mimes:mp3',
-            'huruf' => 'required',
+            'gambar' => 'required|image:svg,png,jpg',
+            'sound' => 'required|mimes:mp3',
+            'tipe' => 'required',
         ]);
-            
-            $data = $request->except(['suara', 'gambar']);
-            $filename = strtotime(date('Y-m-d H:i:s'));
-            $extension = $request->suara->extension();
-            $filename = "{$filename}.{$extension}";
-            $request->suara->storeAs('belajar/huruf', $filename);
-            $data['suara'] = asset("/storage/belajar/huruf/{$filename}");
-            
+        
+            $data = $request->except(['gambar', 'sound']);
+
             $filename = strtotime(date('Y-m-d H:i:s'));
             $extension = $request->gambar->extension();
             $filename = "{$filename}.{$extension}";
             $request->gambar->storeAs('belajar/huruf', $filename);
             $data['gambar'] = asset("/storage/belajar/huruf/{$filename}");
+
+            $filename = strtotime(date('Y-m-d H:i:s'));
+            $extension = $request->sound->extension();
+            $filename = "{$filename}.{$extension}";
+            $request->sound->storeAs('belajar/huruf', $filename);
+            $data['sound'] = asset("/storage/belajar/huruf/{$filename}");
+            
+            
 
         Huruf::create($data);
         return redirect('/huruf')->with('status', 'Data Berhasil Ditambahkan!');
@@ -79,7 +82,7 @@ class HurufController extends Controller
      */
     public function edit(Huruf $huruf)
     {
-        //
+        return view('belajar.edithuruf', compact('huruf'));
     }
 
     /**
