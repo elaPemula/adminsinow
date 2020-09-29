@@ -21,7 +21,9 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="basic-login-inner">
-                            <form method="POST" action="/warna">
+
+                            <form method="POST" action="/membaca" enctype="multipart/form-data" >
+
                             @csrf
                                 <div class="form-group-inner">
                                     <label for="keterangan">Nama </label>
