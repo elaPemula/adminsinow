@@ -14,7 +14,8 @@ class WarnaController extends Controller
      */
     public function index()
     {
-        //
+        $warna = Warna::all();
+        return view('belajar.readwarna',  compact('warna'));
     }
 
     /**
@@ -24,7 +25,7 @@ class WarnaController extends Controller
      */
     public function create()
     {
-        //
+        return view('belajar.createwarna');
     }
 
     /**
@@ -35,7 +36,38 @@ class WarnaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'gambar' => 'required|image:svg,png,jpg',
+            'tulisan_id' => 'required',
+            'sound_id' => 'required|mimes:mp3',
+            'tulisan_en' => 'required',
+            'sound_en' => 'required|mimes:mp3',
+        ]);
+            
+            $data = $request->except(['gambar', 'sound_id', 'sound_en']);
+
+            $filename = strtotime(date('Y-m-d H:i:s'));
+            $extension = $request->gambar->extension();
+            $filename = "{$filename}.{$extension}";
+            $request->gambar->storeAs('belajar/warna', $filename);
+            $data['gambar'] = asset("/storage/belajar/warna/{$filename}");
+
+            $filename = strtotime(date('Y-m-d H:i:s'));
+            $extension = $request->sound_id->extension();
+            $filename = "{$filename}.{$extension}";
+            $request->sound_id->storeAs('belajar/warna', $filename);
+            $data['sound_id'] = asset("/storage/belajar/warna/{$filename}");
+            
+            $filename = strtotime(date('Y-m-d H:i:s'));
+            $extension = $request->sound_en->extension();
+            $filename = "{$filename}.{$extension}";
+            $request->sound_en->storeAs('belajar/warna', $filename);
+            $data['sound_en'] = asset("/storage/belajar/warna/{$filename}");
+
+
+        Warna::create($data);
+        return redirect('/warna')->with('status', 'Data Berhasil Ditambahkan!');
     }
 
     /**
@@ -80,6 +112,7 @@ class WarnaController extends Controller
      */
     public function destroy(Warna $warna)
     {
-        //
+        Warna::destroy($warna->id);
+        return redirect('/warna')->with('status', 'Data Berhasil dihapus');
     }
 }

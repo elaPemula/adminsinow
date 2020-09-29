@@ -22,4 +22,5 @@ Route::resource('menyanyi', 'MenyanyiController');
 Route::resource('huruf', 'HurufController');
 Route::resource('angka', 'AngkaController');
 Route::resource('mewarna', 'MewarnaController');
+Route::resource('warna', 'WarnaController');
 Route::resource('membaca', 'MembacaController');

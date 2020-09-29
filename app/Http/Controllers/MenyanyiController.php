@@ -111,8 +111,8 @@ class MenyanyiController extends Controller
         Menyanyi::where('id', $menyanyi->id)
             ->update([
                 'judul' => $request->judul,
-                'suara' => $request->store(suara),
-                'gambar' => $request->store(gambar),
+                'suara' => $request->suara->store($filename),
+                'gambar' => $request->gambar->store($filename),
             ]);
         
             

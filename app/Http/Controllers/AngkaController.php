@@ -101,7 +101,46 @@ class AngkaController extends Controller
      */
     public function update(Request $request, Angka $angka)
     {
-        //
+        $request->validate([
+            'angka' => 'required',
+            'gambar' => 'required|image:svg,png,jpg',
+            'tulisan' => 'required',
+            'sound_id' => 'required|mimes:mp3',
+            'sound_en' => 'required|mimes:mp3',
+            'tipe' => 'required',
+        ]);
+
+            $data = $request->except(['gambar', 'sound_id', 'sound_en']);
+
+            $filename = strtotime(date('Y-m-d H:i:s'));
+            $extension = $request->gambar->extension();
+            $filename = "{$filename}.{$extension}";
+            $request->gambar->storeAs('belajar/angka', $filename);
+            $data['gambar'] = asset("/storage/belajar/angka/{$filename}");
+
+            $filename = strtotime(date('Y-m-d H:i:s'));
+            $extension = $request->sound_id->extension();
+            $filename = "{$filename}.{$extension}";
+            $request->sound_id->storeAs('belajar/angka', $filename);
+            $data['sound_id'] = asset("/storage/belajar/angka/{$filename}");
+            
+            $filename = strtotime(date('Y-m-d H:i:s'));
+            $extension = $request->sound_en->extension();
+            $filename = "{$filename}.{$extension}";
+            $request->sound_en->storeAs('belajar/angka', $filename);
+            $data['sound_en'] = asset("/storage/belajar/angka/{$filename}");
+
+        Angka::where('id', $angka->id)
+            ->update([
+                'angka' => $request->angka,
+                'gambar' => $request->store($filename),
+                'tulisan' => $request->tulisan,
+                'sound_id' => $request->store($filename),
+                'sound_en' => $request->store($filename),
+                
+            ]);
+        
+        return redirect('/menyanyi')->with('status', 'Data Berhasil diupdate');
     }
 
     /**
