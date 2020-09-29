@@ -24,33 +24,33 @@
                             <form method="POST" action="/warna">
                             @csrf
                                 <div class="form-group-inner">
-                                    <label for="keterangan">Nama Warna</label>
-                                    <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" placeholder="Masukkan Nama Warna e.g: Merah" name="pertanyaan" value="{{ old('pertanyaan')}}"/>
+                                    <label for="nama">Nama Warna</label>
+                                    <input type="text"  name="nama" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Masukkan Nama Warna e.g: Merah" value="{{ old('nama')}}"/>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Gambar</label>
                                     <div>
-                                        <input type="file" class="form-control" placeholder="Document File..." data-validate="required">
+                                        <input type="file" name="gambar" class="form-control" placeholder="Document File..." value="{{ old('gambar')}}" >
                                     </div>
                                 </div>
                                 <div class="form-group-inner">
                                     <label for="keterangan">Tulisan ID</label>
-                                    <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" placeholder="Masukkan Tulisan Bahasa Indonesia" name="pertanyaan" value="{{ old('pertanyaan')}}"/>
+                                    <input type="text" name="tulisan_id" class="form-control @error('tulisan_id') is-invalid @enderror" id="tulisan_id" placeholder="Masukkan Tulisan Bahasa Indonesia"  value="{{ old('tulisan_id')}}"/>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">Sound ID</label>
+                                    <label for="sound_id" class="control-label">Sound ID</label>
                                     <div>
-                                        <input type="file" class="form-control" placeholder="Document File..." data-validate="required">
+                                        <input type="file" name="sound_id" class="form-control" placeholder="Document File..." value="{{ old('sound_id')}}" >
                                     </div>
                                 </div>
                                 <div class="form-group-inner">
-                                    <label for="keterangan">Tulisan EN</label>
-                                    <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" placeholder="Masukkan Tulisan Bahasa Inggris" name="pertanyaan" value="{{ old('pertanyaan')}}"/>
+                                    <label for="tulisan_en">Tulisan EN</label>
+                                    <input type="text" name="tulisan_en" class="form-control @error('tulisan_en') is-invalid @enderror" id="tulisan_en" placeholder="Masukkan Tulisan Bahasa Inggris" value="{{ old('tulisan_en')}}"/>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">Sound EN</label>
+                                    <label for="sound_en" class="control-label">Sound EN</label>
                                     <div>
-                                        <input type="file" class="form-control" placeholder="Document File..." data-validate="required">
+                                        <input type="file" id="sound_en" name="sound_en" class="form-control" placeholder="Document File..." value="{{ old('sound_en')}}"">
                                     </div>
                                 </div>
                                 <div class="login-btn-inner">
