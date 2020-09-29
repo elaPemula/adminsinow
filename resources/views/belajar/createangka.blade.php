@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="basic-login-inner">
-                            <form method="POST" action="/angka">
+                            <form method="POST" action="/angka" enctype="multipart/form-data">
                             @csrf
                                 <div class="form-group-inner">
                                     <label for="angka">Angka</label>
@@ -34,7 +34,7 @@
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-select-list">
-                                                <select id="tipe" type="text" class="form-control custom-select-value  @error('tipe') is-invalid @enderror" name="tipe" value="{{ old('tipe')}}">
+                                                <select id="tipe" type="text" class="form-control custom-select-value @error('tipe') is-invalid @enderror" name="tipe" value="{{ old('tipe')}}">
                                                     <option>Satuan</option>
                                                     <option>Puluhan</option>
                                                     <option>Ratusan</option>

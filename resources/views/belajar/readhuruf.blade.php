@@ -1,74 +1,69 @@
 @extends('master')
 @section('content')
-
-<div class="basic-form-area mg-b-15">
-<div class="container-fluid">
-<div class="row">
-<div class="col-lg-12">
-    <div class="sparkline12-list shadow-reset mg-t-3">
-        <div class="sparkline12-hd">
-            <div class="main-sparkline12-hd">
-                <h1>Input Data Huruf</h1>
-                <div class="sparkline8-outline-icon">
-                    <span class="sparkline8-collapse-link"><i class="fa fa-chevron-up"></i></span>
-                    <span><i class="fa fa-wrench"></i></span>
-                    <span class="sparkline8-collapse-close"><i class="fa fa-times"></i></span>
-                </div>
-            </div>
-        </div>
-        <div class="sparkline8-graph">
-            <div class="basic-login-form-ad">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="basic-login-inner">
-                            <form method="POST" action="/warna">
-                            @csrf
-                                <div class="form-group-inner">
-                                    <label for="keterangan">Nama </label>
-                                    <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" placeholder="Masukkan Nama Hewan, Buah atau Sayur" name="pertanyaan" value="{{ old('pertanyaan')}}"/>
-                                    <div class="col-lg-12">
-                                            <div class="form-select-list">
-                                            <label for="keterangan">Tipe </label>
-                                                <select type="text" class="form-control custom-select-value  @error('tipe') is-invalid @enderror" name="tipe" value="{{ old('tipe')}}">
-                                                    <option>Satu Huruf</option>
-                                                    <option>Dua Huruf</option>
-                                                    <option>Tiga Huruf</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Gambar</label>
-                                    <div>
-                                        <input type="file" class="form-control" placeholder="Document File..." data-validate="required">
-                                    </div>
-                                </div>
-                                <div class="form-group-inner">
-                                    <label for="keterangan">Tulisan ID</label>
-                                    <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" placeholder="Masukkan Tulisan Bahasa Indonesia" name="pertanyaan" value="{{ old('pertanyaan')}}"/>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Sound ID</label>
-                                    <div>
-                                        <input type="file" class="form-control" placeholder="Document File...">
-                                    </div>
-                                </div>
-                                <div class="form-group-inner">
-                                    <label for="keterangan">Tulisan EN</label>
-                                    <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" placeholder="Masukkan Tulisan Bahasa Inggris" name="pertanyaan" value="{{ old('pertanyaan')}}"/>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Sound EN</label>
-                                    <div>
-                                        <input type="file" class="form-control" placeholder="Document File...">
-                                    </div>
-                                </div>
-                                <div class="login-btn-inner">
-                                    <div class="inline-remember-me">
-                                        <button class="btn btn-custon-rounded-three pull-right btn-warning" type="submit">Simpan</button>
-                                    </div>
-                                </div>
-                            </form>
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status')}}
+    </div>
+@endif
+<div class="data-table-area mg-b-15">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="sparkline13-list shadow-reset">
+                    <div class="sparkline13-hd">
+                        <div class="main-sparkline13-hd">
+                            <h1>Data <span class="table-project-n">Belajar</span> Huruf</h1>
+                            <div class="sparkline13-outline-icon">
+                                <a href="/huruf/create" class="btn-xs btn-success fa fa-plus"></a>
+                                <span class="sparkline13-collapse-link"><i class="fa fa-chevron-up"></i></span>
+                                <span><i class="fa fa-wrench"></i></span>
+                                <span class="sparkline13-collapse-close"><i class="fa fa-times"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sparkline13-graph">
+                        <div class="datatable-dashv1-list custom-datatable-overright">
+                            <div id="toolbar">
+                                <select class="form-control">
+                                    <option value="">Export Basic</option>
+                                    <option value="all">Export All</option>
+                                    <option value="selected">Export Selected</option>
+                                </select>
+                            </div>
+                            <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+                            
+                                <thead>
+                                    <tr>
+                                        <th data-field="state" data-checkbox="true"></th>
+                                        <th data-field="id">ID</th>
+                                        <th data-field="huruf" data-editable="true">Huruf</th>
+                                        <th data-field="tipe" data-editable="true">Tipe</th>
+                                        <th data-field="gambar" data-editable="true">Gambar</th>
+                                        <th data-field="sound" data-editable="true">Sound</th>
+                                        <th data-field="action">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach ($huruf as $huruf)
+                                    <tr>
+                                        <td></td>
+                                        <td>{{ $huruf->id }}</td>
+                                        <td>{{ $huruf->huruf }}</td>
+                                        <td>{{ $huruf->tipe }}</td>
+                                        <td>{{ $huruf->gambar }}</td>
+                                        <td>{{ $huruf->sound }}</td>
+                                        <td>
+                                        <a href="/huruf/{{ $huruf->id }}/edit" class="btn-sm btn-primary fa fa-pencil"></a>
+                                            <form action="/huruf/{{ $huruf->id }}" method="post" class="d-inline">
+                                                @method('delete')
+                                                @csrf
+                                                <button type="submit" class="btn-sm btn-danger fa fa-trash"></button>
+                                            </form>
+                                            </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -76,5 +71,4 @@
         </div>
     </div>
 </div>
-
 @endsection
