@@ -12,7 +12,7 @@
                 <div class="sparkline13-list shadow-reset">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
-                            <h1>Data <span class="table-project-n">Gambar</span> Warna</h1>
+                            <h1>Data <span class="table-project-n">Belajar</span> Warna</h1>
                             <div class="sparkline13-outline-icon">
                                 <a href="/warna/create" class="btn-xs btn-success fa fa-plus"></a>
                                 <span class="sparkline13-collapse-link"><i class="fa fa-chevron-up"></i></span>
@@ -36,16 +36,37 @@
                                     <tr>
                                         <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="id">ID</th>
-                                        <th data-field="nama" data-editable="true">Nama Warna</th>
+                                        <th data-field="nama" data-editable="true">Nama</th>
                                         <th data-field="gambar" data-editable="true">Gambar</th>
                                         <th data-field="tulisan_id" data-editable="true">Tulisan ID</th>
-                                        <th data-field="sound_id" data-editable="true">Sound ID</th>
+                                        <th data-field="sound_id" data-editable="true">Suara Indonesia</th>
                                         <th data-field="tulisan_en" data-editable="true">Tulisan EN</th>
-                                        <th data-field="sound_en" data-editable="true">Sound EN</th>
+                                        <th data-field="sound_en" data-editable="true">Suara English</th>
+                                        
+                                        <th data-field="action">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                
+                                @foreach( $warna as $warna)
+                                    <tr>
+                                        <td></td>
+                                        <td>{{ $warna->id }}</td>
+                                        <td>{{ $warna->nama }}</td>
+                                        <td>{{ $warna->gambar }}</td>
+                                        <td>{{ $warna->tulisan_id }}</td>
+                                        <td>{{ $warna->sound_id }}</td>
+                                        <td>{{ $warna->tulisan_en }}</td>
+                                        <td>{{ $warna->sound_en }}</td>
+                                        <td>
+                                        <a href="/warna/{{$warna->id}}/edit" class="btn-sm btn-primary fa fa-pencil"></a>
+                                            <form action="/warna/{{ $warna->id }}" method="post" class="d-inline">
+                                                @method('delete')
+                                                @csrf
+                                                <button type="submit" class="btn-sm btn-danger fa fa-trash"></button>
+                                            </form>
+                                            </td>
+                                    </tr>
+                                    @endforeach                               
                                 </tbody>
                             </table>
                         </div>
