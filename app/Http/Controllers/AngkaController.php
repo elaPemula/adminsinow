@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Angka;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Uuid;
 
 class AngkaController extends Controller
@@ -112,6 +113,8 @@ class AngkaController extends Controller
         if ($request->hasFile('gambar')) {
             $extension = $request->gambar->extension();
             $filename = Uuid::uuid4() . ".{$extension}";
+            $oldfile = basename($angka->gambar);
+            Storage::delete("belajar/angka/{$oldfile}");
             $request->gambar->storeAs('belajar/angka', $filename);
             $data['gambar'] = asset("/storage/belajar/angka/{$filename}");
         }
@@ -119,6 +122,8 @@ class AngkaController extends Controller
         if ($request->hasFile('sound_id')) {
             $extension = $request->sound_id->extension();
             $filename = Uuid::uuid4() . ".{$extension}";
+            $oldfile = basename($angka->gambar);
+            Storage::delete("belajar/angka/{$oldfile}");
             $request->sound_id->storeAs('belajar/angka', $filename);
             $data['sound_id'] = asset("/storage/belajar/angka/{$filename}");
         }
@@ -126,6 +131,8 @@ class AngkaController extends Controller
         if ($request->hasFile('sound_en')) {
             $extension = $request->sound_en->extension();
             $filename = Uuid::uuid4() . ".{$extension}";
+            $oldfile = basename($angka->gambar);
+            Storage::delete("belajar/angka/{$oldfile}");
             $request->sound_en->storeAs('belajar/angka', $filename);
             $data['sound_en'] = asset("/storage/belajar/angka/{$filename}");
         }
