@@ -133,14 +133,14 @@ class AngkaController extends Controller
         Angka::where('id', $angka->id)
             ->update([
                 'angka' => $request->angka,
-                'gambar' => $request->store($filename),
+                'gambar' => $request->gambar->store($filename),
                 'tulisan' => $request->tulisan,
-                'sound_id' => $request->store($filename),
-                'sound_en' => $request->store($filename),
+                'sound_id' => $request->sound_id->store($filename),
+                'sound_en' => $request->sound_en->store($filename),
                 
             ]);
         
-        return redirect('/menyanyi')->with('status', 'Data Berhasil diupdate');
+        return redirect('/angka')->with('status', 'Data Berhasil diupdate');
     }
 
     /**

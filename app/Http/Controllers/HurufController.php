@@ -94,7 +94,35 @@ class HurufController extends Controller
      */
     public function update(Request $request, Huruf $huruf)
     {
-        //
+        $request->validate([
+            'huruf' => 'required',
+            'gambar' => 'required|image:svg,png,jpg',
+            'sound' => 'required|mimes:mp3',
+            'tipe' => 'required',
+        ]);
+        
+            $data = $request->except(['gambar', 'sound']);
+
+            $filename = strtotime(date('Y-m-d H:i:s'));
+            $extension = $request->gambar->extension();
+            $filename = "{$filename}.{$extension}";
+            $request->gambar->storeAs('belajar/huruf', $filename);
+            $data['gambar'] = asset("/storage/belajar/huruf/{$filename}");
+
+            $filename = strtotime(date('Y-m-d H:i:s'));
+            $extension = $request->sound->extension();
+            $filename = "{$filename}.{$extension}";
+            $request->sound->storeAs('belajar/huruf', $filename);
+            $data['sound'] = asset("/storage/belajar/huruf/{$filename}");
+            
+            Huruf::where('id', $huruf->id)
+            ->update([
+                'huruf' => $request->huruf,
+                'gambar' => $request->gambar->store($filename),
+                'sound' => $request->sound->store($filename),
+                'tipe' => $request->tipe,
+            ]);
+        return redirect('/huruf')->with('status', 'Data Berhasil diupdate!');
     }
 
     /**

@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="basic-login-inner">
-                            <form method="POST" action="/warna">
+                            <form method="POST" action="/warna" enctype="multipart/form-data">
                             @csrf
                                 <div class="form-group-inner">
                                     <label for="nama">Nama Warna</label>
@@ -34,7 +34,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group-inner">
-                                    <label for="keterangan">Tulisan ID</label>
+                                    <label for="tulisan_id">Tulisan ID</label>
                                     <input type="text" name="tulisan_id" class="form-control @error('tulisan_id') is-invalid @enderror" id="tulisan_id" placeholder="Masukkan Tulisan Bahasa Indonesia"  value="{{ old('tulisan_id')}}"/>
                                 </div>
                                 <div class="form-group">
