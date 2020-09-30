@@ -24,3 +24,7 @@ Route::resource('angka', 'AngkaController');
 Route::resource('mewarna', 'MewarnaController');
 Route::resource('warna', 'WarnaController');
 Route::resource('membaca', 'MembacaController');
+
+Route::get('/login', function () {
+    return view('login');
+});

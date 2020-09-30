@@ -88,26 +88,19 @@ class QuizController extends Controller
      */
     public function update(Request $request, Quiz $quiz)
     {
-        $request->validate([
-            'pertanyaan' => 'required',
-            'tipe' => 'required',
-            'opsi_a' => 'required',
-            'opsi_b' => 'required',
-            'opsi_c' => 'required',
-            'opsi_d' => 'required',
-            'jawaban' => 'required',
-        ]);
-        
         $data = $request->except(['pertanyaan']);
 
+        if ($request->hasFile('suara')) {
         $filename = strtotime(date('Y-m-d H:i:s'));
         $extension = $request->pertanyaan->extension();
         $filename = "{$filename}.{$extension}";
         $request->pertanyaan->storeAs('quiz/quiz', $filename);
         $data['pertanyaan'] = asset("/storage/quiz/quiz'/{$filename}");
+        }
+
         Quiz::where('id', $quiz->id)
         ->update([
-            'pertanyaan' => $request->pertanyaan->store($filename),
+            'pertanyaan' => $request->pertanyaan,
             'tipe' => $request->tipe,
             'opsi_a' => $request->opsi_a,
             'opsi_b' => $request->opsi_b,

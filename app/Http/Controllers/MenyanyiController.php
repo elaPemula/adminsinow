@@ -90,12 +90,9 @@ class MenyanyiController extends Controller
      */
     public function update(Request $request, Menyanyi $menyanyi)
     {
-        $request->validate([
-            'judul' => 'required',
-            'suara' => 'required|mimes:mp3',
-            'gambar' => 'required|image:svg,png,jpeg',
-        ]);
             $data = $request->except(['suara', 'gambar']);
+
+            if ($request->hasFile('suara', 'gambar')) {
             $filename = strtotime(date('Y-m-d H:i:s'));
             $extension = $request->suara->extension();
             $filename = "{$filename}.{$extension}";
@@ -107,12 +104,13 @@ class MenyanyiController extends Controller
             $filename = "{$filename}.{$extension}";
             $request->gambar->storeAs('hiburan/menyanyi', $filename);
             $data['gambar'] = asset("/storage/hiburan/menyanyi/{$filename}");
-            
+            }
+
         Menyanyi::where('id', $menyanyi->id)
             ->update([
                 'judul' => $request->judul,
-                'suara' => $request->file('suara')->store($filename),
-                'gambar' => $request->file('gambar')->store($filename),
+                'suara' => $request->suara->storeAs('/storage/hiburan/menyanyi', $filename),
+                'gambar' => $request->gambar->storeAs('/storage/hiburan/menyanyi', $filename),
             ]);
         
             
