@@ -135,11 +135,11 @@ class MembacaController extends Controller
         Membaca::where('id', $membaca->id)
             ->update([
                 'nama' => $request->nama,
-                'gambar' => $request->store($filename),
+                'gambar' => $request->gambar->store($filename),
                 'tulisan_id' => $request->tulisan_id,
-                'sound_id' => $request->store($filename),
+                'sound_id' => $request->sound_id->store($filename),
                 'tulisan_en' => $request->tulisan_en,
-                'sound_en' => $request->store($filename),
+                'sound_en' => $request->sound_en->store($filename),
                 
             ]);
         
