@@ -15,7 +15,7 @@ class QuizController extends Controller
     public function index()
     {
         $quiz = Quiz::all();
-        return view('quiz.readhitung',  compact('quiz'));
+        return view('quiz.readquiz',  compact('quiz'));
     }
 
     /**
@@ -25,7 +25,7 @@ class QuizController extends Controller
      */
     public function create()
     {
-        return view('quiz.createhitung');
+        return view('quiz.createquiz');
     }
 
     /**
@@ -38,14 +38,22 @@ class QuizController extends Controller
     {
         $request->validate([
             'pertanyaan' => 'required',
+            'tipe' => 'required',
             'opsi_a' => 'required',
             'opsi_b' => 'required',
             'opsi_c' => 'required',
             'opsi_d' => 'required',
             'jawaban' => 'required',
         ]);
+        $data = $request->except(['pertanyaan']);
 
-        Quiz::create($request->all());
+            $filename = strtotime(date('Y-m-d H:i:s'));
+            $extension = $request->pertanyaan->extension();
+            $filename = "{$filename}.{$extension}";
+            $request->pertanyaan->storeAs('quiz/quiz', $filename);
+            $data['pertanyaan'] = asset("/storage/quiz/quiz'/{$filename}");
+
+        Quiz::create($data);
         return redirect('/quiz')->with('status', 'Data Berhasil Ditambahkan!');
     }
 
@@ -68,7 +76,7 @@ class QuizController extends Controller
      */
     public function edit(Quiz $quiz)
     {
-        return view('quiz.edithitung', compact('quiz'));
+        return view('quiz.editquiz', compact('quiz'));
     }
 
     /**
@@ -82,6 +90,7 @@ class QuizController extends Controller
     {
         $request->validate([
             'pertanyaan' => 'required',
+            'tipe' => 'required',
             'opsi_a' => 'required',
             'opsi_b' => 'required',
             'opsi_c' => 'required',
@@ -91,6 +100,7 @@ class QuizController extends Controller
         Quiz::where('id', $quiz->id)
         ->update([
             'pertanyaan' => $request->pertanyaan,
+            'tipe' => $request->tipe,
             'opsi_a' => $request->opsi_a,
             'opsi_b' => $request->opsi_b,
             'opsi_c' => $request->opsi_c,

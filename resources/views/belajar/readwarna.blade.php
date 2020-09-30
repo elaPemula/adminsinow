@@ -45,26 +45,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach( $warna as $warna)
-                                    <tr>
-                                        <td></td>
-                                        <td>{{ $warna->id }}</td>
-                                        <td>{{ $warna->nama }}</td>
-                                        <td>{{ $warna->gambar }}</td>
-                                        <td>{{ $warna->tulisan_id }}</td>
-                                        <td>{{ $warna->sound_id }}</td>
-                                        <td>{{ $warna->tulisan_en }}</td>
-                                        <td>{{ $warna->sound_en }}</td>
-                                        <td>
-                                        <a href="/warna/{{$warna->id}}/edit" class="btn-sm btn-primary fa fa-pencil"></a>
-                                            <form action="/warna/{{ $warna->id }}" method="post" class="d-inline">
-                                                @method('delete')
-                                                @csrf
-                                                <button type="submit" class="btn-sm btn-danger fa fa-trash"></button>
-                                            </form>
-                                            </td>
-                                    </tr>
-                                    @endforeach 
+                                
                                 </tbody>
                             </table>
                         </div>

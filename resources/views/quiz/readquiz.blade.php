@@ -37,6 +37,7 @@
                                         <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="id">ID</th>
                                         <th data-field="name" data-editable="true">Pertanyaan</th>
+                                        <th data-field="tipe" data-editable="true">Tipe</th>
                                         <th data-field="email" data-editable="true">opsi_a</th>
                                         <th data-field="phone" data-editable="true">opsi_b</th>
                                         <th data-field="company" data-editable="true">opsi_c</th>
@@ -51,6 +52,7 @@
                                         <td></td>
                                         <td>{{ $quiz->id }}</td>
                                         <td>{{ $quiz->pertanyaan }}</td>
+                                        <td>{{ $quiz->tipe }}</td>
                                         <td>{{ $quiz->opsi_a }}</td>
                                         <td>{{ $quiz->opsi_b }}</td>
                                         <td>{{ $quiz->opsi_c }}</td>

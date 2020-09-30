@@ -16,6 +16,7 @@ class CreateQuizTable extends Migration
         Schema::create('quiz', function (Blueprint $table) {
             $table->id();
             $table->string('pertanyaan');
+            $table->enum('tipe', ['membaca', 'menghitung']);
             $table->string('opsi_a');
             $table->string('opsi_b');
             $table->string('opsi_c');
