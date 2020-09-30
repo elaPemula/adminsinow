@@ -12,9 +12,9 @@
                 <div class="sparkline13-list shadow-reset">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
-                            <h1>Data <span class="table-project-n">Gambar</span> Membaca</h1>
+                            <h1>Data <span class="table-project-n">Belajar</span> Membaca</h1>
                             <div class="sparkline13-outline-icon">
-                                <a href="/y" class="btn-xs btn-success fa fa-plus"></a>
+                                <a href="/membaca/create" class="btn-xs btn-success fa fa-plus"></a>
                                 <span class="sparkline13-collapse-link"><i class="fa fa-chevron-up"></i></span>
                                 <span><i class="fa fa-wrench"></i></span>
                                 <span class="sparkline13-collapse-close"><i class="fa fa-times"></i></span>
@@ -36,18 +36,39 @@
                                     <tr>
                                         <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="id">ID</th>
-                                        <th data-field="name" data-editable="true">Nama </th>
-                                        <th data-field="tipe" data-editable="true">Tipe </th>
-                                        <th data-field="email" data-editable="true">Gambar</th>
-                                        <th data-field="tulisanid" data-editable="true">Tulisan ID</th>
-                                        <th data-field="soundid" data-editable="true">Sound ID</th>
-                                        <th data-field="tulisanen" data-editable="true">Tulisan EN</th>
-                                        <th data-field="sounden" data-editable="true">Sound EN</th>
+                                        <th data-field="nama" data-editable="true">Nama</th>
+                                        <th data-field="tipe" data-editable="true">Tipe</th>
+                                        <th data-field="gambar" data-editable="true">Gambar</th>
+                                        <th data-field="tulisan_id" data-editable="true">Tulisan ID</th>
+                                        <th data-field="sound_id" data-editable="true">Suara Indonesia</th>
+                                        <th data-field="tulisan_en" data-editable="true">Tulisan EN</th>
+                                        <th data-field="sound_en" data-editable="true">Suara English</th>
+                                        
+                                        <th data-field="action">Action</th>
                                     </tr>
                                 </thead>
-
                                 <tbody>
-                                
+                                @foreach( $membaca as $membaca)
+                                    <tr>
+                                        <td></td>
+                                        <td>{{ $membaca->id }}</td>
+                                        <td>{{ $membaca->nama }}</td>
+                                        <td>{{ $membaca->tipe }}</td>
+                                        <td>{{ $membaca->gambar }}</td>
+                                        <td>{{ $membaca->tulisan_id }}</td>
+                                        <td>{{ $membaca->sound_id }}</td>
+                                        <td>{{ $membaca->tulisan_en }}</td>
+                                        <td>{{ $membaca->sound_en }}</td>
+                                        <td>
+                                        <a href="/membaca/{{$membaca->id}}/edit" class="btn-sm btn-primary fa fa-pencil"></a>
+                                            <form action="/membaca/{{ $membaca->id }}" method="post" class="d-inline">
+                                                @method('delete')
+                                                @csrf
+                                                <button type="submit" class="btn-sm btn-danger fa fa-trash"></button>
+                                            </form>
+                                            </td>
+                                    </tr>
+                                    @endforeach                               
                                 </tbody>
                             </table>
                         </div>
