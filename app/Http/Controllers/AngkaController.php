@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Angka;
 use Illuminate\Http\Request;
+use Ramsey\Uuid\Uuid;
 
 class AngkaController extends Controller
 {
@@ -15,7 +16,7 @@ class AngkaController extends Controller
     public function index()
     {
         $angka = Angka::all();
-        return view('belajar.readangka',  compact('angka'));
+        return view('belajar.readangka', compact('angka'));
     }
 
     /**
@@ -37,7 +38,7 @@ class AngkaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'angka' => 'required',
+            'angka' => 'required|numeric',
             'gambar' => 'required|image:svg,png,jpg',
             'tulisan' => 'required',
             'sound_id' => 'required|mimes:mp3',
@@ -45,26 +46,22 @@ class AngkaController extends Controller
             'tipe' => 'required',
         ]);
 
-            $data = $request->except(['gambar', 'sound_id', 'sound_en']);
+        $data = $request->except(['gambar', 'sound_id', 'sound_en']);
 
-            $filename = strtotime(date('Y-m-d H:i:s'));
-            $extension = $request->gambar->extension();
-            $filename = "{$filename}.{$extension}";
-            $request->gambar->storeAs('belajar/angka', $filename);
-            $data['gambar'] = asset("/storage/belajar/angka/{$filename}");
+        $extension = $request->gambar->extension();
+        $filename = Uuid::uuid4() . ".{$extension}";
+        $request->gambar->storeAs('belajar/angka', $filename);
+        $data['gambar'] = asset("/storage/public/belajar/angka/{$filename}");
 
-            $filename = strtotime(date('Y-m-d H:i:s'));
-            $extension = $request->sound_id->extension();
-            $filename = "{$filename}.{$extension}";
-            $request->sound_id->storeAs('belajar/angka', $filename);
-            $data['sound_id'] = asset("/storage/belajar/angka/{$filename}");
-            
-            $filename = strtotime(date('Y-m-d H:i:s'));
-            $extension = $request->sound_en->extension();
-            $filename = "{$filename}.{$extension}";
-            $request->sound_en->storeAs('belajar/angka', $filename);
-            $data['sound_en'] = asset("/storage/belajar/angka/{$filename}");
+        $extension = $request->sound_id->extension();
+        $filename = Uuid::uuid4() . ".{$extension}";
+        $request->sound_id->storeAs('belajar/angka', $filename);
+        $data['sound_id'] = asset("/storage/public/belajar/angka/{$filename}");
 
+        $extension = $request->sound_en->extension();
+        $filename = Uuid::uuid4() . ".{$extension}";
+        $request->sound_en->storeAs('belajar/angka', $filename);
+        $data['sound_en'] = asset("/storage/public/belajar/angka/{$filename}");
 
         Angka::create($data);
         return redirect('/angka')->with('status', 'Data Berhasil Ditambahkan!');
@@ -103,43 +100,39 @@ class AngkaController extends Controller
     {
         $request->validate([
             'angka' => 'required',
-            'gambar' => 'required|image:svg,png,jpg',
+            'gambar' => 'image:svg,png,jpg',
             'tulisan' => 'required',
-            'sound_id' => 'required|mimes:mp3',
-            'sound_en' => 'required|mimes:mp3',
+            'sound_id' => 'mimes:mp3',
+            'sound_en' => 'mimes:mp3',
             'tipe' => 'required',
         ]);
 
-            $data = $request->except(['gambar', 'sound_id', 'sound_en']);
+        $data = $request->except(['gambar', 'sound_id', 'sound_en']);
 
-            $filename = strtotime(date('Y-m-d H:i:s'));
+        if ($request->hasFile('gambar')) {
             $extension = $request->gambar->extension();
-            $filename = "{$filename}.{$extension}";
+            $filename = Uuid::uuid4() . ".{$extension}";
             $request->gambar->storeAs('belajar/angka', $filename);
             $data['gambar'] = asset("/storage/belajar/angka/{$filename}");
+        }
 
-            $filename = strtotime(date('Y-m-d H:i:s'));
+        if ($request->hasFile('sound_id')) {
             $extension = $request->sound_id->extension();
-            $filename = "{$filename}.{$extension}";
+            $filename = Uuid::uuid4() . ".{$extension}";
             $request->sound_id->storeAs('belajar/angka', $filename);
             $data['sound_id'] = asset("/storage/belajar/angka/{$filename}");
-            
-            $filename = strtotime(date('Y-m-d H:i:s'));
+        }
+
+        if ($request->hasFile('sound_en')) {
             $extension = $request->sound_en->extension();
-            $filename = "{$filename}.{$extension}";
+            $filename = Uuid::uuid4() . ".{$extension}";
             $request->sound_en->storeAs('belajar/angka', $filename);
             $data['sound_en'] = asset("/storage/belajar/angka/{$filename}");
+        }
 
-        Angka::where('id', $angka->id)
-            ->update([
-                'angka' => $request->angka,
-                'gambar' => $request->gambar->store($filename),
-                'tulisan' => $request->tulisan,
-                'sound_id' => $request->sound_id->store($filename),
-                'sound_en' => $request->sound_en->store($filename),
-                
-            ]);
-        
+        $angka->fill($data);
+        $angka->save();
+
         return redirect('/angka')->with('status', 'Data Berhasil diupdate');
     }
 
