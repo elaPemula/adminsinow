@@ -21,49 +21,51 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="basic-login-inner">
-
-                            <form method="POST" action="/membaca" enctype="multipart/form-data" >
-
+                            <form method="POST" action="/membaca" enctype="multipart/form-data">
                             @csrf
                                 <div class="form-group-inner">
-                                    <label for="keterangan">Nama </label>
-                                    <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" placeholder="Masukkan Nama Hewan, Buah atau Sayur" name="pertanyaan" value="{{ old('pertanyaan')}}"/>
-                                    <div class="col-lg-12">
+                                    <label for="membaca">Nama</label>
+                                    <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Masukkan Nama" name="nama" value="{{ old('nama')}}"/>
+                                </div>
+                                <div class="form-group-inner">
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <label for="tipe" class="login2 pull-left pull-left-pro">Tipe</label>
+                                        </div>
+                                        <div class="col-lg-12">
                                             <div class="form-select-list">
-                                            <label for="keterangan">Tipe </label>
-                                                <select type="text" class="form-control custom-select-value  @error('tipe') is-invalid @enderror" name="tipe" value="{{ old('tipe')}}">
+                                                <select id="tipe" type="text" class="form-control custom-select-value @error('tipe') is-invalid @enderror" name="tipe" value="{{ old('tipe')}}">
                                                     <option>Hewan</option>
                                                     <option>Buah dan Sayur</option>
                                                 </select>
                                             </div>
                                         </div>
-                                
+                                    </div>
                                 </div>
-                                
                                 <div class="form-group">
-                                    <label class="control-label">Gambar</label>
+                                    <label for="gambar"  class="control-label">Gambar</label>
                                     <div>
-                                        <input type="file" class="form-control" placeholder="Document File..." data-validate="required">
+                                        <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ old('gambar')}}">
                                     </div>
                                 </div>
                                 <div class="form-group-inner">
-                                    <label for="keterangan">Tulisan ID</label>
-                                    <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" placeholder="Masukkan Tulisan Bahasa Indonesia" name="pertanyaan" value="{{ old('pertanyaan')}}"/>
+                                    <label for="tulisan_id">Tulisan ID</label>
+                                    <input type="text" name="tulisan_id" id="tulisan_id" class="form-control @error('tulisan_id') is-invalid @enderror" id="tulisan_id" placeholder="Masukkan Tulisan Bahasa Indonesia" name="tulisan_id" value="{{ old('tulisan_id')}}"/>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">Sound ID</label>
+                                    <label for="sound_id" class="control-label">Sound ID</label>
                                     <div>
-                                        <input type="file" class="form-control" placeholder="Document File..." data-validate="required">
+                                        <input type="file" name="sound_id" id="sound_id" class="form-control" placeholder="Document File..." value="{{ old('sound_id')}}">
                                     </div>
                                 </div>
                                 <div class="form-group-inner">
-                                    <label for="keterangan">Tulisan EN</label>
-                                    <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" placeholder="Masukkan Tulisan Bahasa Inggris" name="pertanyaan" value="{{ old('pertanyaan')}}"/>
+                                    <label for="tulisan_en">Tulisan EN</label>
+                                    <input type="text" name="tulisan_en" id="tulisan_en" class="form-control @error('tulisan_en') is-invalid @enderror" id="tulisan_en" placeholder="Masukkan Tulisan Bahasa Indonesia" name="tulisan_en" value="{{ old('tulisan_en')}}"/>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">Sound EN</label>
+                                    <label for="sound_en" class="control-label">Sound EN</label>
                                     <div>
-                                        <input type="file" class="form-control" placeholder="Document File..." data-validate="required">
+                                        <input type="file" name="sound_en" id="sound_en" class="form-control" placeholder="Document File..." value="{{ old('sound_en')}}">
                                     </div>
                                 </div>
                                 <div class="login-btn-inner">

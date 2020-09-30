@@ -7,7 +7,7 @@
     <div class="sparkline12-list shadow-reset mg-t-3">
         <div class="sparkline12-hd">
             <div class="main-sparkline12-hd">
-                <h1>Input Data Mewarna</h1>
+                <h1>Edit Data Mewarna</h1>
                 <div class="sparkline8-outline-icon">
                     <span class="sparkline8-collapse-link"><i class="fa fa-chevron-up"></i></span>
                     <span><i class="fa fa-wrench"></i></span>
@@ -17,23 +17,15 @@
         </div>
         <div class="sparkline8-graph">
             <div class="basic-login-form-ad">
-                @if ($errors->any())
-                    <div class="alert alert-danger pull-left">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="basic-login-inner">
-                            <form method="POST" action="/mewarna" enctype="multipart/form-data">
+                            <form method="POST" action="/mewarna/{{ $mewarna->id }}" enctype="multipart/form-data">
+                            @method('patch')
                             @csrf
-                            <div class="form-group-inner  @error('keterangan') input-with-error @enderror ">
+                            <div class="form-group-inner">
                                 <label for="keterangan">Keterangan</label>
-                                <input type="text" class="form-control" id="keterangan" placeholder="Masukkan keterangan" name="keterangan" value="{{ old('keterangan')}}"/>
+                                <input type="text" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" placeholder="Masukkan keterangan" name="keterangan" value="{{ $mewarna->keterangan}}"/>
                             </div>
                             <div class="row">
                             <div class="login-btn-inner">
@@ -41,11 +33,12 @@
                         </div>
                     </div>
                 </div>
+                
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="form-group">
                             <label class="pull-left" for="gambar">Gambar</label>
                             <div>
-                                <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ old('gambar')}}">
+                                <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ $mewarna->gambar}}"/>
                             </div>
                         </div>
                             <div class="inline-remember-me">
