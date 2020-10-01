@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Mewarna;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Ramsey\Uuid\Uuid;
 
 class MewarnaController extends Controller
 {
@@ -42,12 +44,12 @@ class MewarnaController extends Controller
         ]);
             
             
-            $data = $request->except(['gambar']);
-            $filename = strtotime(date('Y-m-d H:i:s'));
-            $extension = $request->gambar->extension();
-            $filename = "{$filename}.{$extension}";
-            $request->gambar->storeAs('hiburan/mewarna', $filename);
-            $data['gambar'] = asset("/storage/hiburan/mewarna/{$filename}");
+        $data = $request->except(['gambar']);
+
+        $extension = $request->gambar->extension();
+        $filename = Uuid::uuid4() . ".{$extension}";
+        $request->gambar->storeAs('hiburan/mewarna', $filename);
+        $data['gambar'] = asset("/storage/public/hiburan/mewarna/{$filename}");
 
         Mewarna::create($data);
         return redirect('/mewarna')->with('status', 'Data Berhasil Ditambahkan!');
@@ -86,25 +88,23 @@ class MewarnaController extends Controller
     {
         $request->validate([
             'keterangan' => 'required',
-            'gambar' => 'required|image:svg,png,jpeg',
+            'gambar' => 'image:svg,png,jpg',
         ]);
-            
-            $data = $request->except(['gambar']);
-            $filename = strtotime(date('Y-m-d H:i:s'));
+
+        $data = $request->except(['gambar']);
+
+        if ($request->hasFile('gambar')) {
             $extension = $request->gambar->extension();
-            $filename = "{$filename}.{$extension}";
+            $filename = Uuid::uuid4() . ".{$extension}";
+            $oldfile = basename($mewarna->gambar);
+            Storage::delete("hiburan/mewarna/{$oldfile}");
             $request->gambar->storeAs('hiburan/mewarna', $filename);
             $data['gambar'] = asset("/storage/hiburan/mewarna/{$filename}");
-            
-        Mewarna::where('id', $mewarna->id)
-            ->update([
-                'keterangan' => $request->keterangan,
-                'gambar' => $request->gambar->store($filename),
-            ]);
-        
-            
-            
-         return redirect('/mewarna')->with('status', 'Data Berhasil diupdate');
+        }
+        $mewarna->fill($data);
+        $mewarna->save();
+
+        return redirect('/mewarna')->with('status', 'Data Berhasil diupdate');
     }
 
     /**

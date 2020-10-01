@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Membaca;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Ramsey\Uuid\Uuid;
 
 class MembacaController extends Controller
 {
@@ -46,26 +48,22 @@ class MembacaController extends Controller
             'tipe' => 'required',
         ]);
 
-            $data = $request->except(['gambar', 'sound_id', 'sound_en']);
+        $data = $request->except(['gambar', 'sound_id', 'sound_en']);
 
-            $filename = strtotime(date('Y-m-d H:i:s'));
-            $extension = $request->gambar->extension();
-            $filename = "{$filename}.{$extension}";
-            $request->gambar->storeAs('belajar/membaca', $filename);
-            $data['gambar'] = asset("/storage/belajar/membaca/{$filename}");
+        $extension = $request->gambar->extension();
+        $filename = Uuid::uuid4() . ".{$extension}";
+        $request->gambar->storeAs('belajar/membaca', $filename);
+        $data['gambar'] = asset("/storage/public/belajar/membaca/{$filename}");
 
-            $filename = strtotime(date('Y-m-d H:i:s'));
-            $extension = $request->sound_id->extension();
-            $filename = "{$filename}.{$extension}";
-            $request->sound_id->storeAs('belajar/membaca', $filename);
-            $data['sound_id'] = asset("/storage/belajar/membaca/{$filename}");
-            
-            $filename = strtotime(date('Y-m-d H:i:s'));
-            $extension = $request->sound_en->extension();
-            $filename = "{$filename}.{$extension}";
-            $request->sound_en->storeAs('belajar/membaca', $filename);
-            $data['sound_en'] = asset("/storage/belajar/membaca/{$filename}");
+        $extension = $request->sound_id->extension();
+        $filename = Uuid::uuid4() . ".{$extension}";
+        $request->sound_id->storeAs('belajar/membaca', $filename);
+        $data['sound_id'] = asset("/storage/public/belajar/membaca/{$filename}");
 
+        $extension = $request->sound_en->extension();
+        $filename = Uuid::uuid4() . ".{$extension}";
+        $request->sound_en->storeAs('belajar/membaca', $filename);
+        $data['sound_en'] = asset("/storage/public/belajar/membaca/{$filename}");
 
         Membaca::create($data);
         return redirect('/membaca')->with('status', 'Data Berhasil Ditambahkan!');
@@ -112,37 +110,38 @@ class MembacaController extends Controller
             'tipe' => 'required',
         ]);
 
-            $data = $request->except(['gambar', 'sound_id', 'sound_en']);
+        $data = $request->except(['gambar', 'sound_id', 'sound_en']);
 
-            $filename = strtotime(date('Y-m-d H:i:s'));
+        if ($request->hasFile('gambar')) {
             $extension = $request->gambar->extension();
-            $filename = "{$filename}.{$extension}";
+            $filename = Uuid::uuid4() . ".{$extension}";
+            $oldfile = basename($membaca->gambar);
+            Storage::delete("belajar/membaca/{$oldfile}");
             $request->gambar->storeAs('belajar/membaca', $filename);
             $data['gambar'] = asset("/storage/belajar/membaca/{$filename}");
+        }
 
-            $filename = strtotime(date('Y-m-d H:i:s'));
+        if ($request->hasFile('sound_id')) {
             $extension = $request->sound_id->extension();
-            $filename = "{$filename}.{$extension}";
+            $filename = Uuid::uuid4() . ".{$extension}";
+            $oldfile = basename($membaca->gambar);
+            Storage::delete("belajar/membaca/{$oldfile}");
             $request->sound_id->storeAs('belajar/membaca', $filename);
             $data['sound_id'] = asset("/storage/belajar/membaca/{$filename}");
-            
-            $filename = strtotime(date('Y-m-d H:i:s'));
+        }
+
+        if ($request->hasFile('sound_en')) {
             $extension = $request->sound_en->extension();
-            $filename = "{$filename}.{$extension}";
+            $filename = Uuid::uuid4() . ".{$extension}";
+            $oldfile = basename($membaca->gambar);
+            Storage::delete("belajar/membaca/{$oldfile}");
             $request->sound_en->storeAs('belajar/membaca', $filename);
             $data['sound_en'] = asset("/storage/belajar/membaca/{$filename}");
+        }
 
-        Membaca::where('id', $membaca->id)
-            ->update([
-                'nama' => $request->nama,
-                'gambar' => $request->gambar->store($filename),
-                'tulisan_id' => $request->tulisan_id,
-                'sound_id' => $request->sound_id->store($filename),
-                'tulisan_en' => $request->tulisan_en,
-                'sound_en' => $request->sound_en->store($filename),
-                
-            ]);
-        
+        $membaca->fill($data);
+        $membaca->save();
+
         return redirect('/membaca')->with('status', 'Data Berhasil diupdate');
     }
 

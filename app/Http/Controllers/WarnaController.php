@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Warna;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Ramsey\Uuid\Uuid;
 
 class WarnaController extends Controller
 {
@@ -45,30 +47,25 @@ class WarnaController extends Controller
             'sound_en' => 'required|mimes:mp3',
         ]);
 
-            $data = $request->except(['gambar', 'sound_id', 'sound_en']);
+        $data = $request->except(['gambar', 'sound_id', 'sound_en']);
 
-            $filename = strtotime(date('Y-m-d H:i:s'));
-            $extension = $request->gambar->extension();
-            $filename = "{$filename}.{$extension}";
-            $request->gambar->storeAs('belajar/warna', $filename);
-            $data['gambar'] = asset("/storage/belajar/warna/{$filename}");
+        $extension = $request->gambar->extension();
+        $filename = Uuid::uuid4() . ".{$extension}";
+        $request->gambar->storeAs('belajar/warna', $filename);
+        $data['gambar'] = asset("/storage/public/belajar/warna/{$filename}");
 
-            $filename = strtotime(date('Y-m-d H:i:s'));
-            $extension = $request->sound_id->extension();
-            $filename = "{$filename}.{$extension}";
-            $request->sound_id->storeAs('belajar/warna', $filename);
-            $data['sound_id'] = asset("/storage/belajar/warna/{$filename}");
-            
-            $filename = strtotime(date('Y-m-d H:i:s'));
-            $extension = $request->sound_en->extension();
-            $filename = "{$filename}.{$extension}";
-            $request->sound_en->storeAs('belajar/warna', $filename);
-            $data['sound_en'] = asset("/storage/belajar/warna/{$filename}");
+        $extension = $request->sound_id->extension();
+        $filename = Uuid::uuid4() . ".{$extension}";
+        $request->sound_id->storeAs('belajar/warna', $filename);
+        $data['sound_id'] = asset("/storage/public/belajar/warna/{$filename}");
 
+        $extension = $request->sound_en->extension();
+        $filename = Uuid::uuid4() . ".{$extension}";
+        $request->sound_en->storeAs('belajar/warna', $filename);
+        $data['sound_en'] = asset("/storage/public/belajar/warna/{$filename}");
 
         Warna::create($data);
         return redirect('/warna')->with('status', 'Data Berhasil Ditambahkan!');
-   
     }
 
     /**
@@ -111,37 +108,38 @@ class WarnaController extends Controller
             'sound_en' => 'required|mimes:mp3',
         ]);
 
-            $data = $request->except(['gambar', 'sound_id', 'sound_en']);
+        $data = $request->except(['gambar', 'sound_id', 'sound_en']);
 
-            $filename = strtotime(date('Y-m-d H:i:s'));
+        if ($request->hasFile('gambar')) {
             $extension = $request->gambar->extension();
-            $filename = "{$filename}.{$extension}";
+            $filename = Uuid::uuid4() . ".{$extension}";
+            $oldfile = basename($warna->gambar);
+            Storage::delete("belajar/warna/{$oldfile}");
             $request->gambar->storeAs('belajar/warna', $filename);
             $data['gambar'] = asset("/storage/belajar/warna/{$filename}");
+        }
 
-            $filename = strtotime(date('Y-m-d H:i:s'));
+        if ($request->hasFile('sound_id')) {
             $extension = $request->sound_id->extension();
-            $filename = "{$filename}.{$extension}";
+            $filename = Uuid::uuid4() . ".{$extension}";
+            $oldfile = basename($warna->gambar);
+            Storage::delete("belajar/warna/{$oldfile}");
             $request->sound_id->storeAs('belajar/warna', $filename);
             $data['sound_id'] = asset("/storage/belajar/warna/{$filename}");
-            
-            $filename = strtotime(date('Y-m-d H:i:s'));
+        }
+
+        if ($request->hasFile('sound_en')) {
             $extension = $request->sound_en->extension();
-            $filename = "{$filename}.{$extension}";
+            $filename = Uuid::uuid4() . ".{$extension}";
+            $oldfile = basename($warna->gambar);
+            Storage::delete("belajar/warna/{$oldfile}");
             $request->sound_en->storeAs('belajar/warna', $filename);
             $data['sound_en'] = asset("/storage/belajar/warna/{$filename}");
+        }
 
-        Warna::where('id', $warna->id)
-            ->update([
-                'nama' => $request->nama,
-                'gambar' => $request->gambar->store($filename),
-                'tulisan_id' => $request->tulisan_id,
-                'sound_id' => $request->sound_id->store($filename),
-                'tulisan_en' => $request->tulisan_en,
-                'sound_en' => $request->sound_en->store($filename),
-                
-            ]);
-        
+        $warna->fill($data);
+        $warna->save();
+
         return redirect('/warna')->with('status', 'Data Berhasil diupdate');
     }
 
