@@ -37,8 +37,8 @@
                                         <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="id">ID</th>
                                         <th data-field="name" data-editable="true">Judul</th>
-                                        <th data-field="email" data-editable="true">Suara</th>
-                                        <th data-field="phone" data-editable="true">Gambar</th>
+                                        <th data-field="email" >Suara</th>
+                                        <th data-field="phone" >Gambar</th>
                                         <th data-field="action">Action</th>
                                     </tr>
                                 </thead>
@@ -49,8 +49,7 @@
                                         <td>{{ $menyanyi->id }}</td>
                                         <td>{{ $menyanyi->judul }}</td>
                                         <td>{{ $menyanyi->suara }}</td>
-                                        <td>{{ $menyanyi->gambar }}</td>
-                                        </td>
+                                        <td><img src="{{ asset($menyanyi->gambar) }}" width="500"></td>
                                         <td>
                                         <a href="/menyanyi/{{ $menyanyi->id }}/edit" class="btn-sm btn-primary fa fa-pencil"></a>
                                             <form action="/menyanyi/{{ $menyanyi->id }}" method="post" class="d-inline">
