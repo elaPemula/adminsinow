@@ -43,6 +43,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                
                                 @foreach ($menyanyi as $menyanyi)
                                     <tr>
                                         <td></td>
