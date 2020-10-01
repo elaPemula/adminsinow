@@ -37,7 +37,7 @@
                                         <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="id">ID</th>
                                         <th data-field="keterangan" data-editable="true">keterangan</th>
-                                        <th data-field="gambar" data-editable="true">Gambar</th>
+                                        <th data-field="gambar">Gambar</th>
                                         <th data-field="action">Action</th>
                                     </tr>
                                 </thead>
@@ -47,7 +47,7 @@
                                         <td></td>
                                         <td>{{ $mewarna->id }}</td>
                                         <td>{{ $mewarna->keterangan }}</td>
-                                        <td>{{ $mewarna->gambar }}</td>
+                                        <td><img src="{{ asset ($mewarna->gambar) }}" width="100"></td>
                                         </td>
                                         <td>
                                         <a href="/mewarna/{{ $mewarna->id }}/edit" class="btn-sm btn-primary fa fa-pencil"></a>

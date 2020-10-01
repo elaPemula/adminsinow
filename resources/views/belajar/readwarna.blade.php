@@ -37,11 +37,11 @@
                                         <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="id">ID</th>
                                         <th data-field="nama" data-editable="true">Nama</th>
-                                        <th data-field="gambar" data-editable="true">Gambar</th>
+                                        <th data-field="gambar">Gambar</th>
                                         <th data-field="tulisan_id" data-editable="true">Tulisan ID</th>
-                                        <th data-field="sound_id" data-editable="true">Suara Indonesia</th>
+                                        <th data-field="sound_id">Suara Indonesia</th>
                                         <th data-field="tulisan_en" data-editable="true">Tulisan EN</th>
-                                        <th data-field="sound_en" data-editable="true">Suara English</th>
+                                        <th data-field="sound_en">Suara English</th>
                                         
                                         <th data-field="action">Action</th>
                                     </tr>
@@ -52,11 +52,11 @@
                                         <td></td>
                                         <td>{{ $warna->id }}</td>
                                         <td>{{ $warna->nama }}</td>
-                                        <td>{{ $warna->gambar }}</td>
+                                        <td><img src="{{ asset ($warna->gambar) }}" width="100"></td>
                                         <td>{{ $warna->tulisan_id }}</td>
-                                        <td>{{ $warna->sound_id }}</td>
+                                        <td><audio controls src="{{ $warna->sound_id }}"></td>
                                         <td>{{ $warna->tulisan_en }}</td>
-                                        <td>{{ $warna->sound_en }}</td>
+                                        <td><audio controls src="{{ $warna->sound_en }}"></td>
                                         <td>
                                         <a href="/warna/{{$warna->id}}/edit" class="btn-sm btn-primary fa fa-pencil"></a>
                                             <form action="/warna/{{ $warna->id }}" method="post" class="d-inline">
