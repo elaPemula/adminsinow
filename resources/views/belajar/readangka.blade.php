@@ -38,10 +38,10 @@
                                         <th data-field="id">ID</th>
                                         <th data-field="angka" data-editable="true">Angka</th>
                                         <th data-field="tipe" data-editable="true">Tipe</th>
-                                        <th data-field="gambar" data-editable="true">Gambar</th>
+                                        <th data-field="gambar">Gambar</th>
                                         <th data-field="tulisan" data-editable="true">Tulisan</th>
-                                        <th data-field="sound_id" data-editable="true">Suara Indonesia</th>
-                                        <th data-field="sound_en" data-editable="true">Suara English</th>
+                                        <th data-field="sound_id">Suara Indonesia</th>
+                                        <th data-field="sound_en">Suara English</th>
                                         
                                         <th data-field="action">Action</th>
                                     </tr>
@@ -53,10 +53,10 @@
                                         <td>{{ $angka->id }}</td>
                                         <td>{{ $angka->angka }}</td>
                                         <td>{{ $angka->tipe }}</td>
-                                        <td>{{ $angka->gambar }}</td>
+                                        <td><img src="{{ asset ($angka->gambar) }}" width="100"></td>
                                         <td>{{ $angka->tulisan }}</td>
-                                        <td>{{ $angka->sound_id }}</td>
-                                        <td>{{ $angka->sound_en }}</td>
+                                        <td><audio controls src="{{ $angka->sound_id }}"></td>
+                                        <td><audio controls src="{{ $angka->sound_en }}" type="audio/mpeg"></td>
                                         <td>
                                         <a href="/angka/{{$angka->id}}/edit" class="btn-sm btn-primary fa fa-pencil"></a>
                                             <form action="/angka/{{ $angka->id }}" method="post" class="d-inline">

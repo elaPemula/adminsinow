@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Quiz;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Ramsey\Uuid\Uuid;
 
 class QuizController extends Controller
 {
@@ -47,11 +49,10 @@ class QuizController extends Controller
         ]);
         $data = $request->except(['pertanyaan']);
 
-            $filename = strtotime(date('Y-m-d H:i:s'));
-            $extension = $request->pertanyaan->extension();
-            $filename = "{$filename}.{$extension}";
-            $request->pertanyaan->storeAs('quiz/quiz', $filename);
-            $data['pertanyaan'] = asset("/storage/quiz/quiz'/{$filename}");
+        $extension = $request->pertanyaan->extension();
+        $filename = Uuid::uuid4() . ".{$extension}";
+        $request->pertanyaan->storeAs('quiz/quiz', $filename);
+        $data['pertanyaan'] = asset("/storage/public/quiz/quiz/{$filename}");
 
         Quiz::create($data);
         return redirect('/quiz')->with('status', 'Data Berhasil Ditambahkan!');
@@ -89,7 +90,7 @@ class QuizController extends Controller
     public function update(Request $request, Quiz $quiz)
     {
         $request->validate([
-            'pertanyaan' => 'required',
+            'pertanyaan' => '',
             'tipe' => 'required',
             'opsi_a' => 'required',
             'opsi_b' => 'required',
@@ -97,24 +98,19 @@ class QuizController extends Controller
             'opsi_d' => 'required',
             'jawaban' => 'required',
         ]);
-        
         $data = $request->except(['pertanyaan']);
-
-        $filename = strtotime(date('Y-m-d H:i:s'));
+        
+        if ($request->hasFile('pertanyaan')) {
         $extension = $request->pertanyaan->extension();
-        $filename = "{$filename}.{$extension}";
+        $filename = Uuid::uuid4() . ".{$extension}";
+        $oldfile = basename($quiz->gambar);
+        Storage::delete("belajar/quiz/{$oldfile}");
         $request->pertanyaan->storeAs('quiz/quiz', $filename);
-        $data['pertanyaan'] = asset("/storage/quiz/quiz'/{$filename}");
-        Quiz::where('id', $quiz->id)
-        ->update([
-            'pertanyaan' => $request->pertanyaan->store($filename),
-            'tipe' => $request->tipe,
-            'opsi_a' => $request->opsi_a,
-            'opsi_b' => $request->opsi_b,
-            'opsi_c' => $request->opsi_c,
-            'opsi_d' => $request->opsi_d,
-            'jawaban' => $request->jawaban,
-        ]);
+        $data['pertanyaan'] = asset("/storage/public/quiz/quiz/{$filename}");
+        }
+
+        $quiz->fill($data);
+        $quiz->save();
         return redirect('/quiz')->with('status', 'Data Berhasil diupdate');
     }
 

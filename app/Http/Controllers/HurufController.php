@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Huruf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Ramsey\Uuid\Uuid;
 
 class HurufController extends Controller
 {
@@ -42,22 +44,18 @@ class HurufController extends Controller
             'sound' => 'required|mimes:mp3',
             'tipe' => 'required',
         ]);
-        
-            $data = $request->except(['gambar', 'sound']);
 
-            $filename = strtotime(date('Y-m-d H:i:s'));
-            $extension = $request->gambar->extension();
-            $filename = "{$filename}.{$extension}";
-            $request->gambar->storeAs('belajar/huruf', $filename);
-            $data['gambar'] = asset("/storage/belajar/huruf/{$filename}");
+        $data = $request->except(['gambar', 'sound']);
 
-            $filename = strtotime(date('Y-m-d H:i:s'));
-            $extension = $request->sound->extension();
-            $filename = "{$filename}.{$extension}";
-            $request->sound->storeAs('belajar/huruf', $filename);
-            $data['sound'] = asset("/storage/belajar/huruf/{$filename}");
-            
-            
+        $extension = $request->gambar->extension();
+        $filename = Uuid::uuid4() . ".{$extension}";
+        $request->gambar->storeAs('belajar/huruf', $filename);
+        $data['gambar'] = asset("/storage/public/belajar/huruf/{$filename}");
+
+        $extension = $request->sound->extension();
+        $filename = Uuid::uuid4() . ".{$extension}";
+        $request->sound->storeAs('belajar/huruf', $filename);
+        $data['sound'] = asset("/storage/public/belajar/huruf/{$filename}");
 
         Huruf::create($data);
         return redirect('/huruf')->with('status', 'Data Berhasil Ditambahkan!');
@@ -96,33 +94,35 @@ class HurufController extends Controller
     {
         $request->validate([
             'huruf' => 'required',
-            'gambar' => 'required|image:svg,png,jpg',
-            'sound' => 'required|mimes:mp3',
+            'gambar' => 'image:svg,png,jpg',
+            'sound' => 'mimes:mp3',
             'tipe' => 'required',
         ]);
-        
-            $data = $request->except(['gambar', 'sound']);
 
-            $filename = strtotime(date('Y-m-d H:i:s'));
+        $data = $request->except(['gambar', 'sound']);
+
+        if ($request->hasFile('gambar')) {
             $extension = $request->gambar->extension();
-            $filename = "{$filename}.{$extension}";
+            $filename = Uuid::uuid4() . ".{$extension}";
+            $oldfile = basename($huruf->gambar);
+            Storage::delete("belajar/huruf/{$oldfile}");
             $request->gambar->storeAs('belajar/huruf', $filename);
             $data['gambar'] = asset("/storage/belajar/huruf/{$filename}");
+        }
 
-            $filename = strtotime(date('Y-m-d H:i:s'));
+        if ($request->hasFile('sound')) {
             $extension = $request->sound->extension();
-            $filename = "{$filename}.{$extension}";
+            $filename = Uuid::uuid4() . ".{$extension}";
+            $oldfile = basename($huruf->gambar);
+            Storage::delete("belajar/huruf/{$oldfile}");
             $request->sound->storeAs('belajar/huruf', $filename);
             $data['sound'] = asset("/storage/belajar/huruf/{$filename}");
-            
-            Huruf::where('id', $huruf->id)
-            ->update([
-                'huruf' => $request->huruf,
-                'gambar' => $request->gambar->store($filename),
-                'sound' => $request->sound->store($filename),
-                'tipe' => $request->tipe,
-            ]);
-        return redirect('/huruf')->with('status', 'Data Berhasil diupdate!');
+        }
+
+        $huruf->fill($data);
+        $huruf->save();
+
+        return redirect('/huruf')->with('status', 'Data Berhasil diupdate');
     }
 
     /**

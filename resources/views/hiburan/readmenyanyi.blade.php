@@ -36,20 +36,21 @@
                                     <tr>
                                         <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="id">ID</th>
-                                        <th data-field="name" data-editable="true">Judul</th>
-                                        <th data-field="email" >Suara</th>
-                                        <th data-field="phone" >Gambar</th>
+                                        <th data-field="judul" data-editable="true">Judul</th>
+                                        <th data-field="suara">Suara</th>
+                                        <th data-field="gambar">Gambar</th>
                                         <th data-field="action">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                
                                 @foreach ($menyanyi as $menyanyi)
                                     <tr>
                                         <td></td>
                                         <td>{{ $menyanyi->id }}</td>
                                         <td>{{ $menyanyi->judul }}</td>
-                                        <td>{{ $menyanyi->suara }}</td>
-                                        <td><img src="{{ asset($menyanyi->gambar) }}" width="500"></td>
+                                        <td><audio controls src="{{ $menyanyi->suara }}"></td>
+                                        <td><img src="{{ asset ($menyanyi->gambar) }}" width="100"></td>
                                         <td>
                                         <a href="/menyanyi/{{ $menyanyi->id }}/edit" class="btn-sm btn-primary fa fa-pencil"></a>
                                             <form action="/menyanyi/{{ $menyanyi->id }}" method="post" class="d-inline">

@@ -54,11 +54,11 @@
                                         <td>{{ $membaca->id }}</td>
                                         <td>{{ $membaca->nama }}</td>
                                         <td>{{ $membaca->tipe }}</td>
-                                        <td>{{ $membaca->gambar }}</td>
+                                        <td><img src="{{ asset ($membaca->gambar) }}" width="100"></td>
                                         <td>{{ $membaca->tulisan_id }}</td>
-                                        <td>{{ $membaca->sound_id }}</td>
+                                        <td><audio controls src="{{ $membaca->sound_id }}"></td>
                                         <td>{{ $membaca->tulisan_en }}</td>
-                                        <td>{{ $membaca->sound_en }}</td>
+                                        <td><audio controls src="{{ $huruf->sound_en }}"></td>
                                         <td>
                                         <a href="/membaca/{{$membaca->id}}/edit" class="btn-sm btn-primary fa fa-pencil"></a>
                                             <form action="/membaca/{{ $membaca->id }}" method="post" class="d-inline">
