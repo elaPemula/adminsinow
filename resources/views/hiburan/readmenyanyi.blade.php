@@ -36,9 +36,9 @@
                                     <tr>
                                         <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="id">ID</th>
-                                        <th data-field="name" data-editable="true">Judul</th>
-                                        <th data-field="email" data-editable="true">Suara</th>
-                                        <th data-field="phone" data-editable="true">Gambar</th>
+                                        <th data-field="nama" data-editable="true">Judul</th>
+                                        <th data-field="suara" data-editable="true">Suara</th>
+                                        <th data-field="gambar">Gambar</th>
                                         <th data-field="action">Action</th>
                                     </tr>
                                 </thead>
@@ -48,8 +48,8 @@
                                         <td></td>
                                         <td>{{ $menyanyi->id }}</td>
                                         <td>{{ $menyanyi->judul }}</td>
-                                        <td>{{ $menyanyi->suara }}</td>
-                                        <td>{{ $menyanyi->gambar }}</td>
+                                        <td><source src="{{asset('/storage/belajar/menyanyi/'.$menyanyi->suara) }}" type="audio/mpeg"></td>
+                                        <td><img src="{{asset($menyanyi->gambar)}}" > </td>
                                         </td>
                                         <td>
                                         <a href="/menyanyi/{{ $menyanyi->id }}/edit" class="btn-sm btn-primary fa fa-pencil"></a>

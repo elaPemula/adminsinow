@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/login', 'MasukController@index');
+Auth::routes();
 Route::resource('quiz', 'QuizController');
 Route::resource('menyanyi', 'MenyanyiController');
 Route::resource('huruf', 'HurufController');
@@ -25,6 +28,4 @@ Route::resource('mewarna', 'MewarnaController');
 Route::resource('warna', 'WarnaController');
 Route::resource('membaca', 'MembacaController');
 
-Route::get('/login', function () {
-    return view('login');
-});
+

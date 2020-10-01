@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Menyanyi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Ramsey\Uuid\Uuid;
 
 class MenyanyiController extends Controller
 {
@@ -41,19 +43,18 @@ class MenyanyiController extends Controller
             'suara' => 'required|mimes:mp3',
             'gambar' => 'required|image:svg,png,jpg',
         ]);
-            
-            $data = $request->except(['suara', 'gambar']);
-            $filename = strtotime(date('Y-m-d H:i:s'));
-            $extension = $request->suara->extension();
-            $filename = "{$filename}.{$extension}";
-            $request->suara->storeAs('hiburan/menyanyi', $filename);
-            $data['suara'] = asset("/storage/hiburan/menyanyi/{$filename}");
-            
-            $filename = strtotime(date('Y-m-d H:i:s'));
-            $extension = $request->gambar->extension();
-            $filename = "{$filename}.{$extension}";
-            $request->gambar->storeAs('hiburan/menyanyi', $filename);
-            $data['gambar'] = asset("/storage/hiburan/menyanyi/{$filename}");
+
+        $data = $request->except(['suara', 'gambar']);
+
+        $extension = $request->suara->extension();
+        $filename = Uuid::uuid4() . ".{$extension}";
+        $request->suara->storeAs('belajar/menyanyi', $filename);
+        $data['suara'] = asset("/storage/public/belajar/menyanyi/{$filename}");
+
+        $extension = $request->gambar->extension();
+        $filename = Uuid::uuid4() . ".{$extension}";
+        $request->gambar->storeAs('hiburan/menyanyi', $filename);
+        $data['gambar'] = asset("/storage/public/hiburan/menyanyi/{$filename}");
 
         Menyanyi::create($data);
         return redirect('/menyanyi')->with('status', 'Data Berhasil Ditambahkan!');
@@ -90,32 +91,36 @@ class MenyanyiController extends Controller
      */
     public function update(Request $request, Menyanyi $menyanyi)
     {
-            $data = $request->except(['suara', 'gambar']);
+        $request->validate([
+            'judul' => 'required',
+            'suara' => 'required|mimes:mp3',
+            'gambar' => 'required|image:svg,png,jpg',
+        ]);
 
-            if ($request->hasFile('suara', 'gambar')) {
-            $filename = strtotime(date('Y-m-d H:i:s'));
-            $extension = $request->suara->extension();
-            $filename = "{$filename}.{$extension}";
-            $request->suara->storeAs('hiburan/menyanyi', $filename);
-            $data['suara'] = asset("/storage/hiburan/menyanyi/{$filename}");
-            
-            $filename = strtotime(date('Y-m-d H:i:s'));
-            $extension = $request->gambar->extension();
-            $filename = "{$filename}.{$extension}";
-            $request->gambar->storeAs('hiburan/menyanyi', $filename);
-            $data['gambar'] = asset("/storage/hiburan/menyanyi/{$filename}");
-            }
-
-        Menyanyi::where('id', $menyanyi->id)
-            ->update([
-                'judul' => $request->judul,
-                'suara' => $request->suara->storeAs('/storage/hiburan/menyanyi', $filename),
-                'gambar' => $request->gambar->storeAs('/storage/hiburan/menyanyi', $filename),
-            ]);
+        $data = $request->except(['suara', 'gambar']);
         
-            
-            
-         return redirect('/menyanyi')->with('status', 'Data Berhasil diupdate');
+        if ($request->hasFile('suara')) {
+        $extension = $request->suara->extension();
+        $filename = Uuid::uuid4() . ".{$extension}";
+        $oldfile = basename($menyanyi->suara);
+        Storage::delete("hiburan/menyanyi/{$oldfile}");
+        $request->suara->storeAs('hiburan/menyanyi', $filename);
+        $data['suara'] = asset("/storage/public/hiburan/menyanyi/{$filename}");
+        }
+
+        if ($request->hasFile('gambar')) {
+        $extension = $request->gambar->extension();
+        $filename = Uuid::uuid4() . ".{$extension}";
+        $oldfile = basename($menyanyi->gambar);
+        Storage::delete("hiburan/menyanyi/{$oldfile}");
+        $request->gambar->storeAs('hiburan/menyanyi', $filename);
+        $data['gambar'] = asset("/storage/public/hiburan/menyanyi/{$filename}");
+        }
+
+        $menyanyi->fill($data);
+        $menyanyi->save();
+
+        return redirect('/menyanyi')->with('status', 'Data Berhasil diupdate');
     }
 
     /**
