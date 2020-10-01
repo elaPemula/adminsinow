@@ -36,9 +36,9 @@
                                     <tr>
                                         <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="id">ID</th>
-                                        <th data-field="name" data-editable="true">Judul</th>
-                                        <th data-field="email">Suara</th>
-                                        <th data-field="phone">Gambar</th>
+                                        <th data-field="judul" data-editable="true">Judul</th>
+                                        <th data-field="suara">Suara</th>
+                                        <th data-field="gambar">Gambar</th>
                                         <th data-field="action">Action</th>
                                     </tr>
                                 </thead>
