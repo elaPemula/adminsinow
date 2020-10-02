@@ -18,7 +18,6 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/login', 'MasukController@index');
 Auth::routes();
 Route::resource('quiz', 'QuizController');
 Route::resource('menyanyi', 'MenyanyiController');

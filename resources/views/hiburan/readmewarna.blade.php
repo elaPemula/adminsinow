@@ -12,7 +12,7 @@
                 <div class="sparkline13-list shadow-reset">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
-                            <h1>Data <span class="table-project-n">Hiburan</span> Membaca</h1>
+                            <h1>Data <span class="table-project-n">Hiburan</span> Mewarna</h1>
                             <div class="sparkline13-outline-icon">
                                 <a href="/mewarna/create" class="btn-xs btn-success fa fa-plus"></a>
                                 <span class="sparkline13-collapse-link"><i class="fa fa-chevron-up"></i></span>
@@ -47,8 +47,7 @@
                                         <td></td>
                                         <td>{{ $mewarna->id }}</td>
                                         <td>{{ $mewarna->keterangan }}</td>
-                                        <td>
-                                            <img src="{{asset($mewarna->gambar) }}" width="100"> </td>
+                                        <td>{{ $mewarna->gambar }} </td>
                                             <td>
                                                 <a href="/mewarna/{{ $mewarna->id }}/edit" class="btn-sm btn-primary fa fa-pencil"></a>
                                                 <form action="/mewarna/{{ $mewarna->id }}" method="post" class="d-inline">
