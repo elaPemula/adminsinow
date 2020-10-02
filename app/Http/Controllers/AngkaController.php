@@ -52,17 +52,17 @@ class AngkaController extends Controller
         $extension = $request->gambar->extension();
         $filename = Uuid::uuid4() . ".{$extension}";
         $request->gambar->storeAs('belajar/angka', $filename);
-        $data['gambar'] = asset("/storage/public/belajar/angka/{$filename}");
+        $data['gambar'] = asset("/storage/belajar/angka/{$filename}");
 
         $extension = $request->sound_id->extension();
         $filename = Uuid::uuid4() . ".{$extension}";
         $request->sound_id->storeAs('belajar/angka', $filename);
-        $data['sound_id'] = asset("/storage/public/belajar/angka/{$filename}");
+        $data['sound_id'] = asset("/storage/belajar/angka/{$filename}");
 
         $extension = $request->sound_en->extension();
         $filename = Uuid::uuid4() . ".{$extension}";
         $request->sound_en->storeAs('belajar/angka', $filename);
-        $data['sound_en'] = asset("/storage/public/belajar/angka/{$filename}");
+        $data['sound_en'] = asset("/storage/belajar/angka/{$filename}");
 
         Angka::create($data);
         return redirect('/angka')->with('status', 'Data Berhasil Ditambahkan!');

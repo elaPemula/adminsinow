@@ -49,12 +49,12 @@ class MenyanyiController extends Controller
         $extension = $request->suara->extension();
         $filename = Uuid::uuid4() . ".{$extension}";
         $request->suara->storeAs('belajar/menyanyi', $filename);
-        $data['suara'] = asset("/storage/public/belajar/menyanyi/{$filename}");
+        $data['suara'] = asset("/storage/belajar/menyanyi/{$filename}");
 
         $extension = $request->gambar->extension();
         $filename = Uuid::uuid4() . ".{$extension}";
         $request->gambar->storeAs('hiburan/menyanyi', $filename);
-        $data['gambar'] = asset("/storage/public/hiburan/menyanyi/{$filename}");
+        $data['gambar'] = asset("/storage/hiburan/menyanyi/{$filename}");
 
         Menyanyi::create($data);
         return redirect('/menyanyi')->with('status', 'Data Berhasil Ditambahkan!');
@@ -105,7 +105,7 @@ class MenyanyiController extends Controller
         $oldfile = basename($menyanyi->suara);
         Storage::delete("hiburan/menyanyi/{$oldfile}");
         $request->suara->storeAs('hiburan/menyanyi', $filename);
-        $data['suara'] = asset("/storage/public/hiburan/menyanyi/{$filename}");
+        $data['suara'] = asset("/storage/hiburan/menyanyi/{$filename}");
         }
 
         if ($request->hasFile('gambar')) {

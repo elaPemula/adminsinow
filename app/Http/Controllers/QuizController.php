@@ -52,7 +52,7 @@ class QuizController extends Controller
         $extension = $request->pertanyaan->extension();
         $filename = Uuid::uuid4() . ".{$extension}";
         $request->pertanyaan->storeAs('quiz/quiz', $filename);
-        $data['pertanyaan'] = asset("/storage/public/quiz/quiz/{$filename}");
+        $data['pertanyaan'] = asset("/storage/quiz/quiz/{$filename}");
 
         Quiz::create($data);
         return redirect('/quiz')->with('status', 'Data Berhasil Ditambahkan!');
@@ -106,7 +106,7 @@ class QuizController extends Controller
         $oldfile = basename($quiz->gambar);
         Storage::delete("belajar/quiz/{$oldfile}");
         $request->pertanyaan->storeAs('quiz/quiz', $filename);
-        $data['pertanyaan'] = asset("/storage/public/quiz/quiz/{$filename}");
+        $data['pertanyaan'] = asset("/storage/quiz/quiz/{$filename}");
         }
 
         $quiz->fill($data);
