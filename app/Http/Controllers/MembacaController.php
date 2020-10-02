@@ -53,17 +53,17 @@ class MembacaController extends Controller
         $extension = $request->gambar->extension();
         $filename = Uuid::uuid4() . ".{$extension}";
         $request->gambar->storeAs('belajar/membaca', $filename);
-        $data['gambar'] = asset("/storage/public/belajar/membaca/{$filename}");
+        $data['gambar'] = asset("/storage/belajar/membaca/{$filename}");
 
         $extension = $request->sound_id->extension();
         $filename = Uuid::uuid4() . ".{$extension}";
         $request->sound_id->storeAs('belajar/membaca', $filename);
-        $data['sound_id'] = asset("/storage/public/belajar/membaca/{$filename}");
+        $data['sound_id'] = asset("/storage/belajar/membaca/{$filename}");
 
         $extension = $request->sound_en->extension();
         $filename = Uuid::uuid4() . ".{$extension}";
         $request->sound_en->storeAs('belajar/membaca', $filename);
-        $data['sound_en'] = asset("/storage/public/belajar/membaca/{$filename}");
+        $data['sound_en'] = asset("/storage/belajar/membaca/{$filename}");
 
         Membaca::create($data);
         return redirect('/membaca')->with('status', 'Data Berhasil Ditambahkan!');

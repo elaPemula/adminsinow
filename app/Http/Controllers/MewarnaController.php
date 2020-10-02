@@ -49,7 +49,7 @@ class MewarnaController extends Controller
         $extension = $request->gambar->extension();
         $filename = Uuid::uuid4() . ".{$extension}";
         $request->gambar->storeAs('hiburan/mewarna', $filename);
-        $data['gambar'] = asset("/storage/public/hiburan/mewarna/{$filename}");
+        $data['gambar'] = asset("/storage/hiburan/mewarna/{$filename}");
 
         Mewarna::create($data);
         return redirect('/mewarna')->with('status', 'Data Berhasil Ditambahkan!');

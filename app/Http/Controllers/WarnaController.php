@@ -52,17 +52,17 @@ class WarnaController extends Controller
         $extension = $request->gambar->extension();
         $filename = Uuid::uuid4() . ".{$extension}";
         $request->gambar->storeAs('belajar/warna', $filename);
-        $data['gambar'] = asset("/storage/public/belajar/warna/{$filename}");
+        $data['gambar'] = asset("/storage/belajar/warna/{$filename}");
 
         $extension = $request->sound_id->extension();
         $filename = Uuid::uuid4() . ".{$extension}";
         $request->sound_id->storeAs('belajar/warna', $filename);
-        $data['sound_id'] = asset("/storage/public/belajar/warna/{$filename}");
+        $data['sound_id'] = asset("/storage/belajar/warna/{$filename}");
 
         $extension = $request->sound_en->extension();
         $filename = Uuid::uuid4() . ".{$extension}";
         $request->sound_en->storeAs('belajar/warna', $filename);
-        $data['sound_en'] = asset("/storage/public/belajar/warna/{$filename}");
+        $data['sound_en'] = asset("/storage/belajar/warna/{$filename}");
 
         Warna::create($data);
         return redirect('/warna')->with('status', 'Data Berhasil Ditambahkan!');
