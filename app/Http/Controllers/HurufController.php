@@ -50,12 +50,12 @@ class HurufController extends Controller
         $extension = $request->gambar->extension();
         $filename = Uuid::uuid4() . ".{$extension}";
         $request->gambar->storeAs('belajar/huruf', $filename);
-        $data['gambar'] = asset("/storage/public/belajar/huruf/{$filename}");
+        $data['gambar'] = asset("/storage/belajar/huruf/{$filename}");
 
         $extension = $request->sound->extension();
         $filename = Uuid::uuid4() . ".{$extension}";
         $request->sound->storeAs('belajar/huruf', $filename);
-        $data['sound'] = asset("/storage/public/belajar/huruf/{$filename}");
+        $data['sound'] = asset("/storage/belajar/huruf/{$filename}");
 
         Huruf::create($data);
         return redirect('/huruf')->with('status', 'Data Berhasil Ditambahkan!');
