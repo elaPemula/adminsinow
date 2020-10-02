@@ -14,16 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'RedirectIfAuthenticatedController');
-
-Route::get('/home', 'HomeController@index')->name('home');
-// Route::get('/login', 'MasukController@index');
 Auth::routes();
-Route::resource('quiz', 'QuizController');
-Route::resource('menyanyi', 'MenyanyiController');
-Route::resource('huruf', 'HurufController');
-Route::resource('angka', 'AngkaController');
-Route::resource('mewarna', 'MewarnaController');
-Route::resource('warna', 'WarnaController');
-Route::resource('membaca', 'MembacaController');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('quiz', 'QuizController');
+    Route::resource('menyanyi', 'MenyanyiController');
+    Route::resource('huruf', 'HurufController');
+    Route::resource('angka', 'AngkaController');
+    Route::resource('mewarna', 'MewarnaController');
+    Route::resource('warna', 'WarnaController');
+    Route::resource('membaca', 'MembacaController');
+    });
+
 
 
