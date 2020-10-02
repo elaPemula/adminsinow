@@ -48,7 +48,7 @@
                                         <td>{{ $mewarna->id }}</td>
                                         <td>{{ $mewarna->keterangan }}</td>
                                         <td>
-                                            <img src="{{asset($mewarna->gambar) }}" width="100"> </td>
+                                            <img src="{{asset($mewarna->gambar)}}" width="100"> </td>
                                             <td>
                                                 <a href="/mewarna/{{ $mewarna->id }}/edit" class="btn-sm btn-primary fa fa-pencil"></a>
                                                 <form action="/mewarna/{{ $mewarna->id }}" method="post" class="d-inline">

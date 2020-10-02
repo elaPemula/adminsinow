@@ -1,73 +1,191 @@
-@extends('layouts.app')
+<!doctype html>
+<html class="no-js" lang="en">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>adminsinow</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+		============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="/material/img/message/lion.png">
+    <!-- Google Fonts
+		============================================ -->
+    <link href="/material/https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i,800" rel="stylesheet">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="/material/css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="/material/css/font-awesome.min.css">
+    <!-- adminpro icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="/material/css/adminpro-custon-icon.css">
+    <!-- meanmenu icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="/material/css/meanmenu.min.css">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="/material/css/jquery.mCustomScrollbar.min.css">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="/material/css/animate.css">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="/material/css/normalize.css">
+    <!-- form CSS
+		============================================ -->
+    <link rel="stylesheet" href="/material/css/form.css">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="/material/style.css">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="/material/css/responsive.css">
+    <!-- modernizr JS
+		============================================ -->
+    <script src="/material/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
+<body class="materialdesign">
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="/material/http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- Header top area start-->
+    
+        <!-- Header top area start-->
+                                                                    
+            <!-- Header top area end-->
+            <!-- Breadcome start-->
+            
+            <!-- Breadcome End-->
+            <!-- Mobile Menu start -->
+           
+            <!-- Mobile Menu end -->
+            <!-- Breadcome start-->
+            <div class="breadcome-area mg-b-30 des-none">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list map-mg-t-40-gl shadow-reset">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <div class="breadcome-heading">
+                                            <form role="search" class="">
+												<input type="text" placeholder="Search..." class="form-control">
+												<a href="/material/"><i class="fa fa-search"></i></a>
+											</form>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <ul class="breadcome-menu">
+                                            <li><a href="/material/#">Home</a> <span class="bread-slash">/</span>
+                                            </li>
+                                            <li><span class="bread-blod">Dashboard</span>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
+            <!-- Breadcome End-->
+            <!-- login Start-->
+            <div class="login-form-area mg-t-30 mg-b-40">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-4"></div>
+                        <form id="adminpro-form" class="adminpro-form" method="post" action="{{ route('login') }}">
+                        @csrf
+                            <div class="col-lg-4">
+                                <div class="login-bg">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="logo">
+                                                <a href="/material/#"><img src="/material/img/message/lion.png" alt="" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="login-input-head">
+                                                <p>{{ __('E-Mail Address') }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="login-input-area">
+                                                <input type="email" name="email" />
+                                                <i class="fa fa-envelope login-user" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="login-input-head">
+                                                <p>{{ __('Password') }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="login-input-area">
+                                                <input type="password" name="password" />
+                                                <i class="fa fa-lock login-user"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="login-button-pro">
+                                                <button type="submit" class="btn btn-custon-rounded-three pull-right btn-warning">Log in</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="col-lg-4"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- login End-->
         </div>
     </div>
-</div>
-@endsection
+    <!-- Footer Start-->
+    
+    <!-- Footer End-->
+    <!-- jquery
+		============================================ -->
+    <script src="/material/js/vendor/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="/material/js/bootstrap.min.js"></script>
+    <!-- meanmenu JS
+		============================================ -->
+    <script src="/material/js/jquery.meanmenu.js"></script>
+    <!-- mCustomScrollbar JS
+		============================================ -->
+    <script src="/material/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- sticky JS
+		============================================ -->
+    <script src="/material/js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+		============================================ -->
+    <script src="/material/js/jquery.scrollUp.min.js"></script>
+    <!-- form validate JS
+		============================================ -->
+    <script src="/material/js/jquery.form.min.js"></script>
+    <script src="/material/js/jquery.validate.min.js"></script>
+    <script src="/material/js/form-active.js"></script>
+    <!-- main JS
+		============================================ -->
+    <script src="/material/js/main.js"></script>
+</body>
+
+</html>

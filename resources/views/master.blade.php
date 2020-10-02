@@ -194,7 +194,11 @@
                                                 </li>
                                                 <li><a href="#"><span class="adminpro-icon adminpro-user-rounded author-log-ic"></span>My Profile</a>
                                                 </li>
-                                                <li><a href="/login" action="{{ route('logout') }}" method="POST"><span class="adminpro-icon adminpro-locked author-log-ic"></span>Log Out</a>
+                                                <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><span class="adminpro-icon adminpro-locked author-log-ic"></span>Log Out</a>
+                                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                    @csrf
+                                                    </form>
                                                 </li>
                                             </ul>
                                         </li>
