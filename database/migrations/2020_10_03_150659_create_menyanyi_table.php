@@ -16,7 +16,7 @@ class CreateMenyanyiTable extends Migration
         Schema::create('menyanyi', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
-            $table->string('suara');
+            $table->string('sound');
             $table->string('gambar');
             $table->timestamps();
         });

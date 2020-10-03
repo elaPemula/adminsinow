@@ -34,11 +34,11 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="form-group @error('suara') input-with-error @enderror">
-                      <label class="pull-left" for="suara">Suara</label>
+                    <div class="form-group @error('sound') input-with-error @enderror">
+                      <label class="pull-left" for="sound">sound</label>
                       <div>
-                        <input type="file" name="suara" id="suara" class="form-control" placeholder="Document File..." value="{{ old('suara')}}">
-                         @error('suara') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
+                        <input type="file" name="sound" id="sound" class="form-control" placeholder="Document File..." value="{{ old('sound')}}">
+                         @error('sound') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                       </div>
                     </div>
                 </div>

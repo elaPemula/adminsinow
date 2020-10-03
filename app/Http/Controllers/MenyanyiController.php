@@ -40,16 +40,16 @@ class MenyanyiController extends Controller
     {
         $request->validate([
             'judul' => 'required',
-            'suara' => 'required|mimes:mp3',
+            'sound' => 'required|mimes:mp3',
             'gambar' => 'required|image:svg,png,jpg',
         ]);
 
-        $data = $request->except(['suara', 'gambar']);
+        $data = $request->except(['sound', 'gambar']);
 
-        $extension = $request->suara->extension();
+        $extension = $request->sound->extension();
         $filename = Uuid::uuid4() . ".{$extension}";
-        $request->suara->storeAs('belajar/menyanyi', $filename);
-        $data['suara'] = asset("/storage/belajar/menyanyi/{$filename}");
+        $request->sound->storeAs('belajar/menyanyi', $filename);
+        $data['sound'] = asset("/storage/belajar/menyanyi/{$filename}");
 
         $extension = $request->gambar->extension();
         $filename = Uuid::uuid4() . ".{$extension}";
@@ -93,19 +93,19 @@ class MenyanyiController extends Controller
     {
         $request->validate([
             'judul' => 'required',
-            'suara' => 'required|mimes:mp3',
+            'sound' => 'required|mimes:mp3',
             'gambar' => 'required|image:svg,png,jpg',
         ]);
 
-        $data = $request->except(['suara', 'gambar']);
-        
-        if ($request->hasFile('suara')) {
-        $extension = $request->suara->extension();
+        $data = $request->except(['sound', 'gambar']);
+
+        if ($request->hasFile('sound')) {
+        $extension = $request->sound->extension();
         $filename = Uuid::uuid4() . ".{$extension}";
-        $oldfile = basename($menyanyi->suara);
+        $oldfile = basename($menyanyi->sound);
         Storage::delete("hiburan/menyanyi/{$oldfile}");
-        $request->suara->storeAs('hiburan/menyanyi', $filename);
-        $data['suara'] = asset("/storage/hiburan/menyanyi/{$filename}");
+        $request->sound->storeAs('hiburan/menyanyi', $filename);
+        $data['sound'] = asset("/storage/hiburan/menyanyi/{$filename}");
         }
 
         if ($request->hasFile('gambar')) {
