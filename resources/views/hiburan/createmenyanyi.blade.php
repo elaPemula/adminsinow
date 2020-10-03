@@ -17,23 +17,15 @@
         </div>
         <div class="sparkline8-graph">
             <div class="basic-login-form-ad">
-                @if ($errors->any())
-                    <div class="alert alert-danger pull-left">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="basic-login-inner">
                             <form method="POST" action="/menyanyi" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group-inner  @error('judul') input-with-error @enderror ">
+                            <div class="form-group-inner @error('judul') input-with-error @enderror ">
                                 <label for="judul">Judul</label>
                                 <input type="text" class="form-control" id="judul" placeholder="Masukkan Judul" name="judul" value="{{ old('judul')}}"/>
+                                @error('judul') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                             </div>
                             <div class="row">
                             <div class="login-btn-inner">
@@ -42,18 +34,20 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="form-group">
+                    <div class="form-group @error('suara') input-with-error @enderror">
                       <label class="pull-left" for="suara">Suara</label>
                       <div>
                         <input type="file" name="suara" id="suara" class="form-control" placeholder="Document File..." value="{{ old('suara')}}">
+                         @error('suara') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                       </div>
                     </div>
                 </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group">
+                        <div class="form-group @error('gambar') input-with-error @enderror">
                             <label class="pull-left" for="gambar">Gambar</label>
                             <div>
                                 <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ old('gambar')}}">
+                                 @error('gambar') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                             </div>
                         </div>
                             <div class="inline-remember-me">
@@ -61,7 +55,7 @@
                             </div>
                          </div>
                          </form>
-                    </div>          
+                    </div>
                 </div>
             </div>
         </div>

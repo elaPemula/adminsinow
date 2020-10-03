@@ -75,7 +75,7 @@
                                 <a href="/" class="dropdown-item">Home</a>
                             </div>
                         </li>
-                        
+
                         <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-desktop"></i> <span class="mini-dn">Belajar</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
                             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
                                 <a href="/angka" class="dropdown-item">Mengenal Angka</a>
@@ -116,13 +116,13 @@
                             </div>
                             <div class="col-lg-6 col-md-1 col-sm-1 col-xs-12">
                                 <div class="header-top-menu tabl-d-n">
-                                    
+
                                 </div>
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
                                 <div class="header-right-info">
                                     <ul class="nav navbar-nav mai-top-nav header-right-menu">
-                                        
+
                                         <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-bell-o" aria-hidden="true"></i><span class="indicator-nt"></span></a>
                                             <div role="menu" class="notification-author dropdown-menu animated flipInX">
                                                 <div class="notification-single-top">
@@ -202,7 +202,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        
+
                                         </li>
                                     </ul>
                                 </div>
@@ -242,7 +242,7 @@
                 </div>
             </div>
             <!-- Breadcome End-->
-          
+
             <!-- Breadcome start-->
             <div class="breadcome-area mg-b-30 des-none">
                 <div class="container-fluid">
@@ -291,7 +291,7 @@
         </div>
     </div>
     <!-- Footer End-->
-    
+
     <!-- jquery
 		============================================ -->
     <script src="{{url('material/js/vendor/jquery-1.11.3.min.js')}}"></script>

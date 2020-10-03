@@ -23,9 +23,10 @@
                         <div class="basic-login-inner">
                             <form method="POST" action="/angka" enctype="multipart/form-data">
                             @csrf
-                                <div class="form-group-inner">
+                                <div class="form-group-inner @error('angka') input-with-error @enderror" >
                                     <label for="angka">Angka</label>
-                                    <input type="text" class="form-control @error('angka') is-invalid @enderror" id="angka" placeholder="Masukkan Angka" name="angka" value="{{ old('angka')}}"/>
+                                    <input type="text" class="form-control" id="angka" placeholder="Masukkan Angka" name="angka" value="{{ old('angka')}}"/>
+                                    @error('angka') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                 </div>
                                 <div class="form-group-inner">
                                     <div class="row">
@@ -35,6 +36,7 @@
                                         <div class="col-lg-12">
                                             <div class="form-select-list">
                                                 <select id="tipe" type="text" class="form-control custom-select-value @error('tipe') is-invalid @enderror" name="tipe" value="{{ old('tipe')}}">
+                                                     @error('tipe') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                                     <option>Satuan</option>
                                                     <option>Puluhan</option>
                                                     <option>Ratusan</option>
@@ -43,26 +45,30 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group @error('gambar') input-with-error @enderror">
                                     <label for="gambar"  class="control-label">Gambar</label>
                                     <div>
                                         <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ old('gambar')}}">
+                                        @error('gambar') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                     </div>
                                 </div>
-                                <div class="form-group-inner">
+                                <div class="form-group-inner @error('tulisan') input-with-error @enderror">
                                     <label for="tulisan">Tulisan</label>
                                     <input type="text" name="tulisan" id="tulisan" class="form-control @error('tulisan') is-invalid @enderror" id="tulisan" placeholder="Masukkan Tulisan Bahasa Indonesia" name="tulisan" value="{{ old('tulisan')}}"/>
+                                    @error('tulisan') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group @error('sound_id') input-with-error @enderror">
                                     <label for="sound_id" class="control-label">Sound ID</label>
                                     <div>
                                         <input type="file" name="sound_id" id="sound_id" class="form-control" placeholder="Document File..." value="{{ old('sound_id')}}">
+                                        @error('sound_id') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group @error('sound_en') input-with-error @enderror">
                                     <label for="sound_en" class="control-label">Sound EN</label>
                                     <div>
                                         <input type="file" name="sound_en" id="sound_en" class="form-control" placeholder="Document File..." value="{{ old('sound_en')}}">
+                                        @error('sound_en') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                     </div>
                                 </div>
                                 <div class="login-btn-inner">

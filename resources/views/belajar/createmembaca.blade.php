@@ -23,18 +23,20 @@
                         <div class="basic-login-inner">
                             <form method="POST" action="/membaca" enctype="multipart/form-data">
                             @csrf
-                                <div class="form-group-inner">
+                                <div class="form-group-inner @error('nama') input-with-error @enderror">
                                     <label for="membaca">Nama</label>
-                                    <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Masukkan Nama" name="nama" value="{{ old('nama')}}"/>
+                                    <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama" name="nama" value="{{ old('nama')}}"/>
+                                    @error('nama') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                 </div>
-                                <div class="form-group-inner">
+                                <div class="form-group-inner @error('tipe') input-with-error @enderror">
                                     <div class="row">
                                         <div class="col-lg-2">
                                             <label for="tipe" class="login2 pull-left pull-left-pro">Tipe</label>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-select-list">
-                                                <select id="tipe" type="text" class="form-control custom-select-value @error('tipe') is-invalid @enderror" name="tipe" value="{{ old('tipe')}}">
+                                                <select id="tipe" type="text" class="form-control custom-select-value" name="tipe" value="{{ old('tipe')}}">
+                                                    @error('tipe') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                                     <option>Hewan</option>
                                                     <option>Buah dan Sayur</option>
                                                 </select>
@@ -42,30 +44,35 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group @error('gambar') input-with-error @enderror">
                                     <label for="gambar"  class="control-label">Gambar</label>
                                     <div>
                                         <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ old('gambar')}}">
+                                        @error('gambar') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                     </div>
                                 </div>
-                                <div class="form-group-inner">
+                                <div class="form-group-inner @error('tulisan_id') input-with-error @enderror">
                                     <label for="tulisan_id">Tulisan ID</label>
-                                    <input type="text" name="tulisan_id" id="tulisan_id" class="form-control @error('tulisan_id') is-invalid @enderror" id="tulisan_id" placeholder="Masukkan Tulisan Bahasa Indonesia" name="tulisan_id" value="{{ old('tulisan_id')}}"/>
+                                    <input type="text" name="tulisan_id" id="tulisan_id" class="form-control" id="tulisan_id" placeholder="Masukkan Tulisan Bahasa Indonesia" name="tulisan_id" value="{{ old('tulisan_id')}}"/>
+                                    @error('tulisan_id') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group @error('sound_id') input-with-error @enderror">
                                     <label for="sound_id" class="control-label">Sound ID</label>
                                     <div>
                                         <input type="file" name="sound_id" id="sound_id" class="form-control" placeholder="Document File..." value="{{ old('sound_id')}}">
+                                        @error('sound_id') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                     </div>
                                 </div>
-                                <div class="form-group-inner">
+                                <div class="form-group-inner @error('tulisan_en') input-with-error @enderror">
                                     <label for="tulisan_en">Tulisan EN</label>
-                                    <input type="text" name="tulisan_en" id="tulisan_en" class="form-control @error('tulisan_en') is-invalid @enderror" id="tulisan_en" placeholder="Masukkan Tulisan Bahasa Indonesia" name="tulisan_en" value="{{ old('tulisan_en')}}"/>
+                                    <input type="text" name="tulisan_en" id="tulisan_en" class="form-control" id="tulisan_en" placeholder="Masukkan Tulisan Bahasa Indonesia" name="tulisan_en" value="{{ old('tulisan_en')}}"/>
+                                    @error('tulisan_en') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group @error('sound_en') input-with-error @enderror">
                                     <label for="sound_en" class="control-label">Sound EN</label>
                                     <div>
                                         <input type="file" name="sound_en" id="sound_en" class="form-control" placeholder="Document File..." value="{{ old('sound_en')}}">
+                                        @error('sound_en') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                     </div>
                                 </div>
                                 <div class="login-btn-inner">
