@@ -22,7 +22,7 @@
                         <div class="basic-login-inner">
                             <form method="POST" action="/menyanyi" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group-inner @error('judul') input-with-error @enderror ">
+                            <div class="form-group-inner @error('judul') input-with-error @enderror">
                                 <label for="judul">Judul</label>
                                 <input type="text" class="form-control" id="judul" placeholder="Masukkan Judul" name="judul" value="{{ old('judul')}}"/>
                                 @error('judul') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
@@ -47,7 +47,7 @@
                             <label class="pull-left" for="gambar">Gambar</label>
                             <div>
                                 <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ old('gambar')}}">
-                                 @error('gambar') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
+                                @error('gambar') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                             </div>
                         </div>
                             <div class="inline-remember-me">

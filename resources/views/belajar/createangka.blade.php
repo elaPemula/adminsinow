@@ -28,15 +28,15 @@
                                     <input type="text" class="form-control" id="angka" placeholder="Masukkan Angka" name="angka" value="{{ old('angka')}}"/>
                                     @error('angka') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                 </div>
-                                <div class="form-group-inner">
+                                <div class="form-group-inner @error('tipe') input-with-error @enderror">
                                     <div class="row">
                                         <div class="col-lg-2">
                                             <label for="tipe" class="login2 pull-left pull-left-pro">Tipe</label>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-select-list">
-                                                <select id="tipe" type="text" class="form-control custom-select-value @error('tipe') is-invalid @enderror" name="tipe" value="{{ old('tipe')}}">
-                                                     @error('tipe') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
+                                                <select id="tipe" type="text" class="form-control custom-select-value" name="tipe" value="{{ old('tipe')}}">
+                                                    @error('tipe') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                                     <option>Satuan</option>
                                                     <option>Puluhan</option>
                                                     <option>Ratusan</option>

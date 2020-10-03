@@ -23,9 +23,10 @@
                             <form method="POST" action="/menyanyi/{{ $menyanyi->id }}" enctype="multipart/form-data">
                             @method('patch')
                             @csrf
-                            <div class="form-group-inner">
+                            <div class="form-group-inner @error('judul') input-with-error @enderror">
                                 <label for="judul">Judul</label>
-                                <input type="text" class="form-control @error('judul') is-invalid @enderror" id="judul" placeholder="Masukkan Judul" name="judul" value="{{ $menyanyi->judul}}"/>
+                                <input type="text" class="form-control" id="judul" placeholder="Masukkan Judul" name="judul" value="{{ $menyanyi->judul}}"/>
+                                @error('judul') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                             </div>
                             <div class="row">
                             <div class="login-btn-inner">
@@ -34,18 +35,20 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="form-group">
+                    <div class="form-group @error('suara') input-with-error @enderror">
                       <label class="pull-left" for="suara">Suara</label>
                       <div>
                         <input type="file" name="suara" id="suara" class="form-control" placeholder="Document File..." value="{{ $menyanyi->suara}}"/>
+                        @error('suara') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                       </div>
                     </div>
                 </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group">
+                        <div class="form-group @error('gambar') input-with-error @enderror">
                             <label class="pull-left" for="gambar">Gambar</label>
                             <div>
                                 <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ $menyanyi->gambar}}"/>
+                                @error('gambar') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                             </div>
                         </div>
                             <div class="inline-remember-me">
@@ -53,7 +56,7 @@
                             </div>
                          </div>
                          </form>
-                    </div>          
+                    </div>
                 </div>
             </div>
         </div>

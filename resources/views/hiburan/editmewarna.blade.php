@@ -23,9 +23,10 @@
                             <form method="POST" action="/mewarna/{{ $mewarna->id }}" enctype="multipart/form-data">
                             @method('patch')
                             @csrf
-                            <div class="form-group-inner">
+                            <div class="form-group-inner  @error('keterangan') input-with-error @enderror">
                                 <label for="keterangan">Keterangan</label>
-                                <input type="text" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" placeholder="Masukkan keterangan" name="keterangan" value="{{ $mewarna->keterangan}}"/>
+                                <input type="text" class="form-control" id="keterangan" placeholder="Masukkan keterangan" name="keterangan" value="{{ $mewarna->keterangan}}"/>
+                                @error('keterangan') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                             </div>
                             <div class="row">
                             <div class="login-btn-inner">
@@ -33,12 +34,13 @@
                         </div>
                     </div>
                 </div>
-                
+
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group">
+                        <div class="form-group @error('gambar') input-with-error @enderror">
                             <label class="pull-left" for="gambar">Gambar</label>
                             <div>
                                 <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ $mewarna->gambar}}"/>
+                                @error('gambar') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                             </div>
                         </div>
                             <div class="inline-remember-me">
@@ -46,7 +48,7 @@
                             </div>
                          </div>
                          </form>
-                    </div>          
+                    </div>
                 </div>
             </div>
         </div>

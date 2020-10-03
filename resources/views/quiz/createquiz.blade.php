@@ -36,7 +36,7 @@
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-select-list">
-                                                <select id="tipe" type="text" class="form-control custom-select-value @error('tipe') is-invalid @enderror" name="tipe" value="{{ old('tipe')}}">
+                                                <select id="tipe" type="text" class="form-control custom-select-value" name="tipe" value="{{ old('tipe')}}">
                                                     <option>Membaca</option>
                                                     <option>Menghitung</option>
                                                 </select>
@@ -47,25 +47,25 @@
                                 <div class="form-group-inner">
                                 <div class="col-md-6">
                                     <label for="opsi_a">opsi A</label>
-                                    <input type="text" class="form-control @error('opsi_a') is-invalid @enderror" id="opsi_a" placeholder="" name="opsi_a"  value="{{ old('opsi_a')}}"/>
+                                    <input type="text" class="form-control" id="opsi_a" placeholder="" name="opsi_a"  value="{{ old('opsi_a')}}"/>
                                 </div>
                                 </div>
                                 <div class="form-group-inner">
                                 <div class="col-md-6">
                                     <label for="opsi_b">opsi B</label>
-                                    <input type="text" class="form-control @error('opsi_b') is-invalid @enderror" id="opsi_b" placeholder="" name="opsi_b"  value="{{ old('opsi_b')}}"/>
+                                    <input type="text" class="form-control" id="opsi_b" placeholder="" name="opsi_b"  value="{{ old('opsi_b')}}"/>
                                 </div>
                                 </div>
                                 <div class="form-group-inner">
                                 <div class="col-md-6">
                                     <label for="opsi_c">opsi C</label>
-                                    <input type="text" class="form-control @error('opsi_c') is-invalid @enderror" id="opsi_c" placeholder="" name="opsi_c"  value="{{ old('opsi_c')}}"/>
+                                    <input type="text" class="form-control" id="opsi_c" placeholder="" name="opsi_c"  value="{{ old('opsi_c')}}"/>
                                 </div>
                                 </div>
                                 <div class="form-group-inner">
                                 <div class="col-md-6">
                                     <label for="opsi_d">opsi D</label>
-                                    <input type="text" class="form-control @error('opsi_d') is-invalid @enderror" id="opsi_d" placeholder="" name="opsi_d"  value="{{ old('opsi_d')}}"/>
+                                    <input type="text" class="form-control" id="opsi_d" placeholder="" name="opsi_d"  value="{{ old('opsi_d')}}"/>
                                 </div>
                                 </div>
                                 <div class="form-group-inner">
@@ -75,7 +75,7 @@
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-select-list">
-                                                <select type="text" class="form-control custom-select-value  @error('jawaban') is-invalid @enderror" name="jawaban" value="{{ old('jawaban')}}">
+                                                <select type="text" class="form-control custom-select-value" name="jawaban" value="{{ old('jawaban')}}">
                                                     <option>A</option>
                                                     <option>B</option>
                                                     <option>C</option>

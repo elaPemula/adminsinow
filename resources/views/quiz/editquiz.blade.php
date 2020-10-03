@@ -24,20 +24,21 @@
                             <form method="POST" action="/quiz/{{ $quiz->id }}" enctype="multipart/form-data">
                             @method('patch')
                             @csrf
-                            <div class="form-group">
+                            <div class="form-group @error('pertanyaan') input-with-error @enderror">
                                     <label for="pertanyaan"  class="control-label">Pertanyaan</label>
                                     <div>
                                         <input type="file" name="pertanyaan" id="pertanyaan" class="form-control" placeholder="Document File..." value="{{ $quiz->pertanyaan}}">
+                                        @error('pertanyaan') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                     </div>
                                 </div>
-                                <div class="form-group-inner">
+                                <div class="form-group-inner @error('tipe') input-with-error @enderror">
                                     <div class="row">
                                         <div class="col-lg-2">
                                             <label for="tipe" class="login2 pull-left pull-left-pro">Tipe</label>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-select-list">
-                                                <select id="tipe" type="text" class="form-control custom-select-value @error('tipe') is-invalid @enderror" name="tipe" value="{{ $quiz->tipe}}">
+                                                <select id="tipe" type="text" class="form-control custom-select-value" name="tipe" value="{{ $quiz->tipe}}">
                                                     <option>Membaca</option>
                                                     <option>Menghitung</option>
                                                 </select>
@@ -45,38 +46,43 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group-inner">
+                                <div class="form-group-inner @error('opsi_a') input-with-error @enderror">
                                 <div class="col-md-6">
                                     <label for="opsi_a">opsi A</label>
-                                    <input type="text" class="form-control @error('opsi_a') is-invalid @enderror" id="opsi_a" placeholder="" name="opsi_a"  value="{{ $quiz->opsi_a }}"/>
+                                    <input type="text" class="form-control" id="opsi_a" placeholder="" name="opsi_a"  value="{{ $quiz->opsi_a }}"/>
+                                     @error('opsi_a') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                 </div>
                                 </div>
-                                <div class="form-group-inner">
+                                <div class="form-group-inner @error('opsi_b') input-with-error @enderror">
                                 <div class="col-md-6">
                                     <label for="opsi_b">opsi B</label>
-                                    <input type="text" class="form-control @error('opsi_b') is-invalid @enderror" id="opsi_b" placeholder="" name="opsi_b"  value="{{ $quiz->opsi_b }}"/>
+                                    <input type="text" class="form-control" id="opsi_b" placeholder="" name="opsi_b"  value="{{ $quiz->opsi_b }}"/>
+                                     @error('opsi_b') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                 </div>
                                 </div>
-                                <div class="form-group-inner">
+                                <div class="form-group-inner @error('opsi_c') input-with-error @enderror">
                                 <div class="col-md-6">
                                     <label for="opsi_c">opsi C</label>
-                                    <input type="text" class="form-control @error('opsi_c') is-invalid @enderror" id="opsi_c" placeholder="" name="opsi_c"  value="{{ $quiz->opsi_c }}"/>
+                                    <input type="text" class="form-control" id="opsi_c" placeholder="" name="opsi_c"  value="{{ $quiz->opsi_c }}"/>
+                                     @error('opsi_c') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                 </div>
                                 </div>
-                                <div class="form-group-inner">
+                                <div class="form-group-inner @error('opsi_d') input-with-error @enderror">
                                 <div class="col-md-6">
                                     <label for="opsi_d">opsi D</label>
-                                    <input type="text" class="form-control @error('opsi_d') is-invalid @enderror" id="opsi_d" placeholder="" name="opsi_d"  value="{{ $quiz->opsi_d }}"/>
+                                    <input type="text" class="form-control" id="opsi_d" placeholder="" name="opsi_d"  value="{{ $quiz->opsi_d }}"/>
+                                     @error('opsi_d') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                 </div>
                                 </div>
-                                <div class="form-group-inner">
+                                <div class="form-group-inner @error('jawaban') input-with-error @enderror">
                                     <div class="row">
                                         <div class="col-lg-2">
                                             <label class="login2 pull-right pull-right-pro">Jawaban</label>
                                         </div>
                                 <div class="col-lg-12">
                                             <div class="form-select-list">
-                                                <select type="text" class="form-control custom-select-value  @error('jawaban') is-invalid @enderror" name="jawaban" value="{{ $quiz->jawaban }}">
+                                                <select type="text" class="form-control custom-select-value" name="jawaban" value="{{ $quiz->jawaban }}">
+                                                     @error('jawaban') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                                     <option>A</option>
                                                     <option>B</option>
                                                     <option>C</option>

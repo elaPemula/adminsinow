@@ -17,15 +17,6 @@
         </div>
         <div class="sparkline8-graph">
             <div class="basic-login-form-ad">
-                @if ($errors->any())
-                    <div class="alert alert-danger pull-left">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="basic-login-inner">
@@ -35,6 +26,7 @@
                             <div class="form-group-inner  @error('huruf') input-with-error @enderror ">
                                 <label for="huruf">Huruf</label>
                                 <input type="text" class="form-control" id="huruf" placeholder="Masukkan Judul" name="huruf" value="{{ $huruf->huruf}}"/>
+                                @error('huruf') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                             </div>
                             <div class="row">
                             <div class="login-btn-inner">
@@ -49,7 +41,7 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-select-list">
-                                            <select id="tipe" type="text" class="form-control custom-select-value  @error('tipe') is-invalid @enderror" name="tipe" value="{{ $huruf->tipe}}">
+                                            <select id="tipe" type="text" class="form-control custom-select-value" name="tipe" value="{{ $huruf->tipe}}">
                                                 <option>Satu Huruf</option>
                                                 <option>Dua Huruf</option>
                                                 <option>Tiga Huruf</option>
@@ -59,18 +51,20 @@
                                 </div>
                             </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="form-group">
+                    <div class="form-group @error('gambar') input-with-error @enderror">
                       <label class="pull-left" for="gambar">Gambar</label>
                       <div>
                         <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ $huruf->gambar}}">
+                        @error('gambar') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                       </div>
                     </div>
                 </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group">
+                        <div class="form-group @error('sound') input-with-error @enderror">
                             <label class="pull-left" for="sound">Suara</label>
                             <div>
                                 <input type="file" name="sound" id="sound" class="form-control" placeholder="Document File..." value="{{ $huruf->suara}}">
+                                @error('sound') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                             </div>
                         </div>
                             <div class="inline-remember-me">
@@ -78,7 +72,7 @@
                             </div>
                          </div>
                          </form>
-                    </div>          
+                    </div>
                 </div>
             </div>
         </div>

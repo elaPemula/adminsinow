@@ -53,7 +53,7 @@
                                     <input type="text" name="tulisan_en" id="tulisan_en" class="form-control" id="tulisan_en" placeholder="Masukkan Tulisan Bahasa Indonesia" name="tulisan_en" value="{{ old('tulisan_en')}}"/>
                                     @error('tulisan_en') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                 </div>
-                                <div class="form-group @error('sound_id') input-with-error @enderror">
+                                <div class="form-group @error('sound_en') input-with-error @enderror">
                                     <label for="sound_en" class="control-label">Sound EN</label>
                                     <div>
                                         <input type="file" name="sound_en" id="sound_en" class="form-control" placeholder="Document File..." value="{{ old('sound_en')}}">
