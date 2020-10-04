@@ -26,6 +26,7 @@
                             <div class="form-group">
                                     <label for="pertanyaan" class="control-label">Pertanyaan</label>
                                     <div>
+                                        <img src="" id="profile-img-tag" width="200px" />
                                         <input type="file" class="form-control" placeholder="Document File..." id="pertanyaan" placeholder="" name="pertanyaan"  value="{{ old('pertanyaan')}}">
                                     </div>
                                 </div>

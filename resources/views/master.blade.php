@@ -336,6 +336,24 @@
 		============================================ -->
     <script src="{{url('material/js/main.js')}}"></script>
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#profile-img-tag').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#gambar").change(function(){
+            readURL(this);
+        });
+    </script>
+
+
 
 </body>
 

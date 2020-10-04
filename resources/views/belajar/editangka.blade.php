@@ -49,6 +49,7 @@
                                 <div class="form-group @error('gambar') input-with-error @enderror">
                                     <label for="gambar"  class="control-label">Gambar</label>
                                     <div>
+                                        <img src="" id="profile-img-tag" width="200px" />
                                         <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ $angka->gambar}}">
                                         @error('gambar') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                     </div>
