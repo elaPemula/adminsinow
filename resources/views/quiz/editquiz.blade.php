@@ -27,6 +27,7 @@
                             <div class="form-group @error('pertanyaan') input-with-error @enderror">
                                     <label for="pertanyaan"  class="control-label">Pertanyaan</label>
                                     <div>
+                                        <img src="" id="profile-img-tag" width="200px" />
                                         <input type="file" name="pertanyaan" id="pertanyaan" class="form-control" placeholder="Document File..." value="{{ $quiz->pertanyaan}}">
                                         @error('pertanyaan') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                     </div>

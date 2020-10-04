@@ -50,7 +50,8 @@
                         <div class="form-group @error('gambar') input-with-error @enderror">
                             <label class="pull-left" for="gambar">Gambar</label>
                             <div>
-                                <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..."/>
+                                <img src="" id="profile-img-tag" width="200px" />
+                                <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ $menyanyi->gambar}}"/>
                                 @error('gambar') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                             </div>
                              <div class="form-group">
