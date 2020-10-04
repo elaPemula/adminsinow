@@ -114,7 +114,7 @@ class MenyanyiController extends Controller
         $oldfile = basename($menyanyi->gambar);
         Storage::delete("hiburan/menyanyi/{$oldfile}");
         $request->gambar->storeAs('hiburan/menyanyi', $filename);
-        $data['gambar'] = asset("/storage/public/hiburan/menyanyi/{$filename}");
+        $data['gambar'] = asset("/storage/hiburan/menyanyi/{$filename}");
         }
 
         $menyanyi->fill($data);

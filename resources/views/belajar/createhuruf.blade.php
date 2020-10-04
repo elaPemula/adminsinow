@@ -67,8 +67,8 @@
                                         </div>
                                     </div>
                                     <div class="inline-remember-me">
-                                        <button class="btn btn-custon-rounded-three pull-right btn-warning"
-                                            type="submit">Simpan</button>
+                                        <button class="btn btn-custon-rounded-three pull-right btn-warning" type="submit">Simpan</button>
+                                        <a class="btn btn-custon-rounded-three pull-right btn-danger btn-close" href="/huruf">Cancel</a>
                                     </div>
                                 </div>
                                 </form>

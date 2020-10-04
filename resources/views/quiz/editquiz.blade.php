@@ -95,6 +95,7 @@
                                 <div class="login-btn-inner">
                                     <div class="inline-remember-me">
                                         <button class="btn btn-sm btn-primary pull-right login-submit-cs" type="submit">Simpan</button>
+                                        <a class="btn btn-custon-rounded-three pull-right btn-danger btn-close" href="/quiz">Cancel</a>
                                     </div>
                                 </div>
                             </form>

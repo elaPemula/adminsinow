@@ -41,18 +41,25 @@
                         <input type="file" name="sound" id="sound" class="form-control" placeholder="Document File..." value="{{ $menyanyi->sound}}"/>
                         @error('sound') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                       </div>
+                      <div class="form-group">
+                            <audio controls src="{{ ($menyanyi->sound) }}" width="100">
+                            </div>
                     </div>
                 </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="form-group @error('gambar') input-with-error @enderror">
                             <label class="pull-left" for="gambar">Gambar</label>
                             <div>
-                                <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ $menyanyi->gambar}}"/>
+                                <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..."/>
                                 @error('gambar') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
+                            </div>
+                             <div class="form-group">
+                            <img src="{{ asset ($menyanyi->gambar) }}" width="100">
                             </div>
                         </div>
                             <div class="inline-remember-me">
-                                <button class="btn btn-custon-rounded-three pull-right btn-warning" type="submit">Simpan</button>
+                               <button class="btn btn-custon-rounded-three pull-right btn-warning" type="submit">Simpan</button>
+                               <a class="btn btn-custon-rounded-three pull-right btn-danger btn-close" href="/menyanyi">Cancel</a>
                             </div>
                          </div>
                          </form>
