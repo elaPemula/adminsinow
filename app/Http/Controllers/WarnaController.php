@@ -17,7 +17,7 @@ class WarnaController extends Controller
     public function index()
     {
         $warna = Warna::all();
-        return view('belajar.readwarna',  compact('warna'));
+        return view('belajar.readwarna', compact('warna'));
     }
 
     /**
