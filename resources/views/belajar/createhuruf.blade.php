@@ -27,28 +27,25 @@
                                                 <input type="text" class="form-control" id="huruf" placeholder="Masukkan Judul" name="huruf" value="{{ old('huruf')}}"/>
                                                 @error('huruf') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                             </div>
-                                            <div class="row">
-                                                <div class="login-btn-inner">
+                                             <div class="form-group-inner @error('tipe') input-with-error @enderror">
+                                                <div class="row">
+                                                    <div class="col-lg-2">
+                                                        <label for="tipe" class="login2 pull-left pull-left-pro">Tipe</label>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="form-select-list">
+                                                            <select id="tipe" type="text" class="form-control custom-select-value" name="tipe" value="{{ old('tipe')}}">
+                                                                <option>Satu Huruf</option>
+                                                                <option>Dua Huruf</option>
+                                                                <option>Tiga Huruf</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                     </div>
                                 </div>
-                                <div class="form-group-inner @error('tipe') input-with-error @enderror">
-                                    <div class="row">
-                                        <div class="col-lg-2">
-                                            <label for="tipe" class="login2 pull-left pull-left-pro">Tipe</label>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <div class="form-select-list">
-                                                <select id="tipe" type="text" class="form-control custom-select-value" name="tipe" value="{{ old('tipe')}}">
-                                                    <option>Satu Huruf</option>
-                                                    <option>Dua Huruf</option>
-                                                    <option>Tiga Huruf</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="form-group @error('gambar') input-with-error @enderror">
                                         <label class="pull-left" for="gambar">Gambar</label>

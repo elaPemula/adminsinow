@@ -66,7 +66,7 @@
                                 </div>
                                 <div class="form-group-inner @error('tulisan_en') input-with-error @enderror">
                                     <label for="tulisan_en">Tulisan EN</label>
-                                    <input type="text" name="tulisan_en" id="tulisan_en" class="form-control" id="tulisan_en" placeholder="Masukkan Tulisan Bahasa Indonesia" name="tulisan_en" value="{{ old('tulisan_en')}}"/>
+                                    <input type="text" name="tulisan_en" id="tulisan_en" class="form-control" id="tulisan_en" placeholder="Masukkan Tulisan Bahasa Inggris" name="tulisan_en" value="{{ old('tulisan_en')}}"/>
                                     @error('tulisan_en') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                 </div>
                                 <div class="form-group @error('sound_en') input-with-error @enderror">

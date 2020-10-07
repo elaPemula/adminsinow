@@ -56,7 +56,7 @@
                       <div>
                         <img src="" id="profile-img-tag" width="200px" />
                         <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ $huruf->gambar}}">
-                        @error('gambar') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
+
                       </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                             <label class="pull-left" for="sound">Suara</label>
                             <div>
                                 <input type="file" name="sound" id="sound" class="form-control" placeholder="Document File..." value="{{ $huruf->suara}}">
-                                @error('sound') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
+
                             </div>
                         </div>
                             <div class="inline-remember-me">

@@ -31,7 +31,7 @@
                                 </select>
                             </div>
                             <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
-                            
+
                                 <thead>
                                     <tr>
                                         <th data-field="state" data-checkbox="true"></th>
@@ -39,7 +39,7 @@
                                         <th data-field="huruf" data-editable="true">Huruf</th>
                                         <th data-field="tipe" data-editable="true">Tipe</th>
                                         <th data-field="gambar">Gambar</th>
-                                        <th data-field="sound">Sound</th>
+                                        <th data-field="sound">Suara</th>
                                         <th data-field="action">Action</th>
                                     </tr>
                                 </thead>
@@ -57,7 +57,7 @@
                                             <form action="/huruf/{{ $huruf->id }}" method="post" class="d-inline">
                                                 @method('delete')
                                                 @csrf
-                                                <button type="submit" class="btn-sm btn-danger fa fa-trash"></button>
+                                                <button type="submit" onclick="return confirm('Yakin akan menghapus?')" class="btn-sm btn-danger fa fa-trash"></button>
                                             </form>
                                             </td>
                                     </tr>

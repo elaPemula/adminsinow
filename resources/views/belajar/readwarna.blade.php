@@ -31,7 +31,7 @@
                                 </select>
                             </div>
                             <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
-                            
+
                                 <thead>
                                     <tr>
                                         <th data-field="state" data-checkbox="true"></th>
@@ -39,10 +39,10 @@
                                         <th data-field="nama" data-editable="true">Nama</th>
                                         <th data-field="gambar">Gambar</th>
                                         <th data-field="tulisan_id" data-editable="true">Tulisan ID</th>
-                                        <th data-field="sound_id">Suara Indonesia</th>
+                                        <th data-field="sound_id">Suara ID</th>
                                         <th data-field="tulisan_en" data-editable="true">Tulisan EN</th>
-                                        <th data-field="sound_en">Suara English</th>
-                                        
+                                        <th data-field="sound_en">Suara EN</th>
+
                                         <th data-field="action">Action</th>
                                     </tr>
                                 </thead>
@@ -62,11 +62,11 @@
                                             <form action="/warna/{{ $warna->id }}" method="post" class="d-inline">
                                                 @method('delete')
                                                 @csrf
-                                                <button type="submit" class="btn-sm btn-danger fa fa-trash"></button>
+                                                <button type="submit" onclick="return confirm('Yakin akan menghapus?')" class="btn-sm btn-danger fa fa-trash"></button>
                                             </form>
                                             </td>
                                     </tr>
-                                    @endforeach                               
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

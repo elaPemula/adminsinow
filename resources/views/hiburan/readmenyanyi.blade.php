@@ -37,13 +37,13 @@
                                         <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="id">ID</th>
                                         <th data-field="judul" data-editable="true">Judul</th>
-                                        <th data-field="sound">sound</th>
+                                        <th data-field="sound">Suara Lagu</th>
                                         <th data-field="gambar">Gambar</th>
                                         <th data-field="action">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                
+
                                 @foreach ($menyanyi as $menyanyi)
                                     <tr>
                                         <td></td>
@@ -56,7 +56,7 @@
                                             <form action="/menyanyi/{{ $menyanyi->id }}" method="post" class="d-inline">
                                                 @method('delete')
                                                 @csrf
-                                                <button type="submit" class="btn-sm btn-danger fa fa-trash"></button>
+                                                <button type="submit" onclick="return confirm('Yakin akan menghapus?')" class="btn-sm btn-danger fa fa-trash"></button>
                                             </form>
                                             </td>
                                     </tr>

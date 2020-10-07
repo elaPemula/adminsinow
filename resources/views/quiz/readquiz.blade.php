@@ -36,13 +36,13 @@
                                     <tr>
                                         <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="id">ID</th>
-                                        <th data-field="name" data-editable="true">Pertanyaan</th>
+                                        <th data-field="pertanyaan" data-editable="true">Pertanyaan</th>
                                         <th data-field="tipe" data-editable="true">Tipe</th>
-                                        <th data-field="email" data-editable="true">opsi_a</th>
-                                        <th data-field="phone" data-editable="true">opsi_b</th>
-                                        <th data-field="company" data-editable="true">opsi_c</th>
-                                        <th data-field="task" data-editable="true">opsi_d</th>
-                                        <th data-field="date" data-editable="true">Jawaban</th>
+                                        <th data-field="a" data-editable="true">opsi A</th>
+                                        <th data-field="b" data-editable="true">opsi B</th>
+                                        <th data-field="c" data-editable="true">opsi C</th>
+                                        <th data-field="d" data-editable="true">opsi D</th>
+                                        <th data-field="jawaban" data-editable="true">Jawaban</th>
                                         <th data-field="action">Action</th>
                                     </tr>
                                 </thead>
@@ -63,7 +63,7 @@
                                             <form action="/quiz/{{ $quiz->id }}" method="post" class="d-inline">
                                                 @method('delete')
                                                 @csrf
-                                                <button type="submit" class="btn-sm btn-danger fa fa-trash"></button>
+                                                <button type="submit" onclick="return confirm('Yakin akan menghapus?')" class="btn-sm btn-danger fa fa-trash"></button>
                                             </form>
                                             </td>
                                     </tr>
