@@ -26,7 +26,7 @@
                             <div class="form-group-inner  @error('keterangan') input-with-error @enderror">
                                 <label for="keterangan">Keterangan</label>
                                 <input type="text" class="form-control" id="keterangan" placeholder="Masukkan keterangan" name="keterangan" value="{{ $mewarna->keterangan}}"/>
-                                @error('keterangan') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
+
                             </div>
                             <div class="row">
                             <div class="login-btn-inner">
@@ -41,7 +41,7 @@
                             <div>
                                 <img src="" id="profile-img-tag" width="200px" />
                                 <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ $mewarna->gambar}}"/>
-                                @error('gambar') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
+
                             </div>
                         </div>
                             <div class="inline-remember-me">

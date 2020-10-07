@@ -50,31 +50,31 @@
                                     <div>
                                         <img src="" id="profile-img-tag" width="200px" />
                                         <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ $membaca->gambar}}">
-                                        @error('gambar') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
+
                                     </div>
                                 </div>
                                 <div class="form-group-inner @error('tulisan_id') input-with-error @enderror">
                                     <label for="tulisan_id">Tulisan ID</label>
                                     <input type="text" name="tulisan_id" id="tulisan_id" class="form-control" id="tulisan_id" placeholder="Masukkan Tulisan Bahasa Indonesia" name="tulisan_id" value="{{ $membaca->tulisan_id}}"/>
-                                    @error('tulisan_id') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
+
                                 </div>
                                 <div class="form-group @error('sound_id') input-with-error @enderror">
                                     <label for="sound_id" class="control-label">Sound ID</label>
                                     <div>
                                         <input type="file" name="sound_id" id="sound_id" class="form-control" placeholder="Document File..." value="{{ $membaca->sound_id}}">
-                                        @error('sound_id') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
+
                                     </div>
                                 </div>
                                 <div class="form-group-inner @error('tulisan_en') input-with-error @enderror">
                                     <label for="tulisan_en">Tulisan EN</label>
                                     <input type="text" name="tulisan_en" id="tulisan_en" class="form-control" id="tulisan_en" placeholder="Masukkan Tulisan Bahasa Indonesia" name="tulisan_en" value="{{ $membaca->tulisan_en}}"/>
-                                    @error('tulisan_en') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
+
                                 </div>
                                 <div class="form-group @error('sound_en') input-with-error @enderror">
                                     <label for="sound_en" class="control-label">Sound EN</label>
                                     <div>
                                         <input type="file" name="sound_en" id="sound_en" class="form-control" placeholder="Document File..." value="{{ $membaca->sound_en}}">
-                                        @error('sound_en') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
+
                                     </div>
                                 </div>
                                 <div class="login-btn-inner">

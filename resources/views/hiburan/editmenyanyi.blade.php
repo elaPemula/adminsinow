@@ -26,7 +26,7 @@
                             <div class="form-group-inner @error('judul') input-with-error @enderror">
                                 <label for="judul">Judul</label>
                                 <input type="text" class="form-control" id="judul" placeholder="Masukkan Judul" name="judul" value="{{ $menyanyi->judul}}"/>
-                                @error('judul') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
+
                             </div>
                             <div class="row">
                             <div class="login-btn-inner">
@@ -39,7 +39,7 @@
                       <label class="pull-left" for="sound">sound</label>
                       <div>
                         <input type="file" name="sound" id="sound" class="form-control" placeholder="Document File..." value="{{ $menyanyi->sound}}"/>
-                        @error('sound') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
+
                       </div>
                       <div class="form-group">
                             <audio controls src="{{ ($menyanyi->sound) }}" width="100">
@@ -52,10 +52,9 @@
                             <div>
                                 <img src="" id="profile-img-tag" width="200px" />
                                 <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ $menyanyi->gambar}}"/>
-                                @error('gambar') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
+
                             </div>
                              <div class="form-group">
-                            <img src="{{ asset ($menyanyi->gambar) }}" width="100">
                             </div>
                         </div>
                             <div class="inline-remember-me">

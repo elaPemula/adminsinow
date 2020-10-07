@@ -29,7 +29,7 @@
                                     <div>
                                         <img src="" id="profile-img-tag" width="200px" />
                                         <input type="file" name="pertanyaan" id="pertanyaan" class="form-control" placeholder="Document File..." value="{{ $quiz->pertanyaan}}">
-                                        @error('pertanyaan') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
+
                                     </div>
                                 </div>
                                 <div class="form-group-inner @error('tipe') input-with-error @enderror">
@@ -51,28 +51,26 @@
                                 <div class="col-md-6">
                                     <label for="opsi_a">opsi A</label>
                                     <input type="text" class="form-control" id="opsi_a" placeholder="" name="opsi_a"  value="{{ $quiz->opsi_a }}"/>
-                                     @error('opsi_a') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
+
                                 </div>
                                 </div>
                                 <div class="form-group-inner @error('opsi_b') input-with-error @enderror">
                                 <div class="col-md-6">
                                     <label for="opsi_b">opsi B</label>
                                     <input type="text" class="form-control" id="opsi_b" placeholder="" name="opsi_b"  value="{{ $quiz->opsi_b }}"/>
-                                     @error('opsi_b') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
+
                                 </div>
                                 </div>
                                 <div class="form-group-inner @error('opsi_c') input-with-error @enderror">
                                 <div class="col-md-6">
                                     <label for="opsi_c">opsi C</label>
                                     <input type="text" class="form-control" id="opsi_c" placeholder="" name="opsi_c"  value="{{ $quiz->opsi_c }}"/>
-                                     @error('opsi_c') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                 </div>
                                 </div>
                                 <div class="form-group-inner @error('opsi_d') input-with-error @enderror">
                                 <div class="col-md-6">
                                     <label for="opsi_d">opsi D</label>
                                     <input type="text" class="form-control" id="opsi_d" placeholder="" name="opsi_d"  value="{{ $quiz->opsi_d }}"/>
-                                     @error('opsi_d') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                 </div>
                                 </div>
                                 <div class="form-group-inner @error('jawaban') input-with-error @enderror">

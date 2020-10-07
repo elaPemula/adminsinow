@@ -18,7 +18,7 @@
         <div class="sparkline8-graph">
             <div class="basic-login-form-ad">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-8">
                         <div class="basic-login-inner">
                             <form method="POST" action="/mewarna" enctype="multipart/form-data">
                             @csrf
