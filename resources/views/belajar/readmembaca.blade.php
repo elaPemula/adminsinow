@@ -1,9 +1,9 @@
 @extends('master')
 @section('content')
 @if (session('status'))
-    <div class="alert alert-success">
-        {{ session('status')}}
-    </div>
+<div class="alert alert-success">
+    {{ session('status')}}
+</div>
 @endif
 <div class="data-table-area mg-b-15">
     <div class="container-fluid">
@@ -30,7 +30,11 @@
                                     <option value="selected">Export Selected</option>
                                 </select>
                             </div>
-                            <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+                            <table id="table" data-toggle="table" data-pagination="true" data-search="true"
+                                data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true"
+                                data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
+                                data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true"
+                                data-toolbar="#toolbar">
 
                                 <thead>
                                     <tr>
@@ -38,17 +42,17 @@
                                         <th data-field="id">ID</th>
                                         <th data-field="nama" data-editable="true">Nama</th>
                                         <th data-field="tipe" data-editable="true">Tipe</th>
-                                        <th data-field="gambar" >Gambar</th>
+                                        <th data-field="gambar">Gambar</th>
                                         <th data-field="tulisan_id" data-editable="true">Tulisan ID</th>
-                                        <th data-field="sound_id" >Suara ID</th>
+                                        <th data-field="sound_id">Suara ID</th>
                                         <th data-field="tulisan_en" data-editable="true">Tulisan EN</th>
-                                        <th data-field="sound_en" >Suara EN</th>
+                                        <th data-field="sound_en">Suara EN</th>
 
                                         <th data-field="action">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach( $membaca as $membaca)
+                                    @foreach( $membaca as $membaca)
                                     <tr>
                                         <td></td>
                                         <td>{{ $membaca->id }}</td>
@@ -60,13 +64,15 @@
                                         <td>{{ $membaca->tulisan_en }}</td>
                                         <td><audio controls src="{{ $membaca->sound_en }}"></td>
                                         <td>
-                                        <a href="/membaca/{{$membaca->id}}/edit" class="btn-sm btn-primary fa fa-pencil"></a>
+                                            <a href="/membaca/{{$membaca->id}}/edit"
+                                                class="btn-sm btn-primary fa fa-pencil"></a>
                                             <form action="/membaca/{{ $membaca->id }}" method="post" class="d-inline">
                                                 @method('delete')
                                                 @csrf
-                                                <button type="submit" onclick="return confirm('Yakin akan menghapus?')" class="btn-sm btn-danger fa fa-trash"></button>
+                                                <button type="submit" onclick="return confirm('Yakin akan menghapus?')"
+                                                    class="btn-sm btn-danger fa fa-trash"></button>
                                             </form>
-                                            </td>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
