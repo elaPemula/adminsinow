@@ -16,7 +16,7 @@ class WarnaController extends Controller
     public function index()
     {
         return response()->json([
-            'data' => Warna::all(),
+            'data' => Warna::paginate(1),
             'message' => 'Sukses ambil data',
         ]);
     }

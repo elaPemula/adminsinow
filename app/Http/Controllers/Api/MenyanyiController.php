@@ -16,7 +16,7 @@ class MenyanyiController extends Controller
     public function index()
     {
         return response()->json([
-            'data' => Menyanyi::all(),
+            'data' => Menyanyi::paginate(1),
             'message' => 'Sukses ambil data',
         ]);
     }

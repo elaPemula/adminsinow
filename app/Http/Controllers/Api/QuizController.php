@@ -16,7 +16,7 @@ class QuizController extends Controller
     public function index()
     {
         return response()->json([
-            'data' => Quiz::all(),
+            'data' => Quiz::paginate(1),
             'message' => 'Sukses ambil data',
         ]);
     }
