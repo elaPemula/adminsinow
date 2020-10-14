@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Kritiksaran;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class KritiksaranController extends Controller
 {

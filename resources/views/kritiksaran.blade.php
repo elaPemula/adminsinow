@@ -50,7 +50,7 @@
                                         <td>{{ $kritiksaran->id }}</td>
                                         <td>{{ $kritiksaran->nama }}</td>
                                         <td>{{ $kritiksaran->email }}</td>
-                                        <td>{{ $kritiksaran->komentar }}</td>
+                                        <td>{{ Illuminate\Support\Str::limit($kritiksaran->komentar, 20) }}</td>
                                         <td>
                                             <a href="/kritiksaran/{{$kritiksaran->id}}/edit" class="btn-sm btn-primary glyphicon glyphicon-eye-open"></a>
                                             <form action="/kritiksaran/{{ $kritiksaran->id }}" method="post" class="d-inline">
