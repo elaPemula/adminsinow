@@ -15,13 +15,12 @@ class CreateMembacaTable extends Migration
     {
         Schema::create('membaca', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
             $table->string('gambar');
             $table->string('tulisan_id');
             $table->string('sound_id');
             $table->string('tulisan_en');
             $table->string('sound_en');
-            $table->tinyInteger('tipe');
+            $table->enum('tipe', ['hewan', 'buah']);
             $table->timestamps();
         });
     }
