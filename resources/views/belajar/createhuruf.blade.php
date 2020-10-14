@@ -34,10 +34,10 @@
                                                     </div>
                                                     <div class="col-lg-12">
                                                         <div class="form-select-list">
-                                                            <select id="tipe" type="text" class="form-control custom-select-value" name="tipe" value="{{ old('tipe')}}">
-                                                                <option>Satu Huruf</option>
-                                                                <option>Dua Huruf</option>
-                                                                <option>Tiga Huruf</option>
+                                                            <select id="tipe" type="text" class="form-control custom-select-value" name="tipe" >
+                                                                <option value="1">Satu Huruf</option>
+                                                                <option value="2">Dua Huruf</option>
+                                                                <option value="3">Tiga Huruf</option>
                                                             </select>
                                                         </div>
                                                     </div>

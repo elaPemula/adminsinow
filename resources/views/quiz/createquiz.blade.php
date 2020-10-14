@@ -38,8 +38,8 @@
                                         <div class="col-lg-12">
                                             <div class="form-select-list">
                                                 <select id="tipe" type="text" class="form-control custom-select-value" name="tipe" value="{{ old('tipe')}}">
-                                                    <option>Membaca</option>
-                                                    <option>Menghitung</option>
+                                                    <option value="membaca">Membaca</option>
+                                                    <option value="menghitung">Menghitung</option>
                                                 </select>
                                             </div>
                                         </div>
