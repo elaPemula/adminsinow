@@ -35,11 +35,11 @@
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-select-list">
-                                                <select id="tipe" type="text" class="form-control custom-select-value" name="tipe" value="{{ old('tipe')}}">
+                                                <select id="tipe" type="text" class="form-control custom-select-value" name="tipe">
                                                     @error('tipe') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
-                                                    <option>Satuan</option>
-                                                    <option>Puluhan</option>
-                                                    <option>Ratusan</option>
+                                                    <option value="{{ old('satuan')}}">Satuan</option>
+                                                    <option value="{{ old('puluhan')}}">Puluhan</option>
+                                                    <option value="{{ old('ratusan')}}">Ratusan</option>
                                                 </select>
                                             </div>
                                         </div>
