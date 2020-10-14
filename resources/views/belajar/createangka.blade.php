@@ -37,9 +37,9 @@
                                             <div class="form-select-list">
                                                 <select id="tipe" type="text" class="form-control custom-select-value" name="tipe">
                                                     @error('tipe') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
-                                                    <option value="{{ old('satuan')}}">Satuan</option>
-                                                    <option value="{{ old('puluhan')}}">Puluhan</option>
-                                                    <option value="{{ old('ratusan')}}">Ratusan</option>
+                                                    <option value="satuan">Satuan</option>
+                                                    <option value="puluhan">Puluhan</option>
+                                                    <option value="ratusan">Ratusan</option>
                                                 </select>
                                             </div>
                                         </div>
