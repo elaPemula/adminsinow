@@ -14,11 +14,11 @@ class CreateHurufTable extends Migration
     public function up()
     {
         Schema::create('huruf', function (Blueprint $table) {
-             $table->id();
+            $table->id();
             $table->string('huruf');
             $table->string('gambar');
             $table->string('sound');
-            $table->enum('tipe', ['satu huruf', 'dua huruf', 'tiga huruf']);
+            $table->enum('tipe', ['1', '2', '3']);
             $table->timestamps();
         });
     }
