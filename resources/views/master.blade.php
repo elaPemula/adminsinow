@@ -70,12 +70,8 @@
                 <div class="left-custom-menu-adp-wrap">
                     <ul class="nav navbar-nav left-sidebar-menu-pro">
                         <li class="nav-item">
-                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-home"></i> <span class="mini-dn">Home</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
-                            <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-                                <a href="/" class="dropdown-item">Home</a>
-                            </div>
+                            <a href="/" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-home"></i> <span class="mini-dn">Home</span> <span class="indicator-right-menu mini-dn"></span></a>
                         </li>
-
                         <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-desktop"></i> <span class="mini-dn">Belajar</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
                             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
                                 <a href="/angka" class="dropdown-item">Mengenal Angka</a>
@@ -93,6 +89,11 @@
                             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
                                 <a href="/menyanyi" class="dropdown-item">Menyanyi</a>
                                 <a href="/mewarna" class="dropdown-item">Mewarna</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/kritiksaran" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i
+                                    class="fa big-icon fa-edit"></i> <span class="mini-dn">Kritik Saran</span></a>
                             </div>
                         </li>
                     </ul>

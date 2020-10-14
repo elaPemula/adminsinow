@@ -14,7 +14,8 @@ class KritiksaranController extends Controller
      */
     public function index()
     {
-        //
+        $kritiksaran = Kritiksaran::all();
+        return view('kritiksaran', compact('kritiksaran'));
     }
 
     /**

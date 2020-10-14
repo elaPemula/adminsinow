@@ -36,14 +36,32 @@
                                     <tr>
                                         <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="id">ID</th>
-                                        <th data-field="name" data-editable="true">Nama</th>
+                                        <th data-field="nama" data-editable="true">Nama</th>
                                         <th data-field="email" data-editable="true">Email</th>
-                                        <th data-field="email" data-editable="true">Komentar</th>
+                                        <th data-field="komentar" data-editable="true">Komentar</th>
+                                        <th data-field="action">Action</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-
+                                    @foreach( $kritiksaran as $kritiksaran)
+                                    <tr>
+                                        <td></td>
+                                        <td>{{ $kritiksaran->id }}</td>
+                                        <td>{{ $kritiksaran->nama }}</td>
+                                        <td>{{ $kritiksaran->email }}</td>
+                                        <td>{{ $kritiksaran->komentar }}</td>
+                                        <td>
+                                            <a href="/kritiksaran/{{$kritiksaran->id}}/edit" class="btn-sm btn-primary glyphicon glyphicon-eye-open"></a>
+                                            <form action="/kritiksaran/{{ $kritiksaran->id }}" method="post" class="d-inline">
+                                                @method('delete')
+                                                @csrf
+                                                <button type="submit" onclick="return confirm('Yakin akan menghapus?')"
+                                                    class="btn-sm btn-danger fa fa-trash"></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

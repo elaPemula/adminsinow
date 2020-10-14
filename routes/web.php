@@ -25,4 +25,5 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('mewarna', 'MewarnaController');
     Route::resource('warna', 'WarnaController');
     Route::resource('membaca', 'MembacaController');
+    Route::resource('kritiksaran', 'KritiksaranController');
 });
