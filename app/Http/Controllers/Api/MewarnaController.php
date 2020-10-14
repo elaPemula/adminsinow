@@ -16,7 +16,7 @@ class MewarnaController extends Controller
     public function index()
     {
         return response()->json([
-            'data' => Mewarna::paginate(1),
+            'data' => Mewarna::paginate(5),
             'message' => 'Sukses ambil data',
         ]);
     }
