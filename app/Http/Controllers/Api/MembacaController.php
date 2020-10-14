@@ -16,7 +16,7 @@ class MembacaController extends Controller
     public function index()
     {
         return response()->json([
-            'data' => Membaca::paginate(1),
+            'data' => Membaca::where('tipe', request('tipe'))->paginate(1),
             'message' => 'Sukses ambil data',
         ]);
     }
