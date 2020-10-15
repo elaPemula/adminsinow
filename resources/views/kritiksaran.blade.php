@@ -14,6 +14,7 @@
                         <div class="main-sparkline13-hd">
                             <h1>Data <span class="table-project-n">Kritik</span> dan Saran</h1>
                             <div class="sparkline13-outline-icon">
+                                <a href="/kritiksaranpreview" class="btn-sm btn-primary glyphicon glyphicon-eye-open"></a>
                                 <span class="sparkline13-collapse-link"><i class="fa fa-chevron-up"></i></span>
                                 <span><i class="fa fa-wrench"></i></span>
                                 <span class="sparkline13-collapse-close"><i class="fa fa-times"></i></span>
@@ -51,7 +52,6 @@
                                         <td>{{ $kritiksaran->email }}</td>
                                         <td>{{ Illuminate\Support\Str::limit($kritiksaran->komentar, 20) }}</td>
                                         <td>
-                                            <a href="/kritiksaranpreview" class="btn-sm btn-primary glyphicon glyphicon-eye-open"></a>
                                             <form action="/kritiksaran/{{ $kritiksaran->id }}" method="post" class="d-inline">
                                                 @method('delete')
                                                 @csrf
