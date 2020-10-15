@@ -38,6 +38,14 @@ class KritiksaranController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'nama' => 'required',
+            'email' => 'required',
+            'komentar' => 'required',
+        ]);
+
+        Kritiksaran::create($data);
+        return redirect('/kritiksaran')->with('status', 'Data Berhasil Ditambahkan!');
     }
 
     /**

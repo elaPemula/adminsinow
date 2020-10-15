@@ -14,7 +14,6 @@
                         <div class="main-sparkline13-hd">
                             <h1>Data <span class="table-project-n">Kritik</span> dan Saran</h1>
                             <div class="sparkline13-outline-icon">
-                                <a href="/y" class="btn-xs btn-success fa fa-plus"></a>
                                 <span class="sparkline13-collapse-link"><i class="fa fa-chevron-up"></i></span>
                                 <span><i class="fa fa-wrench"></i></span>
                                 <span class="sparkline13-collapse-close"><i class="fa fa-times"></i></span>

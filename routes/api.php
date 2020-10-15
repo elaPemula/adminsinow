@@ -30,3 +30,7 @@ Route::apiResource('quiz', 'Api\QuizController')->names([
     'index' => 'quiz-api.index',
     'show' => 'quiz-api.show',
 ])->only(['index', 'show']);
+Route::apiResource('kritiksaran', 'Api\KritiksaranController')->names([
+    'index' => 'kritiksaran-api.index',
+    'store' => 'kritiksaran-api.store',
+])->only(['index', 'store']);
