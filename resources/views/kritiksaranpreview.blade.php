@@ -1,9 +1,9 @@
 @extends('master')
 @section('content')
 @if (session('status'))
-    <div class="alert alert-success">
-        {{ session('status')}}
-    </div>
+<div class="alert alert-success">
+    {{ session('status')}}
+</div>
 @endif
 <div class="data-table-area mg-b-15">
     <div class="container-fluid">
@@ -29,7 +29,11 @@
                                     <option value="selected">Export Selected</option>
                                 </select>
                             </div>
-                            <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+                            <table id="table" data-toggle="table" data-pagination="true" data-search="true"
+                                data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true"
+                                data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
+                                data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true"
+                                data-toolbar="#toolbar">
 
                                 <thead>
                                     <tr>
@@ -49,10 +53,10 @@
                                         <td>{{ $kritiksaran->id }}</td>
                                         <td>{{ $kritiksaran->nama }}</td>
                                         <td>{{ $kritiksaran->email }}</td>
-                                        <td>{{ Illuminate\Support\Str::limit($kritiksaran->komentar, 20) }}</td>
+                                        <td>{{ $kritiksaran->komentar }}</td>
                                         <td>
-                                            <a href="/kritiksaranpreview" class="btn-sm btn-primary glyphicon glyphicon-eye-open"></a>
-                                            <form action="/kritiksaran/{{ $kritiksaran->id }}" method="post" class="d-inline">
+                                            <form action="/kritiksaran/{{ $kritiksaran->id }}" method="post"
+                                                class="d-inline">
                                                 @method('delete')
                                                 @csrf
                                                 <button type="submit" onclick="return confirm('Yakin akan menghapus?')"

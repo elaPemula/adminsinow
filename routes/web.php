@@ -26,4 +26,5 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('warna', 'WarnaController');
     Route::resource('membaca', 'MembacaController');
     Route::resource('kritiksaran', 'KritiksaranController');
+    Route::get('/kritiksaranpreview', 'KritiksaranController@show');
 });
