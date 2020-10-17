@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Menyanyi extends Model
 {
     protected $table = 'menyanyi';
-    protected $fillable = ['judul', 'sound', 'gambar'];
+    protected $fillable = ['judul','icon', 'sound', 'gambar'];
 }

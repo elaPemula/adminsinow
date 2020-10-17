@@ -18,8 +18,7 @@ class CreateAngkaTable extends Migration
             $table->integer('angka');
             $table->string('gambar');
             $table->string('tulisan');
-            $table->string('sound_id');
-            $table->string('sound_en');
+            $table->string('sound');
             $table->enum('tipe', ['satuan', 'puluhan', 'ratusan']);
             $table->timestamps();
         });

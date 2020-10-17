@@ -40,8 +40,7 @@
                                         <th data-field="tipe" data-editable="true">Tipe</th>
                                         <th data-field="gambar">Gambar</th>
                                         <th data-field="tulisan" data-editable="true">Tulisan</th>
-                                        <th data-field="sound_id">Suara ID</th>
-                                        <th data-field="sound_en">Suara EN</th>
+                                        <th data-field="sound">Suara</th>
 
                                         <th data-field="action">Action</th>
                                     </tr>
@@ -55,8 +54,7 @@
                                         <td>{{ $angka->tipe }}</td>
                                         <td><img src="{{ asset ($angka->gambar) }}" width="100"></td>
                                         <td>{{ $angka->tulisan }}</td>
-                                        <td><audio controls src="{{ $angka->sound_id }}"></td>
-                                        <td><audio controls src="{{ $angka->sound_en }}" type="audio/mpeg"></td>
+                                        <td><audio controls src="{{ $angka->sound }}"></td>
                                         <td>
                                         <a href="/angka/{{$angka->id}}/edit" class="btn-sm btn-primary fa fa-pencil"></a>
                                             <form action="/angka/{{ $angka->id }}" method="post" class="d-inline">

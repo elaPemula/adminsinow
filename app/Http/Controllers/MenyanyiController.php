@@ -40,16 +40,22 @@ class MenyanyiController extends Controller
     {
         $request->validate([
             'judul' => 'required',
+            'icon' => 'required|image:svg,png,jpg',
             'sound' => 'required|mimes:mp3',
             'gambar' => 'required|image:svg,png,jpg',
         ]);
 
-        $data = $request->except(['sound', 'gambar']);
+        $data = $request->except(['sound', 'icon', 'gambar']);
 
         $extension = $request->sound->extension();
         $filename = Uuid::uuid4() . ".{$extension}";
         $request->sound->storeAs('belajar/menyanyi', $filename);
         $data['sound'] = asset("/storage/belajar/menyanyi/{$filename}");
+
+        $extension = $request->icon->extension();
+        $filename = Uuid::uuid4() . ".{$extension}";
+        $request->icon->storeAs('hiburan/menyanyi', $filename);
+        $data['icon'] = asset("/storage/hiburan/menyanyi/{$filename}");
 
         $extension = $request->gambar->extension();
         $filename = Uuid::uuid4() . ".{$extension}";
@@ -93,11 +99,12 @@ class MenyanyiController extends Controller
     {
         $request->validate([
             'judul' => 'required',
+            'icon' => 'required|image:svg,png,jpg',
             'sound' => 'required|mimes:mp3',
             'gambar' => 'required|image:svg,png,jpg',
         ]);
 
-        $data = $request->except(['sound', 'gambar']);
+        $data = $request->except(['sound','icon', 'gambar']);
 
         if ($request->hasFile('sound')) {
         $extension = $request->sound->extension();
@@ -106,6 +113,15 @@ class MenyanyiController extends Controller
         Storage::delete("hiburan/menyanyi/{$oldfile}");
         $request->sound->storeAs('hiburan/menyanyi', $filename);
         $data['sound'] = asset("/storage/hiburan/menyanyi/{$filename}");
+        }
+
+        if ($request->hasFile('icon')) {
+            $extension = $request->icon->extension();
+            $filename = Uuid::uuid4() . ".{$extension}";
+            $oldfile = basename($menyanyi->icon);
+            Storage::delete("hiburan/menyanyi/{$oldfile}");
+            $request->icon->storeAs('hiburan/menyanyi', $filename);
+            $data['icon'] = asset("/storage/hiburan/menyanyi/{$filename}");
         }
 
         if ($request->hasFile('gambar')) {

@@ -28,15 +28,19 @@
                                 <input type="text" class="form-control" id="judul" placeholder="Masukkan Judul" name="judul" value="{{ $menyanyi->judul}}"/>
 
                             </div>
-                            <div class="row">
-                            <div class="login-btn-inner">
+                            <div class="form-group @error('icon') input-with-error @enderror">
+                                <label class="pull-left" for="icon">icon</label>
+                                <div>
+                                    <input type="file" name="icon" id="icon" class="form-control" placeholder="Document File..."
+                                        value="{{ $menyanyi->icon}}" />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-12">
                     <div class="form-group @error('sound') input-with-error @enderror">
-                      <label class="pull-left" for="sound">sound</label>
+                      <label class="pull-left" for="sound">Sound Lagu</label>
                       <div>
                         <input type="file" name="sound" id="sound" class="form-control" placeholder="Document File..." value="{{ $menyanyi->sound}}"/>
 
@@ -46,15 +50,12 @@
                             </div>
                     </div>
                 </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12">
                         <div class="form-group @error('gambar') input-with-error @enderror">
-                            <label class="pull-left" for="gambar">Gambar</label>
+                            <label class="pull-left" for="gambar">Gambar Lirik</label>
                             <div>
                                 <img src="" id="profile-img-tag" width="200px" />
                                 <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ $menyanyi->gambar}}"/>
-
-                            </div>
-                             <div class="form-group">
                             </div>
                         </div>
                             <div class="inline-remember-me">

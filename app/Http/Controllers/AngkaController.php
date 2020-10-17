@@ -42,27 +42,21 @@ class AngkaController extends Controller
             'angka' => 'required|numeric',
             'gambar' => 'required|image:svg,png,jpg',
             'tulisan' => 'required',
-            'sound_id' => 'required|mimes:mp3',
-            'sound_en' => 'required|mimes:mp3',
+            'sound' => 'required|mimes:mp3',
             'tipe' => 'required',
         ]);
 
-        $data = $request->except(['gambar', 'sound_id', 'sound_en']);
+        $data = $request->except(['gambar', 'sound']);
 
         $extension = $request->gambar->extension();
         $filename = Uuid::uuid4() . ".{$extension}";
         $request->gambar->storeAs('belajar/angka', $filename);
         $data['gambar'] = asset("/storage/belajar/angka/{$filename}");
 
-        $extension = $request->sound_id->extension();
+        $extension = $request->sound->extension();
         $filename = Uuid::uuid4() . ".{$extension}";
-        $request->sound_id->storeAs('belajar/angka', $filename);
-        $data['sound_id'] = asset("/storage/belajar/angka/{$filename}");
-
-        $extension = $request->sound_en->extension();
-        $filename = Uuid::uuid4() . ".{$extension}";
-        $request->sound_en->storeAs('belajar/angka', $filename);
-        $data['sound_en'] = asset("/storage/belajar/angka/{$filename}");
+        $request->sound->storeAs('belajar/angka', $filename);
+        $data['sound'] = asset("/storage/belajar/angka/{$filename}");
 
         Angka::create($data);
         return redirect('/angka')->with('status', 'Data Berhasil Ditambahkan!');
@@ -103,12 +97,11 @@ class AngkaController extends Controller
             'angka' => 'required',
             'gambar' => 'image:svg,png,jpg',
             'tulisan' => 'required',
-            'sound_id' => 'mimes:mp3',
-            'sound_en' => 'mimes:mp3',
+            'sound' => 'mimes:mp3',
             'tipe' => 'required',
         ]);
 
-        $data = $request->except(['gambar', 'sound_id', 'sound_en']);
+        $data = $request->except(['gambar', 'sound']);
 
         if ($request->hasFile('gambar')) {
             $extension = $request->gambar->extension();
@@ -119,23 +112,16 @@ class AngkaController extends Controller
             $data['gambar'] = asset("/storage/belajar/angka/{$filename}");
         }
 
-        if ($request->hasFile('sound_id')) {
-            $extension = $request->sound_id->extension();
+        if ($request->hasFile('sound')) {
+            $extension = $request->sound->extension();
             $filename = Uuid::uuid4() . ".{$extension}";
             $oldfile = basename($angka->gambar);
             Storage::delete("belajar/angka/{$oldfile}");
-            $request->sound_id->storeAs('belajar/angka', $filename);
-            $data['sound_id'] = asset("/storage/belajar/angka/{$filename}");
+            $request->sound->storeAs('belajar/angka', $filename);
+            $data['sound'] = asset("/storage/belajar/angka/{$filename}");
         }
 
-        if ($request->hasFile('sound_en')) {
-            $extension = $request->sound_en->extension();
-            $filename = Uuid::uuid4() . ".{$extension}";
-            $oldfile = basename($angka->gambar);
-            Storage::delete("belajar/angka/{$oldfile}");
-            $request->sound_en->storeAs('belajar/angka', $filename);
-            $data['sound_en'] = asset("/storage/belajar/angka/{$filename}");
-        }
+
 
         $angka->fill($data);
         $angka->save();

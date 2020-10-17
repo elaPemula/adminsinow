@@ -37,8 +37,9 @@
                                         <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="id">ID</th>
                                         <th data-field="judul" data-editable="true">Judul</th>
+                                        <th data-field="icon">Icon</th>
                                         <th data-field="sound">Suara Lagu</th>
-                                        <th data-field="gambar">Gambar</th>
+                                        <th data-field="gambar">Gambar Lirik</th>
                                         <th data-field="action">Action</th>
                                     </tr>
                                 </thead>
@@ -49,6 +50,7 @@
                                         <td></td>
                                         <td>{{ $menyanyi->id }}</td>
                                         <td>{{ $menyanyi->judul }}</td>
+                                        <td><img src="{{ asset ($menyanyi->icon) }}" width="100"></td>
                                         <td><audio controls src="{{ $menyanyi->sound }}"></td>
                                         <td><img src="{{ asset ($menyanyi->gambar) }}" width="100"></td>
                                         <td>

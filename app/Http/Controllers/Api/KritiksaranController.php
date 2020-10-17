@@ -30,7 +30,7 @@ class KritiksaranController extends Controller
         return response()->json([
             'data' => $kritiksaran,
             'message' => 'Sukses ambil data'
-        ]);
+        ], 201);
     }
 
 }

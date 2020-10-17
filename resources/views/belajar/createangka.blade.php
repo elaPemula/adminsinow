@@ -58,20 +58,14 @@
                                     <input type="text" name="tulisan" id="tulisan" class="form-control @error('tulisan') is-invalid @enderror" id="tulisan" placeholder="Masukkan Tulisan Bahasa Indonesia" name="tulisan" value="{{ old('tulisan')}}"/>
                                     @error('tulisan') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                 </div>
-                                <div class="form-group @error('sound_id') input-with-error @enderror">
-                                    <label for="sound_id" class="control-label">Sound ID</label>
+                                <div class="form-group @error('sound') input-with-error @enderror">
+                                    <label for="sound" class="control-label">Sound</label>
                                     <div>
-                                        <input type="file" name="sound_id" id="sound_id" class="form-control" placeholder="Document File..." value="{{ old('sound_id')}}">
-                                        @error('sound_id') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
+                                        <input type="file" name="sound" id="sound" class="form-control" placeholder="Document File..." value="{{ old('sound')}}">
+                                        @error('sound') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                     </div>
                                 </div>
-                                <div class="form-group @error('sound_en') input-with-error @enderror">
-                                    <label for="sound_en" class="control-label">Sound EN</label>
-                                    <div>
-                                        <input type="file" name="sound_en" id="sound_en" class="form-control" placeholder="Document File..." value="{{ old('sound_en')}}">
-                                        @error('sound_en') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
-                                    </div>
-                                </div>
+
                                 <div class="login-btn-inner">
                                     <div class="inline-remember-me">
                                         <button class="btn btn-custon-rounded-three pull-right btn-warning" type="submit">Simpan</button>
