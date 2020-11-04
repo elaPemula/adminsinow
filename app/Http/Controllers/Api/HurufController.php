@@ -16,7 +16,7 @@ class HurufController extends Controller
     public function index()
     {
         return response()->json([
-            'data' => Huruf::where('tipe', request('tipe'))->paginate(1),
+            'data' => Huruf::paginate(1),
             'message' => 'Sukses ambil data',
         ]);
     }
