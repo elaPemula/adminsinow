@@ -42,7 +42,6 @@ class HurufController extends Controller
             'huruf' => 'required',
             'gambar' => 'required|image:svg,png,jpg',
             'sound' => 'required|mimes:mp3',
-            'tipe' => 'required',
         ]);
 
         $data = $request->except(['gambar', 'sound']);
@@ -96,7 +95,6 @@ class HurufController extends Controller
             'huruf' => 'required',
             'gambar' => 'image:svg,png,jpg',
             'sound' => 'mimes:mp3',
-            'tipe' => 'required',
         ]);
 
         $data = $request->except(['gambar', 'sound']);

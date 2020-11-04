@@ -7,7 +7,7 @@
     <div class="sparkline12-list shadow-reset mg-t-3">
         <div class="sparkline12-hd">
             <div class="main-sparkline12-hd">
-                <h1>Input Data Huruf</h1>
+                <h1>Edit Data Huruf</h1>
                 <div class="sparkline8-outline-icon">
                     <span class="sparkline8-collapse-link"><i class="fa fa-chevron-up"></i></span>
                     <span><i class="fa fa-wrench"></i></span>
@@ -41,7 +41,7 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-select-list">
-                                            <select id="tipe" type="text" class="form-control custom-select-value" name="tipe" value="{{ $huruf->tipe}}">
+                                            <select id="tipe" type="text" class="form-control custom-select-value" name="tipe" value="{{$huruf->tipe}}">
                                                 <option>Satu Huruf</option>
                                                 <option>Dua Huruf</option>
                                                 <option>Tiga Huruf</option>
@@ -55,7 +55,7 @@
                       <label class="pull-left" for="gambar">Gambar</label>
                       <div>
                         <img src="" id="profile-img-tag" width="200px" />
-                        <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ $huruf->gambar}}">
+                        <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{$huruf->gambar}}">
 
                       </div>
                     </div>
@@ -64,7 +64,7 @@
                         <div class="form-group @error('sound') input-with-error @enderror">
                             <label class="pull-left" for="sound">Suara</label>
                             <div>
-                                <input type="file" name="sound" id="sound" class="form-control" placeholder="Document File..." value="{{ $huruf->suara}}">
+                                <input type="file" name="sound" id="sound" class="form-control" placeholder="Document File..." value="{{$huruf->sound}}">
 
                             </div>
                         </div>

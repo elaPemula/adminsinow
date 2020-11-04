@@ -37,7 +37,6 @@
                                         <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="id">ID</th>
                                         <th data-field="huruf" data-editable="true">Huruf</th>
-                                        <th data-field="tipe" data-editable="true">Tipe</th>
                                         <th data-field="gambar">Gambar</th>
                                         <th data-field="sound">Suara</th>
                                         <th data-field="action">Action</th>
@@ -49,7 +48,6 @@
                                         <td></td>
                                         <td>{{ $huruf->id }}</td>
                                         <td>{{ $huruf->huruf }}</td>
-                                        <td>{{ $huruf->tipe }}</td>
                                         <td><img src="{{ asset ($huruf->gambar) }}" width="100"></td>
                                         <td><audio controls src="{{ $huruf->sound }}"></td>
                                         <td>
