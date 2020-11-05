@@ -99,9 +99,8 @@ class MenyanyiController extends Controller
     {
         $request->validate([
             'judul' => 'required',
-            'icon' => 'required|image:svg,png,jpg',
-            'sound' => 'required|mimes:mp3',
-            'gambar' => 'required|image:svg,png,jpg',
+            'sound' => 'mimes:mp3',
+            'gambar' => 'image:svg,png,jpg',
         ]);
 
         $data = $request->except(['sound','icon', 'gambar']);

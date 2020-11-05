@@ -40,11 +40,11 @@ class WarnaController extends Controller
     {
         $request->validate([
             'nama' => 'required',
-            'gambar' => 'required|image:svg,png,jpg',
+            'gambar' => 'image:svg,png,jpg',
             'tulisan_id' => 'required',
-            'sound_id' => 'required|mimes:mp3',
+            'sound_id' => 'mimes:mp3',
             'tulisan_en' => 'required',
-            'sound_en' => 'required|mimes:mp3',
+            'sound_en' => 'mimes:mp3',
         ]);
 
         $data = $request->except(['gambar', 'sound_id', 'sound_en']);
