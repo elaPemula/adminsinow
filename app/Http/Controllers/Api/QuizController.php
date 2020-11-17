@@ -16,7 +16,7 @@ class QuizController extends Controller
     public function index()
     {
         return response()->json([
-            'data' => Quiz::where('tipe', request('tipe'))->paginate(1),
+            'data' => Quiz::where('tipe', request('tipe'))->paginate(1)->withQueryString(),
             'message' => 'Sukses ambil data',
         ]);
     }

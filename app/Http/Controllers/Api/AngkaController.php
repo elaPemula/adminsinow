@@ -16,7 +16,7 @@ class AngkaController extends Controller
     public function index()
     {
         return response()->json([
-            'data' => Angka::where('tipe', request('tipe'))->paginate(1),
+            'data' => Angka::where('tipe', request('tipe'))->paginate(1)->withQueryString(),
             'message' => 'Sukses ambil data',
         ]);
     }
