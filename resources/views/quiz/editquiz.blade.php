@@ -80,13 +80,9 @@
                                         </div>
                                 <div class="col-lg-12">
                                             <div class="form-select-list">
-                                                <select type="text" class="form-control custom-select-value" name="jawaban" value="{{ $quiz->jawaban }}">
+                                                <input type="text" class="form-control custom-select-value" name="jawaban" value="{{ $quiz->jawaban }}">
                                                      @error('jawaban') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
-                                                    <option>A</option>
-                                                    <option>B</option>
-                                                    <option>C</option>
-                                                    <option>D</option>
-                                                </select>
+                                                </input>
                                             </div>
                                         </div>
                                     </div>

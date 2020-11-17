@@ -76,12 +76,8 @@
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-select-list">
-                                                <select type="text" class="form-control custom-select-value" name="jawaban" value="{{ old('jawaban')}}">
-                                                    <option>A</option>
-                                                    <option>B</option>
-                                                    <option>C</option>
-                                                    <option>D</option>
-                                                </select>
+                                                <input type="text" class="form-control custom-select-value" name="jawaban" value="{{ old('jawaban')}}">
+                                                </input>
                                             </div>
                                         </div>
                                     </div>

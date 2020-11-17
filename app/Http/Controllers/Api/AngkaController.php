@@ -15,8 +15,11 @@ class AngkaController extends Controller
      */
     public function index()
     {
+        $angka = Angka::where('tipe', request('tipe'))->paginate(1);
+        $angka[0]->increment('total_akses');
+        collect([1, 2, 3, 4, 5])->sum();
         return response()->json([
-            'data' => Angka::where('tipe', request('tipe'))->paginate(1)->withQueryString(),
+            'data' => $angka->withQueryString(),
             'message' => 'Sukses ambil data',
         ]);
     }
