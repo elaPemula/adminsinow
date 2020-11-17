@@ -15,8 +15,10 @@ class MewarnaController extends Controller
      */
     public function index()
     {
+        $mewarna = Mewarna::paginate(5);
+        $mewarna[0]->increment('total_akses');
         return response()->json([
-            'data' => Mewarna::paginate(5),
+            'data' => $mewarna,
             'message' => 'Sukses ambil data',
         ]);
     }
