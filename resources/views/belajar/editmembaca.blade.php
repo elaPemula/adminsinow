@@ -25,7 +25,7 @@
                             @method('patch')
                             @csrf
                                 <div class="form-group-inner @error('nama') input-with-error @enderror">
-                                    <label for="nama">membaca</label>
+                                    <label for="nama">Nama</label>
                                     <input type="text" class="form-control" id="nama" placeholder="Masukkan nama" name="nama" value="{{ $membaca->nama}}">
                                     @error('nama') <div class="invalid-feedback alert-danger">{{$message}}</div>@enderror
                                 </div>

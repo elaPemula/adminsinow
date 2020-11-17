@@ -35,35 +35,33 @@
                                         value="{{ $menyanyi->icon}}" />
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="form-group @error('sound') input-with-error @enderror">
-                      <label class="pull-left" for="sound">Sound Lagu</label>
-                      <div>
-                        <input type="file" name="sound" id="sound" class="form-control" placeholder="Document File..." value="{{ $menyanyi->sound}}"/>
 
-                      </div>
-                      <div class="form-group">
-                            <audio controls src="{{ ($menyanyi->sound) }}" width="100">
+
+                            <div class="form-group @error('sound') input-with-error @enderror">
+                                <label class="pull-left" for="sound">Sound Lagu</label>
+                                <div>
+                                    <input type="file" name="sound" id="sound" class="form-control" placeholder="Document File..."
+                                        value="{{ $menyanyi->sound}}" />
+                                </div>
                             </div>
-                    </div>
-                </div>
-                    <div class="col-lg-12">
-                        <div class="form-group @error('gambar') input-with-error @enderror">
-                            <label class="pull-left" for="gambar">Gambar Lirik</label>
-                            <div>
-                                <img src="" id="profile-img-tag" width="200px" />
-                                <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..." value="{{ $menyanyi->gambar}}"/>
+
+
+                            <div class="form-group @error('gambar') input-with-error @enderror">
+                                <label class="pull-left" for="gambar">Gambar Lirik</label>
+                                <div>
+                                    <img src="" id="profile-img-tag" width="200px" />
+                                    <input type="file" name="gambar" id="gambar" class="form-control" placeholder="Document File..."
+                                        value="{{ $menyanyi->gambar}}" />
+                                </div>
+                            </div>
+                            <div class="inline-remember-me">
+                                <button class="btn btn-custon-rounded-three pull-right btn-warning" type="submit">Simpan</button>
+                                <a class="btn btn-custon-rounded-three pull-right btn-danger btn-close" href="/menyanyi">Cancel</a>
+                            </div>
+                            </div>
+                            </form>
                             </div>
                         </div>
-                            <div class="inline-remember-me">
-                               <button class="btn btn-custon-rounded-three pull-right btn-warning" type="submit">Simpan</button>
-                               <a class="btn btn-custon-rounded-three pull-right btn-danger btn-close" href="/menyanyi">Cancel</a>
-                            </div>
-                         </div>
-                         </form>
                     </div>
                 </div>
             </div>
