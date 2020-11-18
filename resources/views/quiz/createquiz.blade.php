@@ -39,7 +39,8 @@
                                             <div class="form-select-list">
                                                 <select id="tipe" type="text" class="form-control custom-select-value" name="tipe" value="{{ old('tipe')}}">
                                                     <option value="membaca">Membaca</option>
-                                                    <option value="menghitung">Menghitung</option>
+                                                    <option value="pengurangan">Pengurangan</option>
+                                                    <option value="pertambahan">Pertambahan</option>
                                                 </select>
                                             </div>
                                         </div>
