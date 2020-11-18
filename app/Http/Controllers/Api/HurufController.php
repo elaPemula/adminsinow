@@ -15,8 +15,12 @@ class HurufController extends Controller
      */
     public function index()
     {
+        $huruf = request('list', 'single') == 'single' ?
+            Huruf::paginate(1) :
+            Huruf::all();
+
         return response()->json([
-            'data' => Huruf::paginate(1),
+            'data' => $huruf,
             'message' => 'Sukses ambil data',
         ]);
     }
