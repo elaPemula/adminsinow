@@ -40,8 +40,9 @@
                                         <div class="col-lg-12">
                                             <div class="form-select-list">
                                                 <select id="tipe" type="text" class="form-control custom-select-value" name="tipe" value="{{ $quiz->tipe}}">
-                                                    <option>Membaca</option>
-                                                    <option>Menghitung</option>
+                                                    <option value="membaca">Membaca</option>
+                                                    <option value="pengurangan">Pengurangan</option>
+                                                    <option value="pertambahan">Pertambahan</option>
                                                 </select>
                                             </div>
                                         </div>
