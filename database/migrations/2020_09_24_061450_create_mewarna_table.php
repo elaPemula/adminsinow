@@ -17,6 +17,7 @@ class CreateMewarnaTable extends Migration
             $table->id();
             $table->string('gambar');
             $table->string('keterangan');
+            $table->integer('total_akses');
             $table->timestamps();
         });
     }

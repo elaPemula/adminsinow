@@ -19,6 +19,7 @@ class CreateHurufTable extends Migration
             $table->string('gambar');
             $table->string('sound');
             $table->enum('tipe', ['1', '2', '3']);
+            $table->integer('total_akses');
             $table->timestamps();
         });
     }

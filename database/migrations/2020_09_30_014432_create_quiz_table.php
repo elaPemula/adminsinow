@@ -22,6 +22,7 @@ class CreateQuizTable extends Migration
             $table->string('opsi_c');
             $table->string('opsi_d');
             $table->string('jawaban');
+            $table->integer('total_akses');
             $table->timestamps();
         });
     }

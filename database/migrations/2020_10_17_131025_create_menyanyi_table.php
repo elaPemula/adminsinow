@@ -19,6 +19,7 @@ class CreateMenyanyiTable extends Migration
             $table->string('icon');
             $table->string('sound');
             $table->string('gambar');
+            $table->integer('total_akses');
             $table->timestamps();
         });
     }

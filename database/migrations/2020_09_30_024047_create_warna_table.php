@@ -21,6 +21,7 @@ class CreateWarnaTable extends Migration
             $table->string('sound_id');
             $table->string('tulisan_en');
             $table->string('sound_en');
+            $table->integer('total_akses');
             $table->timestamps();
         });
     }

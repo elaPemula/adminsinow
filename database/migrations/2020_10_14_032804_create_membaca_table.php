@@ -21,6 +21,7 @@ class CreateMembacaTable extends Migration
             $table->string('tulisan_en');
             $table->string('sound_en');
             $table->enum('tipe', ['hewan', 'buah']);
+            $table->integer('total_akses');
             $table->timestamps();
         });
     }

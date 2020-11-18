@@ -20,6 +20,7 @@ class CreateAngkaTable extends Migration
             $table->string('tulisan');
             $table->string('sound');
             $table->enum('tipe', ['satuan', 'puluhan', 'ratusan']);
+            $table->integer('total_akses');
             $table->timestamps();
         });
     }

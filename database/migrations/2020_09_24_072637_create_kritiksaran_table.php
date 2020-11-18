@@ -18,6 +18,7 @@ class CreateKritiksaranTable extends Migration
             $table->string('nama');
             $table->string('email')->unique();
             $table->string('komentar');
+            $table->integer('total_akses');
             $table->timestamps();
         });
     }
