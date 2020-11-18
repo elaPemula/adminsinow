@@ -17,11 +17,11 @@
                         <div class="income-dashone-pro">
                             <div class="income-rate-total">
                                 <div class="price-adminpro-rate">
-                                    <h3> <span class="counter">27</span></h3>
+                                    <h3> <span class="counter"> {{ $data_angka }} Data</span></h3>
                                 </div>
                             </div>
                             <div class="income-range">
-                                <p>Jumlah diakses</p>
+                                <p>Jumlah diakses : {{ $total_angka }}</p>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -40,11 +40,11 @@
                         <div class="income-dashone-pro">
                             <div class="income-rate-total">
                                 <div class="price-adminpro-rate">
-                                    <h3> <span class="counter">27</span></h3>
+                                    <h3> <span class="counter">{{ $data_huruf }} Data</span></h3>
                                 </div>
                             </div>
                             <div class="income-range">
-                                <p>Jumlah diakses</p>
+                                <p>Jumlah diakses : {{ $total_huruf }}</p>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -63,12 +63,12 @@
                         <div class="income-dashone-pro">
                             <div class="income-rate-total">
                                 <div class="price-adminpro-rate">
-                                    <h3> <span class="counter">27</span></h3>
+                                    <h3> <span class="counter">{{ $data_warna }} Data</span></h3>
                                 </div>
 
                             </div>
                             <div class="income-range">
-                                <p>Jumlah diakses</p>
+                                <p>Jumlah diakses : {{ $total_warna }}</p>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -87,11 +87,11 @@
                         <div class="income-dashone-pro">
                             <div class="income-rate-total">
                                 <div class="price-adminpro-rate">
-                                    <h3> <span class="counter">27</span></h3>
+                                    <h3> <span class="counter">{{ $data_membaca }} Data</span></h3>
                                 </div>
                             </div>
                             <div class="income-range">
-                                <p>Jumlah diakses</p>
+                                <p>Jumlah diakses : {{ $total_membaca }}</p>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -110,11 +110,11 @@
                         <div class="income-dashone-pro">
                             <div class="income-rate-total">
                                 <div class="price-adminpro-rate">
-                                    <h3> <span class="counter">27</span></h3>
+                                    <h3> <span class="counter">{{ $data_quiz }} Data</span></h3>
                                 </div>
                             </div>
                             <div class="income-range">
-                                <p>Jumlah diakses</p>
+                                <p>Jumlah diakses : {{ $total_quiz }}</p>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -133,12 +133,12 @@
                         <div class="income-dashone-pro">
                             <div class="income-rate-total">
                                 <div class="price-adminpro-rate">
-                                    <h3> <span class="counter">27</span></h3>
+                                    <h3> <span class="counter">{{ $data_menyanyi }} Data</span></h3>
                                 </div>
 
                             </div>
                             <div class="income-range">
-                                <p>Jumlah diakses</p>
+                                <p>Jumlah diakses : {{ $total_menyanyi }}</p>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -157,12 +157,12 @@
                         <div class="income-dashone-pro">
                             <div class="income-rate-total">
                                 <div class="price-adminpro-rate">
-                                    <h3> <span class="counter">27</span></h3>
+                                    <h3> <span class="counter">{{ $data_mewarna }} Data</span></h3>
                                 </div>
 
                             </div>
                             <div class="income-range">
-                                <p>Jumlah diakses</p>
+                                <p>Jumlah diakses : {{ $total_mewarna }} </p>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -179,11 +179,11 @@
                         <div class="income-dashone-pro">
                             <div class="income-rate-total">
                                 <div class="price-adminpro-rate">
-                                    <h3> <span class="counter">27</span></h3>
+                                    <h3> <span class="counter">{{ $data_kritiksaran }} Data</span></h3>
                                 </div>
                             </div>
                             <div class="income-range">
-                                <p>Jumlah diakses</p>
+                                <p>Jumlah diakses : {{ $total_kritiksaran }}</p>
                             </div>
                             <div class="clear"></div>
                         </div>
