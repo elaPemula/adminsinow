@@ -15,8 +15,10 @@ class HurufController extends Controller
      */
     public function index()
     {
+        $huruf = Huruf::paginate(1);
+        $huruf[0]->increment('total_akses');
         return response()->json([
-            'data' => Huruf::paginate(1),
+            'data' => $huruf,
             'message' => 'Sukses ambil data',
         ]);
     }
