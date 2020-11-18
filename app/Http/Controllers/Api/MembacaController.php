@@ -15,8 +15,10 @@ class MembacaController extends Controller
      */
     public function index()
     {
+        $membaca = Membaca::where('tipe', request('tipe'))->paginate(1);
+        $membaca[0]->increment('total_akses');
         return response()->json([
-            'data' => Membaca::where('tipe', request('tipe'))->paginate(1)->withQueryString(),
+            'data' => $membaca->withQueryString(),
             'message' => 'Sukses ambil data',
         ]);
     }

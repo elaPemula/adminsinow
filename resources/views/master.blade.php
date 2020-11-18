@@ -163,10 +163,8 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <ul class="breadcome-menu">
-                                            <li><a href="/">Home</a> <span class="bread-slash">/</span>
-                                            </li>
-                                            <li><span class="bread-blod">Data Table</span>
-                                            </li>
+                                            <li><a href="/">Home Admin Sinow</a> <span class="bread-slash"></span>
+
                                         </ul>
                                     </div>
                                 </div>

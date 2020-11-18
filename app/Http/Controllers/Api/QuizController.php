@@ -15,11 +15,14 @@ class QuizController extends Controller
      */
     public function index()
     {
+        $quiz = Quiz::where('tipe', request('tipe'))->paginate(1);
+        $quiz[0]->increment('total_akses');
         return response()->json([
-            'data' => Quiz::where('tipe', request('tipe'))->paginate(1)->withQueryString(),
+            'data' => $quiz->withQueryString(),
             'message' => 'Sukses ambil data',
         ]);
     }
+
 
     public function show(Quiz $quiz)
     {

@@ -15,8 +15,10 @@ class WarnaController extends Controller
      */
     public function index()
     {
+        $warna = Warna::paginate(1);
+        $warna[0]->increment('total_akses');
         return response()->json([
-            'data' => Warna::paginate(1),
+            'data' => $warna,
             'message' => 'Sukses ambil data',
         ]);
     }

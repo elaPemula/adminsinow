@@ -15,9 +15,12 @@ class HurufController extends Controller
      */
     public function index()
     {
-        $huruf = request('list', 'single') == 'single' ?
-            Huruf::paginate(1) :
-            Huruf::all();
+        if (request('list', 'single') == 'single') {
+            $huruf = Huruf::paginate(1);
+            $huruf[0]->increment('total_akses');
+        } else {
+            $huruf = Huruf::orderBy('huruf', 'ASC')->get();
+        }
 
         return response()->json([
             'data' => $huruf,

@@ -16,8 +16,10 @@ class KritiksaranController extends Controller
 
     public function index()
     {
+        $kritiksaran = Kritiksaran::all();
+        $kritiksaran[0]->increment('total_akses');
         return response()->json([
-            'data' => Kritiksaran::all(),
+            'data' => $kritiksaran,
             'message' => 'Sukses ambil data',
         ]);
     }
