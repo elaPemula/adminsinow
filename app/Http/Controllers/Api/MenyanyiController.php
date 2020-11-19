@@ -15,7 +15,7 @@ class MenyanyiController extends Controller
      */
     public function index()
     {
-        $menyanyi = Menyanyi::paginate(4);
+        $menyanyi = Menyanyi::paginate(6);
         $menyanyi[0]->increment('total_akses');
         return response()->json([
             'data' => $menyanyi,
