@@ -17,7 +17,10 @@
                         <div class="income-dashone-pro">
                             <div class="income-rate-total">
                                 <div class="price-adminpro-rate">
-                                    <h3> <span class="counter"> {{ $data_angka }} Data</span></h3>
+                                    <h3>
+                                        <span class="counter">
+                                        <a href="/angka"> {{ $data_angka }} Data </a>
+                                    </span></h3>
                                 </div>
                             </div>
                             <div class="income-range">
@@ -40,7 +43,10 @@
                         <div class="income-dashone-pro">
                             <div class="income-rate-total">
                                 <div class="price-adminpro-rate">
-                                    <h3> <span class="counter">{{ $data_huruf }} Data</span></h3>
+                                    <h3>
+                                        <span class="counter"><a href="/huruf"> {{ $data_huruf }} Data </a>
+                                        </span>
+                                    </h3>
                                 </div>
                             </div>
                             <div class="income-range">
@@ -63,7 +69,10 @@
                         <div class="income-dashone-pro">
                             <div class="income-rate-total">
                                 <div class="price-adminpro-rate">
-                                    <h3> <span class="counter">{{ $data_warna }} Data</span></h3>
+                                    <h3>
+                                        <span class="counter"><a href="/warna"> {{ $data_warna }} Data </a>
+                                        </span>
+                                    </h3>
                                 </div>
 
                             </div>
@@ -87,7 +96,10 @@
                         <div class="income-dashone-pro">
                             <div class="income-rate-total">
                                 <div class="price-adminpro-rate">
-                                    <h3> <span class="counter">{{ $data_membaca }} Data</span></h3>
+                                    <h3>
+                                        <span class="counter"><a href="/membaca"> {{ $data_membaca }} Data </a>
+                                        </span>
+                                    </h3>
                                 </div>
                             </div>
                             <div class="income-range">
@@ -110,7 +122,10 @@
                         <div class="income-dashone-pro">
                             <div class="income-rate-total">
                                 <div class="price-adminpro-rate">
-                                    <h3> <span class="counter">{{ $data_quiz }} Data</span></h3>
+                                    <h3>
+                                        <span class="counter"><a href="/quiz"> {{ $data_quiz }} Data </a>
+                                        </span>
+                                    </h3>
                                 </div>
                             </div>
                             <div class="income-range">
@@ -133,7 +148,10 @@
                         <div class="income-dashone-pro">
                             <div class="income-rate-total">
                                 <div class="price-adminpro-rate">
-                                    <h3> <span class="counter">{{ $data_menyanyi }} Data</span></h3>
+                                   <h3>
+                                    <span class="counter"><a href="/menyanyi"> {{ $data_menyanyi }} Data </a>
+                                    </span>
+                                </h3>
                                 </div>
 
                             </div>
@@ -157,7 +175,10 @@
                         <div class="income-dashone-pro">
                             <div class="income-rate-total">
                                 <div class="price-adminpro-rate">
-                                    <h3> <span class="counter">{{ $data_mewarna }} Data</span></h3>
+                                    <h3>
+                                        <span class="counter"><a href="/mewarna"> {{ $data_mewarna }} Data </a>
+                                        </span>
+                                    </h3>
                                 </div>
 
                             </div>
@@ -179,7 +200,10 @@
                         <div class="income-dashone-pro">
                             <div class="income-rate-total">
                                 <div class="price-adminpro-rate">
-                                    <h3> <span class="counter">{{ $data_kritiksaran }} Data</span></h3>
+                                    <h3>
+                                        <span class="counter"><a href="/kritiksaran"> {{ $data_kritiksaran }} Data </a>
+                                        </span>
+                                    </h3>
                                 </div>
                             </div>
                             <div class="income-range">
