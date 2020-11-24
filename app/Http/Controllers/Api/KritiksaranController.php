@@ -25,15 +25,20 @@ class KritiksaranController extends Controller
     }
 
 
-    public function store(Kritiksaran $kritiksaran)
+
+    public function store(Request $request)
     {
-        $kritiksaran = Kritiksaran::All();
+        $request->validate([
+            'nama' => 'required',
+            'email' => 'required|email',
+            'komentar' => 'required',
+        ]);
+
+        Kritiksaran::create($request->all());
 
         return response()->json([
-            'data' => $kritiksaran,
-            'message' => 'Sukses ambil data'
-        ], 201);
+            'message' => 'Sukses tambah komentar',
+        ]);
+
     }
-
 }
-
